@@ -1,17 +1,22 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import propTypes from 'prop-types';
 import GlobalStyle from '../GlobalStyles/GlobalStyles';
 import theme from '../theme/theme';
 import PageHeader from '../components/PageHeader/PageHeader';
+
+const StyledContainer = styled.div`
+  position: relative;
+  padding-top: 100px;
+  z-index: 1;
+`;
 
 const MainLayout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <PageHeader />
-      <h1>Hello World!</h1>
-      {children}
+      <StyledContainer>{children}</StyledContainer>
     </ThemeProvider>
   );
 };

@@ -7,14 +7,14 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-family: 'Montserrat';
+        font-family: 'Montserrat', sans-serif;
     }
 
     html,
     body {
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
     }
 
     html {
@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
     a {
         text-decoration: none;
+        color: inherit;
     }
 
     button {
