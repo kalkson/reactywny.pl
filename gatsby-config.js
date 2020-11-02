@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -11,6 +13,14 @@ module.exports = {
       options: {
         name: `assets/images`,
         path: `${__dirname}/src/assets/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
+        },
       },
     },
     `gatsby-transformer-sharp`,
@@ -63,5 +73,18 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Montserrat`,
+            variants: [`400`, `600`, `700`, `800`, `900`],
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-layout`,
+    'gatsby-plugin-resolve-src',
   ],
 };
