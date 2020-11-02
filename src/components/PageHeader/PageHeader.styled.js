@@ -12,14 +12,13 @@ const StyledPageHeader = styled.header`
   justify-content: center;
   z-index: 10;
 
-  height: ${({ isMenuVisible, isScrolledDown }) =>
-    isScrolledDown && isMenuVisible ? '160px' : null};
+  /* height: ${({ isMenuVisible, isScrolledDown }) =>
+    isScrolledDown && isMenuVisible ? '160px' : null}; */
 
-  height: ${({ isMenuVisible, isScrolledDown }) =>
-    !isScrolledDown && isMenuVisible ? '160px' : null};
+  height: ${({ isMenuVisible }) => (isMenuVisible ? '160px' : '80px')};
 
-  height: ${({ isMenuVisible, isScrolledDown }) =>
-    isScrolledDown && !isMenuVisible ? '50px' : null};
+  /* height: ${({ isMenuVisible, isScrolledDown }) =>
+    isScrolledDown && !isMenuVisible ? '50px' : null}; */
 
   & .menu-button {
     position: absolute;
@@ -50,9 +49,7 @@ const StyledPageHeader = styled.header`
     }
 
     &__underline {
-      font-size: 1rem;
-
-      display: ${({ isScrolledDown }) => (isScrolledDown ? 'none' : 'inherit')};
+      font-size: 1.5rem;
     }
   }
 
@@ -69,7 +66,7 @@ const StyledPageHeader = styled.header`
     bottom: -15px;
     z-index: 5;
     left: calc(50% - 25px);
-    display: ${({ isScrolledDown }) => (isScrolledDown ? 'none' : 'inherit')};
+    display: none;
   }
 
   & .header__nav {
@@ -132,6 +129,8 @@ const StyledPageHeader = styled.header`
 
       &__underline {
         font-size: 3rem;
+        display: ${({ isScrolledDown }) =>
+          isScrolledDown ? 'none' : 'inherit'};
       }
     }
 
