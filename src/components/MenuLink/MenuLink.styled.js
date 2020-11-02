@@ -10,6 +10,10 @@ const StyledMenuLink = styled.li`
   &:not(:first-child) {
     margin-left: 20px;
   }
+
+  @media ${({ theme }) => theme.media.tablet} {
+    font-size: 3rem;
+  }
 `;
 
 export default StyledMenuLink;
