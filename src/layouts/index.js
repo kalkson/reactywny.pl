@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import GlobalStyle from '../GlobalStyles/GlobalStyles';
 import theme from '../theme/theme';
 import PageHeader from '../components/PageHeader/PageHeader';
+import PageFooter from '../components/PageFooter/PageFooter';
 
 const StyledContainer = styled.div`
   position: relative;
@@ -17,6 +18,7 @@ const MainLayout = ({ children }) => {
       <GlobalStyle />
       <PageHeader />
       <StyledContainer>{children}</StyledContainer>
+      <PageFooter />
     </ThemeProvider>
   );
 };

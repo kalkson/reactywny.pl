@@ -8,6 +8,7 @@ const StyledWelcomeSection = styled.section`
 
   & > header {
     z-index: 10;
+
     &::after {
       content: '';
       position: absolute;

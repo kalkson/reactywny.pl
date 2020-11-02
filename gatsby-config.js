@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -83,5 +85,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-layout`,
+    'gatsby-plugin-resolve-src',
   ],
 };
