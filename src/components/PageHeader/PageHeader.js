@@ -13,19 +13,35 @@ import MenuLink from '../MenuLink/MenuLink';
 const PageHeader = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
   const [isScrolledDown, setScrolledDown] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(false);
 
-  const listener = e => {
-    if (e.wheelDelta <= 0 && window.scrollY >= 0) {
+  const listener = () => {
+    const scrollDirection =
+      document.body.getBoundingClientRect().top > scrollPosition
+        ? 'up'
+        : 'down';
+    const newScrollPosition = document.body.getBoundingClientRect().top;
+    // console.log(newScrollDirection);
+
+    setScrollPosition(newScrollPosition);
+
+    // if (e.wheelDelta <= 0 && window.scrollY >= 0) {
+    //   setScrolledDown(true);
+    // } else if (e.wheelDelta > 0 && window.scrollY <= 250) {
+    //   setScrolledDown(false);
+    // }
+
+    if (scrollDirection === 'down' && window.scrollY >= 0) {
       setScrolledDown(true);
-    } else if (e.wheelDelta > 0 && window.scrollY <= 250) {
+    } else if (scrollDirection === 'up' && window.scrollY <= 100) {
       setScrolledDown(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('mousewheel', listener);
+    document.addEventListener('scroll', listener);
 
-    return () => document.removeEventListener('mousewheel', listener);
+    return () => document.removeEventListener('scroll', listener);
   });
 
   return (
@@ -45,17 +61,25 @@ const PageHeader = () => {
       <HeaderSVG className="header__image" />
       <nav className="header__nav">
         <ul>
-          <MenuLink>
-            <Link to="/">HOME</Link>
+          <MenuLink classes="header__nav__link-1">
+            <Link to="/" onClick={() => setMenuVisible(false)}>
+              HOME
+            </Link>
           </MenuLink>
-          <MenuLink>
-            <Link to="/posts">WPISY</Link>
+          <MenuLink classes="header__nav__link-2">
+            <Link to="/posts" onClick={() => setMenuVisible(false)}>
+              WPISY
+            </Link>
           </MenuLink>
-          <MenuLink>
-            <Link to="/faq">FAQ</Link>
+          <MenuLink classes="header__nav__link-3">
+            <Link to="/faq" onClick={() => setMenuVisible(false)}>
+              FAQ
+            </Link>
           </MenuLink>
-          <MenuLink>
-            <Link to="/article">KONTAKT</Link>
+          <MenuLink classes="header__nav__link-4">
+            <Link to="/article" onClick={() => setMenuVisible(false)}>
+              KONTAKT
+            </Link>
           </MenuLink>
         </ul>
       </nav>
