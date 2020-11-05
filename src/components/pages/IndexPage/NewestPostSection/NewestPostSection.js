@@ -16,7 +16,7 @@ const NewestPostSection = () => {
         <NewPostElement />
         <NewPostElement />
       </div>
-      <PageLink>Zobacz wszystkie wpisy</PageLink>
+      <PageLink to="/posts">Zobacz wszystkie wpisy</PageLink>
     </StyledNewestPostSection>
   );
 };
