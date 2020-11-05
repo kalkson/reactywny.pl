@@ -99,6 +99,8 @@ const StyledMissionSection = styled.section`
       box-sizing: border-box;
 
       &__icon {
+        top: 120px;
+        right: 80px;
       }
     }
   }

@@ -6,7 +6,7 @@ const StyledNewestPostSection = styled.section`
 
   position: relative;
 
-  & > header {
+  & header {
     text-align: right;
     color: ${({ theme }) => theme.colors.mainFair};
     position: relative;
@@ -54,7 +54,7 @@ const StyledNewestPostSection = styled.section`
   }
 
   @media ${({ theme }) => theme.media.tablet} {
-    & > header {
+    & header {
       text-align: left;
       margin: 100px 0 0 200px;
 
@@ -81,47 +81,61 @@ const StyledNewestPostSection = styled.section`
     }
 
     & .link {
-      transform: scale(1.3);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 2.2rem;
     }
   }
 
   @media ${({ theme }) => theme.media.laptop} {
-    & > header {
-      bottom: 150px;
+    display: flex;
+    flex-direction: column;
+
+    & > .newest-post {
+      display: flex;
+      justify-content: space-between;
+
+      & header {
+        /* bottom: 150px;
       left: -100px;
       margin: 100px 0 0 200px;
-      position: absolute;
-      font-size: 9.3rem;
+      position: absolute; */
+        font-size: 9.3rem;
+        margin-top: auto;
+        margin-bottom: 130px;
 
-      &:after {
-        width: 326px;
-        height: 83px;
-        top: 50px;
-        left: -56px;
-      }
-    }
-
-    & .newest-post__wrapper {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 0 120px;
-
-      & > div {
-        width: 500px;
-        height: 200px;
-
-        font-size: 1.8em;
+        &:after {
+          width: 326px;
+          height: 83px;
+          top: 50px;
+          left: -56px;
+        }
       }
 
-      & > div:nth-child(3) {
-        justify-self: flex-end;
-        margin-left: auto;
+      & .newest-post__wrapper {
+        padding: 0 120px;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        & > div {
+          width: 500px;
+          height: 200px;
+
+          font-size: 1.8em;
+        }
+
+        & > div:nth-child(3) {
+          justify-self: flex-end;
+          margin-left: auto;
+        }
       }
     }
 
     & .link {
-      transform: scale(1.3);
+      text-align: right;
+      margin-left: auto;
+      margin-right: 120px;
     }
   }
 `;

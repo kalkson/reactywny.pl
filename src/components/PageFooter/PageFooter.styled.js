@@ -42,8 +42,8 @@ const StyledPageFooter = styled.footer`
     padding: 74px ${({ theme }) => theme.paddings.tablet} 72px;
 
     .footer__logo {
-      width: 425px;
-      height: 58px;
+      width: 225px;
+      height: 32px;
     }
 
     .header__social {
@@ -51,8 +51,8 @@ const StyledPageFooter = styled.footer`
       transform: translateY(72px);
 
       & svg {
-        height: 62px;
-        width: 62px;
+        height: 32px;
+        width: 32px;
       }
 
       & svg path {
@@ -61,7 +61,7 @@ const StyledPageFooter = styled.footer`
     }
 
     .footer__adnotation {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 `;

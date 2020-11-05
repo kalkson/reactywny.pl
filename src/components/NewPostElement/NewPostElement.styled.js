@@ -4,20 +4,42 @@ const StyledNewPostElement = styled.div`
   width: 300px;
   height: 140px;
   background-color: ${({ theme }) => theme.colors.mainFair};
-  background-image: linear-gradient(
-    0deg,
-    rgba(35, 39, 42, 1) 0%,
-    rgba(241, 234, 234, 0.35057773109243695) 100%
-  );
+
   display: flex;
   border-radius: 5px 5px 0 0;
   padding: 30px 40px;
   transition: height 200ms linear;
   transform-origin: top;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    display: block;
+    right: -100px;
+    border-radius: 20px;
+    top: 50px;
+    transform: rotate(45deg);
+
+    @media (max-width: 1024px) {
+      background-color: ${({ theme }) => theme.colors.mainBlue};
+      z-index: -1;
+    }
+    background-color: black;
+    transition: transform 300ms ease-in-out;
+  }
 
   &:hover {
     height: 170px;
+
+    &:after {
+      transform: rotate(0deg);
+    }
 
     .newest-post__wrapper__left__description {
       opacity: 1;
@@ -42,7 +64,7 @@ const StyledNewPostElement = styled.div`
 
     &__date {
       font-size: 1.3rem;
-      color: ${({ theme }) => theme.colors.mainFair};
+      color: ${({ theme }) => theme.colors.mainDark};
     }
 
     &__description {
