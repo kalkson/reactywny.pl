@@ -9,7 +9,7 @@ const StyledWelcomeSection = styled.section`
   background-image: url('background-image.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 
   & > header {
     z-index: 10;
