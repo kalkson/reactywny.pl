@@ -5,8 +5,8 @@ const StyledSocialLinks = styled.div`
   height: fit-content;
 
   & .header__social__link {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     margin-left: 5px;
   }
 `;
