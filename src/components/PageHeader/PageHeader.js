@@ -33,7 +33,7 @@ const PageHeader = () => {
 
     if (scrollDirection === 'down' && window.scrollY >= 0) {
       setScrolledDown(true);
-    } else if (scrollDirection === 'up' && window.scrollY <= 300) {
+    } else if (scrollDirection === 'up' && window.scrollY <= 100) {
       setScrolledDown(false);
     }
   };

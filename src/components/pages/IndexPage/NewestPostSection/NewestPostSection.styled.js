@@ -4,6 +4,8 @@ const StyledNewestPostSection = styled.section`
   padding: ${({ theme }) => theme.paddings.mobile};
   background-color: ${({ theme }) => theme.colors.mainDark};
 
+  position: relative;
+
   & > header {
     text-align: right;
     color: ${({ theme }) => theme.colors.mainFair};
@@ -57,14 +59,7 @@ const StyledNewestPostSection = styled.section`
       margin: 100px 0 0 200px;
 
       &:after {
-        content: '';
-        position: absolute;
-        background-color: ${({ theme }) => theme.colors.mainFair};
-        width: 320px;
-        height: 70px;
-        top: 0;
         left: 80px;
-        z-index: -1;
       }
     }
 
@@ -80,12 +75,48 @@ const StyledNewestPostSection = styled.section`
         align-self: center;
       }
 
-      & > div:nth-child(2) {
+      & > div:nth-child(3) {
         align-self: center;
+      }
+    }
+
+    & .link {
+      transform: scale(1.3);
+    }
+  }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    & > header {
+      bottom: 150px;
+      left: -100px;
+      margin: 100px 0 0 200px;
+      position: absolute;
+      font-size: 9.3rem;
+
+      &:after {
+        width: 326px;
+        height: 83px;
+        top: 50px;
+        left: -56px;
+      }
+    }
+
+    & .newest-post__wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 120px;
+
+      & > div {
+        width: 500px;
+        height: 200px;
+
+        font-size: 1.8em;
       }
 
       & > div:nth-child(3) {
-        align-self: center;
+        justify-self: flex-end;
+        margin-left: auto;
       }
     }
 

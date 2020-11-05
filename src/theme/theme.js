@@ -24,7 +24,7 @@ const theme = {
   colors: {
     mainBlue: '#61DAFB',
     mainFair: '#F1EAEA',
-    mainDark: '#372f2f',
+    mainDark: '#23272A',
   },
 
   media: {

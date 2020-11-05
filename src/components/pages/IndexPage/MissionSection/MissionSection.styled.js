@@ -55,6 +55,53 @@ const StyledMissionSection = styled.section`
   @media ${({ theme }) => theme.media.tablet} {
     padding: 125px 200px;
   }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    position: relative;
+    padding: 0;
+
+    &:before {
+      content: '';
+      width: 526px;
+      height: 530px;
+      background-color: ${({ theme }) => theme.colors.mainDark};
+      top: 0;
+      left: 0;
+      position: absolute;
+      display: block;
+    }
+
+    & > header {
+      position: absolute;
+      bottom: 150px;
+      font-size: 9.3rem;
+      left: 200px;
+
+      &:before,
+      &:after {
+      }
+
+      &:before {
+        top: 30px;
+        left: 70px;
+      }
+
+      &:after {
+        top: 60px;
+        left: 130px;
+      }
+    }
+
+    .mission-section__paragraph {
+      padding: 120px 80px 150px 610px;
+      margin: 0;
+      font-size: 2.9rem;
+      box-sizing: border-box;
+
+      &__icon {
+      }
+    }
+  }
 `;
 
 export default StyledMissionSection;

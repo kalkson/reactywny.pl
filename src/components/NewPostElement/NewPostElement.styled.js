@@ -6,7 +6,7 @@ const StyledNewPostElement = styled.div`
   background-color: ${({ theme }) => theme.colors.mainFair};
   background-image: linear-gradient(
     0deg,
-    rgba(55, 47, 47, 1) 0%,
+    rgba(35, 39, 42, 1) 0%,
     rgba(241, 234, 234, 0.35057773109243695) 100%
   );
   display: flex;
