@@ -37,6 +37,33 @@ const StyledPageFooter = styled.footer`
     font-weight: ${({ theme }) => theme.fonts.semiBold};
     font-size: 1rem;
   }
+
+  @media ${({ theme }) => theme.media.tablet} {
+    padding: 74px ${({ theme }) => theme.paddings.tablet} 72px;
+
+    .footer__logo {
+      width: 425px;
+      height: 58px;
+    }
+
+    .header__social {
+      align-self: flex-end;
+      transform: translateY(72px);
+
+      & svg {
+        height: 62px;
+        width: 62px;
+      }
+
+      & svg path {
+        fill: ${({ theme }) => theme.colors.mainFair};
+      }
+    }
+
+    .footer__adnotation {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default StyledPageFooter;
