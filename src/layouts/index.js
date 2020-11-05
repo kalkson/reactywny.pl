@@ -8,12 +8,7 @@ import PageFooter from '../components/PageFooter/PageFooter';
 
 const StyledContainer = styled.div`
   position: relative;
-  padding-top: 100px;
   z-index: 1;
-
-  @media ${theme.media.tablet} {
-    padding-top: 310px;
-  }
 `;
 
 const MainLayout = ({ children }) => {
