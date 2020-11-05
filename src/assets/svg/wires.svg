@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="329.469" height="403.856" viewBox="0 0 329.469 403.856">
+  <g id="wires" transform="translate(8.969 8.85)">
+    <line id="Line_11" data-name="Line 11" x2="76.953" y2="60" transform="translate(175.5 -1.5)" fill="none" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_22" data-name="Path 22" d="M0,92.012,26.422,57.867,71.2,0" transform="translate(92.773 127.5) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5"/>
+    <line id="Line_18" data-name="Line 18" x2="85.661" y2="64.854" transform="translate(-2.5 265.5)" fill="none" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_13" data-name="Path 13" d="M0,76.332,60.452,0" transform="translate(293 -1.952) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_21" data-name="Path 21" d="M0,0,72.748,94.013" transform="matrix(0.966, -0.259, 0.259, 0.966, 0.305, 302.207)" fill="none" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_16" data-name="Path 16" d="M0,84.113l2.051-2.629,5.126-6.571L65.617,0" transform="translate(303 163.883) rotate(90)" fill="#fff" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_19" data-name="Path 19" d="M0,84.113l2.051-2.629,5.126-6.571L65.617,0" transform="translate(118 80.883) rotate(90)" fill="#fff" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_15" data-name="Path 15" d="M0,59.578,46.1,0" transform="translate(182.021 120.819) rotate(-41)" fill="#fff" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_18" data-name="Path 18" d="M0,59.578,46.1,0" transform="translate(-2.979 37.819) rotate(-41)" fill="#fff" stroke="#61dafb" stroke-width="5"/>
+    <path id="Path_14" data-name="Path 14" d="M0,161.7,92.868,41.689,125.127,0" transform="translate(257.702 -4.5) rotate(90)" fill="none" stroke="#61dafb" stroke-width="7"/>
+    <path id="Path_17" data-name="Path 17" d="M0,161.885,92.973,41.736,125.268,0" transform="translate(176.962 -4.5) rotate(90)" fill="none" stroke="#61dafb" stroke-width="11"/>
+    <path id="Path_20" data-name="Path 20" d="M0,0,77.088,99.621l26.778,34.605" transform="matrix(0.966, -0.259, 0.259, 0.966, -3.896, 197.276)" fill="none" stroke="#61dafb" stroke-width="11"/>
+    <line id="Line_13" data-name="Line 13" x2="90" transform="translate(292 56.5) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5"/>
+    <line id="Line_19" data-name="Line 19" x2="100.728" transform="matrix(0.966, -0.259, 0.259, 0.966, 92.455, 373.686)" fill="none" stroke="#61dafb" stroke-width="5"/>
+    <line id="Line_14" data-name="Line 14" x2="90" transform="translate(177 116.5) rotate(90)" fill="none" stroke="#61dafb" stroke-width="8"/>
+    <line id="Line_16" data-name="Line 16" x2="90" transform="matrix(0.966, -0.259, 0.259, 0.966, 127.058, 301.188)" fill="none" stroke="#61dafb" stroke-width="8"/>
+    <line id="Line_15" data-name="Line 15" x2="77" y2="57" transform="translate(175.5 203.5)" fill="none" stroke="#61dafb" stroke-width="8"/>
+    <line id="Line_17" data-name="Line 17" y1="57" x2="77" transform="matrix(0.259, 0.966, -0.966, 0.259, 265.763, 262.47)" fill="none" stroke="#61dafb" stroke-width="8"/>
+    <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(276.177 53) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5">
+      <circle cx="14" cy="14" r="14" stroke="none"/>
+      <circle cx="14" cy="14" r="11.5" fill="none"/>
+    </g>
+    <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(127.884 190.56) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5">
+      <circle cx="20.72" cy="20.72" r="20.72" stroke="none"/>
+      <circle cx="20.72" cy="20.72" r="18.22" fill="none"/>
+    </g>
+    <g id="Ellipse_13" data-name="Ellipse 13" transform="matrix(0.966, -0.259, 0.259, 0.966, 75.977, 327.324)" fill="none" stroke="#61dafb" stroke-width="5">
+      <ellipse cx="15.669" cy="15.669" rx="15.669" ry="15.669" stroke="none"/>
+      <ellipse cx="15.669" cy="15.669" rx="13.169" ry="13.169" fill="none"/>
+    </g>
+    <g id="Ellipse_7" data-name="Ellipse 7" transform="translate(304.5 144) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5">
+      <circle cx="11" cy="11" r="11" stroke="none"/>
+      <circle cx="11" cy="11" r="8.5" fill="none"/>
+    </g>
+    <g id="Ellipse_14" data-name="Ellipse 14" transform="matrix(0.966, -0.259, 0.259, 0.966, 184.297, 338.07)" fill="none" stroke="#61dafb" stroke-width="5">
+      <ellipse cx="12.311" cy="12.311" rx="12.311" ry="12.311" stroke="none"/>
+      <ellipse cx="12.311" cy="12.311" rx="9.811" ry="9.811" fill="none"/>
+    </g>
+    <g id="Ellipse_9" data-name="Ellipse 9" transform="translate(320.5 224) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5">
+      <circle cx="10" cy="10" r="10" stroke="none"/>
+      <circle cx="10" cy="10" r="7.5" fill="none"/>
+    </g>
+    <g id="Ellipse_10" data-name="Ellipse 10" transform="translate(135.5 141) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5">
+      <circle cx="10" cy="10" r="10" stroke="none"/>
+      <circle cx="10" cy="10" r="7.5" fill="none"/>
+    </g>
+    <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(280.119 113) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5">
+      <circle cx="14.5" cy="14.5" r="14.5" stroke="none"/>
+      <circle cx="14.5" cy="14.5" r="12" fill="none"/>
+    </g>
+    <g id="Ellipse_11" data-name="Ellipse 11" transform="translate(276.119 251) rotate(90)" fill="none" stroke="#61dafb" stroke-width="5">
+      <circle cx="14.5" cy="14.5" r="14.5" stroke="none"/>
+      <circle cx="14.5" cy="14.5" r="12" fill="none"/>
+    </g>
+    <g id="Ellipse_12" data-name="Ellipse 12" transform="matrix(0.966, -0.259, 0.259, 0.966, 275.123, 334.106)" fill="none" stroke="#61dafb" stroke-width="5">
+      <ellipse cx="14.5" cy="14.5" rx="14.5" ry="14.5" stroke="none"/>
+      <ellipse cx="14.5" cy="14.5" rx="12" ry="12" fill="none"/>
+    </g>
+  </g>
+</svg>
