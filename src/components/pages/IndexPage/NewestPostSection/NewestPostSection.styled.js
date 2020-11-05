@@ -5,6 +5,7 @@ const StyledNewestPostSection = styled.section`
   background-color: ${({ theme }) => theme.colors.mainDark};
 
   position: relative;
+  box-shadow: inset 0px 130px 112px -129px rgba(0, 0, 0, 0.75);
 
   & header {
     text-align: right;

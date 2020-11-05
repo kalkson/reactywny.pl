@@ -33,6 +33,7 @@ const StyledWelcomeSection = styled.section`
     width: 260px;
     margin-left: auto;
     margin-top: 50px;
+    box-shadow: 0px 0px 45px 18px rgba(0, 0, 0, 0.75);
 
     & header {
       color: ${({ theme }) => theme.colors.mainBlue};
@@ -48,6 +49,20 @@ const StyledWelcomeSection = styled.section`
     position: absolute;
     top: -85px;
     right: -5px;
+    z-index: 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 4px);
+      display: block;
+      outline: solid 3px ${({ theme }) => theme.colors.mainBlue};
+      background: transparent;
+      left: 5px;
+      bottom: 7px;
+      z-index: -1;
+    }
 
     .welcome-sction__content__image-cont__image {
       width: 115px;
@@ -78,7 +93,6 @@ const StyledWelcomeSection = styled.section`
   }
 
   @media ${({ theme }) => theme.media.laptop} {
-    padding: ${({ theme }) => theme.paddings.laptop};
     display: flex;
     align-items: center;
     padding: 360px ${({ theme }) => theme.paddings.laptop} 30px;
@@ -109,6 +123,42 @@ const StyledWelcomeSection = styled.section`
       .welcome-sction__content__image-cont__image {
         width: 236px;
         height: 272px;
+      }
+    }
+  }
+
+  @media ${({ theme }) => theme.media.desktop} {
+    display: flex;
+    align-items: center;
+    padding: 420px ${({ theme }) => theme.paddings.laptop} 160px;
+
+    & > header {
+      font-size: 93px;
+      position: relative;
+      height: fit-content;
+
+      &::after {
+        height: 176px;
+        width: 298px;
+      }
+    }
+
+    & .welcome-section__content {
+      width: 500px;
+      height: 453px;
+      margin-right: 454px;
+      padding: 30px 70px 30px 50px;
+
+      .welcome-sction__content__paragraph {
+        font-size: 1.9rem;
+      }
+    }
+
+    .welcome-sction__content__image-cont {
+      right: -466px;
+      .welcome-sction__content__image-cont__image {
+        width: 517px;
+        height: 600px;
       }
     }
   }

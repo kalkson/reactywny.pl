@@ -77,10 +77,6 @@ const StyledMissionSection = styled.section`
       font-size: 9.3rem;
       left: 200px;
 
-      &:before,
-      &:after {
-      }
-
       &:before {
         top: 30px;
         left: 70px;
@@ -101,6 +97,43 @@ const StyledMissionSection = styled.section`
       &__icon {
         top: 120px;
         right: 80px;
+      }
+    }
+  }
+
+  @media ${({ theme }) => theme.media.desktop} {
+    position: relative;
+    padding: 0;
+
+    &:before {
+      content: '';
+      width: 526px;
+      height: 530px;
+      background-color: ${({ theme }) => theme.colors.mainDark};
+      top: 0;
+      left: 0;
+      position: absolute;
+      display: block;
+    }
+
+    & > header {
+      left: 230px;
+
+      &:before {
+        top: 30px;
+        left: 70px;
+      }
+    }
+
+    .mission-section__paragraph {
+      padding: 120px 380px 150px 900px;
+      margin: 0;
+      font-size: 2.9rem;
+      box-sizing: border-box;
+
+      &__icon {
+        top: 120px;
+        right: 320px;
       }
     }
   }
