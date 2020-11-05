@@ -1,5 +1,6 @@
 import React from 'react';
 import NewPostElement from 'components/NewPostElement/NewPostElement';
+import PageLink from 'components/PageLink/PageLink';
 import StyledNewestPostSection from './NewestPostSection.styled';
 import Headline from '../../../Headline/Headline';
 
@@ -15,6 +16,7 @@ const NewestPostSection = () => {
         <NewPostElement />
         <NewPostElement />
       </div>
+      <PageLink>Zobacz wszystkie wpisy</PageLink>
     </StyledNewestPostSection>
   );
 };

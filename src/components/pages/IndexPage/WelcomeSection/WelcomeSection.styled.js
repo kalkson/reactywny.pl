@@ -6,6 +6,11 @@ const StyledWelcomeSection = styled.section`
   background-color: ${({ theme }) => theme.colors.mainDark};
   color: ${({ theme }) => theme.colors.mainFair};
 
+  background-image: url('background-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   & > header {
     z-index: 10;
 
