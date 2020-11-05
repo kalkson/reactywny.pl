@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -11,8 +9,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `assets/images`,
-        path: `${__dirname}/src/assets/images`,
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
       },
     },
     {

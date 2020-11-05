@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import propTypes from 'prop-types';
 // import { graphql } from 'gatsby';
 // import Img from 'gatsby-image';
@@ -12,9 +12,27 @@ import MenuLink from '../MenuLink/MenuLink';
 
 const PageHeader = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
+  const [isScrolledDown, setScrolledDown] = useState(false);
+
+  const listener = e => {
+    if (e.wheelDelta <= 0 && window.scrollY >= 0) {
+      setScrolledDown(true);
+    } else if (e.wheelDelta > 0 && window.scrollY <= 250) {
+      setScrolledDown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousewheel', listener);
+
+    return () => document.removeEventListener('mousewheel', listener);
+  });
 
   return (
-    <StyledPageHeader isMenuVisible={isMenuVisible}>
+    <StyledPageHeader
+      isMenuVisible={isMenuVisible}
+      isScrolledDown={isScrolledDown}
+    >
       <MenuButton
         setMenuVisible={setMenuVisible}
         isMenuVisible={isMenuVisible}

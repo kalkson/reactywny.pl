@@ -25,7 +25,7 @@ const StyledWelcomeSection = styled.section`
     padding: 15px;
     background-color: ${({ theme }) => theme.colors.mainFair};
     position: relative;
-    width: 250px;
+    width: 260px;
     margin-left: auto;
     margin-top: 50px;
 
@@ -35,7 +35,7 @@ const StyledWelcomeSection = styled.section`
 
     .welcome-sction__content__paragraph {
       color: ${({ theme }) => theme.colors.mainDark};
-      font-size: 1rem;
+      font-size: 1.3rem;
     }
   }
 

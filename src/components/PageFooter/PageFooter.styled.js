@@ -9,8 +9,8 @@ const StyledPageFooter = styled.footer`
   flex-direction: column;
 
   .footer__logo {
-    width: 255px;
-    height: 35px;
+    width: 125px;
+    height: 20px;
     margin-bottom: 5px;
 
     & #Path_2 {
@@ -22,8 +22,8 @@ const StyledPageFooter = styled.footer`
     & svg {
       margin-left: 0;
       margin-right: 10px;
-      width: 27px;
-      height: 27px;
+      width: 22px;
+      height: 22px;
       margin-bottom: 5px;
     }
 
@@ -35,6 +35,7 @@ const StyledPageFooter = styled.footer`
   .footer__adnotation {
     color: ${({ theme }) => theme.colors.mainFair};
     font-weight: ${({ theme }) => theme.fonts.semiBold};
+    font-size: 1rem;
   }
 `;
 
