@@ -51,6 +51,10 @@ const StyledMissionSection = styled.section`
       z-index: -1;
     }
   }
+
+  @media ${({ theme }) => theme.media.tablet} {
+    padding: 125px 200px;
+  }
 `;
 
 export default StyledMissionSection;
