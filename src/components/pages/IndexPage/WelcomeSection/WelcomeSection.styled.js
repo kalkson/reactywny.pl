@@ -54,6 +54,28 @@ const StyledWelcomeSection = styled.section`
       height: 133px;
     }
   }
+
+  @media ${({ theme }) => theme.media.tablet} {
+    padding: ${({ theme }) => theme.paddings.tablet};
+
+    & .welcome-section__content {
+      width: 340px;
+      height: 500px;
+      margin-right: 213px;
+
+      .welcome-sction__content__paragraph {
+        font-size: 1.9rem;
+      }
+    }
+
+    .welcome-sction__content__image-cont {
+      right: -225px;
+      .welcome-sction__content__image-cont__image {
+        width: 236px;
+        height: 272px;
+      }
+    }
+  }
 `;
 
 export default StyledWelcomeSection;

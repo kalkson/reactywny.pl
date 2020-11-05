@@ -50,6 +50,49 @@ const StyledNewestPostSection = styled.section`
     text-align: center;
     margin-bottom: 100px;
   }
+
+  @media ${({ theme }) => theme.media.tablet} {
+    & > header {
+      text-align: left;
+      margin: 100px 0 0 200px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        background-color: ${({ theme }) => theme.colors.mainFair};
+        width: 320px;
+        height: 70px;
+        top: 0;
+        left: 80px;
+        z-index: -1;
+      }
+    }
+
+    & .newest-post__wrapper {
+      & > div {
+        width: 500px;
+        height: 200px;
+
+        font-size: 1.8em;
+      }
+
+      & > div:nth-child(1) {
+        align-self: center;
+      }
+
+      & > div:nth-child(2) {
+        align-self: center;
+      }
+
+      & > div:nth-child(3) {
+        align-self: center;
+      }
+    }
+
+    & .link {
+      transform: scale(1.3);
+    }
+  }
 `;
 
 export default StyledNewestPostSection;
