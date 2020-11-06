@@ -36,6 +36,7 @@ const StyledNewestPostSection = styled.section`
     position: relative;
     z-index: 0;
     transform: translateY(-10px);
+    margin-top: 80px;
 
     &:after {
       content: '';
