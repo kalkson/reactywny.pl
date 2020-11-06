@@ -6,6 +6,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-layout`,
+    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-resolve-src',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    'gatsby-plugin-eslint',
+    'gatsby-background-image-es5',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -21,8 +28,7 @@ module.exports = {
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -35,7 +41,6 @@ module.exports = {
         // icon: ``, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-eslint',
     {
       resolve: 'gatsby-plugin-prettier-eslint',
       // this is the default configuration, override only what you need
@@ -82,7 +87,5 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-layout`,
-    'gatsby-plugin-resolve-src',
   ],
 };

@@ -1,12 +1,36 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
 import StyledWelcomeSection from './WelcomeSection.styled';
 import Headline from '../../../Headline/Headline';
-// import { dk } from '../../../../assets/images/dk.png';
+
+const query = graphql`
+  {
+    dk: file(name: { eq: "dk" }) {
+      childImageSharp {
+        fluid(maxWidth: 517, maxHeight: 600, quality: 100) {
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+    background: file(name: { eq: "background-image" }) {
+      childImageSharp {
+        fluid(quality: 40) {
+          src
+        }
+      }
+    }
+  }
+`;
 
 const WelcomeSection = () => {
+  const data = useStaticQuery(query);
+  console.log(data);
+
   return (
-    <StyledWelcomeSection>
+    <StyledWelcomeSection
+      background={data.background.childImageSharp.fluid.src}
+    >
       <Headline size={54} className="welcome-section__headline">
         <span style={{ color: '#61DAFB' }}>Ucz się</span>
         <br />
@@ -27,11 +51,12 @@ const WelcomeSection = () => {
           <Link to="/faq">tutaj</Link>, a tymczasem miłego czytania :)
         </p>
         <div className="welcome-sction__content__image-cont">
-          <img
-            src="dk.png"
+          {/* <img
+            src="../../../../assets/images/dk.png"
             alt="damian-kalka"
             className="welcome-sction__content__image-cont__image"
-          />
+          /> */}
+          <Image fluid={data.dk.childImageSharp.fluid} />
         </div>
       </div>
     </StyledWelcomeSection>
