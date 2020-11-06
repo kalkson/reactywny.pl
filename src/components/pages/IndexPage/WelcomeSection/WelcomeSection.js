@@ -15,7 +15,7 @@ const query = graphql`
     }
     background: file(name: { eq: "background-image" }) {
       childImageSharp {
-        fluid(quality: 40) {
+        fluid(maxWidth: 1920, quality: 100) {
           src
         }
       }

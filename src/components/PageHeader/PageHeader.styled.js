@@ -11,6 +11,7 @@ const StyledPageHeader = styled.header`
   display: flex;
   justify-content: center;
   z-index: 10;
+  box-shadow: 0px 30px 75px 0px rgba(0, 0, 0, 0.5);
 
   height: ${({ isMenuVisible, isScrolledDown }) =>
     isScrolledDown && isMenuVisible ? '130px' : null};
