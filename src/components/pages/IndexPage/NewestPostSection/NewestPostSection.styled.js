@@ -17,11 +17,14 @@ const StyledNewestPostSection = styled.section`
     & path {
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
-      animation: dash 15s linear forwards 500ms;
+      animation: dash 30s linear infinite 500ms;
     }
 
     @keyframes dash {
-      to {
+      0% {
+        stroke-dashoffset: 1000;
+      }
+      100% {
         stroke-dashoffset: 0;
       }
     }

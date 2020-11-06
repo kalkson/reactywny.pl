@@ -30,33 +30,44 @@ const StyledPostsWrapperContainer = styled.article`
         z-index: -1;
       }
     }
+
+    &__paragraph {
+      display: none;
+    }
   }
 
   @media ${({ theme }) => theme.media.tablet} {
-    padding-top: 310px;
+    padding-top: 380px;
+    flex-direction: row;
+    justify-content: space-around;
 
     .posts__left-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+      flex-direction: column;
+      width: 400px;
 
-    & header {
-      text-align: center;
-      color: ${({ theme }) => theme.colors.mainFair};
-      width: fit-content;
-      z-index: 0;
-      margin: 42px 0 70px;
-
-      &:after {
-        content: '';
+      &__paragraph {
+        width: 100%;
         display: block;
-        width: 75px;
-        height: 45px;
-        background-color: ${({ theme }) => theme.colors.mainBlue};
-        position: absolute;
-        right: 0;
-        bottom: -15px;
-        z-index: -1;
+        font-size: 2rem;
+        color: ${({ theme }) => theme.colors.mainFair};
+      }
+    }
+
+    .posts__wrapper {
+      margin-right: 50px;
+    }
+  }
+
+  @media ${({ theme }) => theme.media.desktop} {
+    .posts__wrapper {
+      margin-right: 250px;
+    }
+
+    .posts__left-section {
+      width: 600px;
+
+      &__paragraph {
+        font-size: 2.8rem;
       }
     }
   }

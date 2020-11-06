@@ -61,6 +61,33 @@ const StyledPostElement = styled.div`
   & > *:not(:last-child) {
     margin-bottom: 10px;
   }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    .post {
+      &__top {
+        font-size: 2.5rem;
+      }
+
+      &__image {
+        width: 478px;
+      }
+
+      &__title {
+        font-size: 3.6rem;
+        font-weight: ${({ theme }) => theme.fonts.semiBold};
+      }
+
+      &__description {
+        font-size: 2.5rem;
+      }
+
+      &__button {
+        color: ${({ theme }) => theme.colors.mainBlue};
+        font-size: 2rem;
+        font-weight: ${({ theme }) => theme.fonts.semiBold};
+      }
+    }
+  }
 `;
 
 export default StyledPostElement;
