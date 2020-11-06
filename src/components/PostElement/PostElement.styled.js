@@ -1,0 +1,66 @@
+import styled from 'styled-components';
+
+const StyledPostElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 40px 40px;
+  padding: 40px 0 40px 40px;
+  color: ${({ theme }) => theme.colors.mainFair};
+  font-weight: ${({ theme }) => theme.fonts.Bold};
+  width: fit-content;
+  margin: 0 auto;
+  border-left: solid 5px ${({ theme }) => theme.colors.mainFair};
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-color: ${({ theme }) => theme.colors.mainFair};
+    border-radius: 25px;
+    left: -15px;
+    top: calc(50% - 12.5px);
+  }
+
+  .post {
+    &__top {
+      font-size: 1.2rem;
+
+      &__date {
+        text-transform: uppercase;
+        margin-right: 7px;
+      }
+
+      &__category {
+        color: ${({ theme }) => theme.colors.mainBlue};
+      }
+    }
+
+    &__image {
+      width: 255px;
+    }
+
+    &__title {
+      font-size: 2.2rem;
+      font-weight: ${({ theme }) => theme.fonts.semiBold};
+    }
+
+    &__description {
+      font-size: 1.4rem;
+    }
+
+    &__button {
+      color: ${({ theme }) => theme.colors.mainBlue};
+      font-size: 1.2rem;
+      font-weight: ${({ theme }) => theme.fonts.semiBold};
+    }
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
+`;
+
+export default StyledPostElement;
