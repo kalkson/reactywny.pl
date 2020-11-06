@@ -16,7 +16,7 @@ const PostElement = () => {
         className="post__image"
       />
       <span className="post__description">Wszystko o gitHubie - podstawy</span>
-      <Link to="/" className="post__button">
+      <Link to="/post" className="post__button">
         Czytaj
       </Link>
     </StyledPostElement>
