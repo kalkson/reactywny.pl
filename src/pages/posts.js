@@ -1,9 +1,6 @@
 import React from 'react';
+import PostWrapperContainer from 'components/pages/PostsPage/PostsWrapperContainer/PostsWrapperContainer';
 
-const PostsPage = () => (
-  <>
-    <h1>PostPage</h1>
-  </>
-);
+const PostsPage = () => <PostWrapperContainer />;
 
 export default PostsPage;

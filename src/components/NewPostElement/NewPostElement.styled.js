@@ -27,7 +27,6 @@ const StyledNewPostElement = styled.div`
     transform: rotate(45deg);
 
     @media (max-width: 1024px) {
-      background-color: ${({ theme }) => theme.colors.mainBlue};
       z-index: -1;
     }
     background-color: black;

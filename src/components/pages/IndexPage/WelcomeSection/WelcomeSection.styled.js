@@ -6,10 +6,10 @@ const StyledWelcomeSection = styled.section`
   background-color: ${({ theme }) => theme.colors.mainDark};
   color: ${({ theme }) => theme.colors.mainFair};
 
-  background-image: url('background-image.jpg');
+  background-image: url(${({ background }) => background});
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
+  background-attachment: fixed;
 
   & > header {
     z-index: 10;
@@ -64,7 +64,7 @@ const StyledWelcomeSection = styled.section`
       z-index: -1;
     }
 
-    .welcome-sction__content__image-cont__image {
+    & > *:first-child {
       width: 115px;
       height: 133px;
     }
@@ -85,7 +85,7 @@ const StyledWelcomeSection = styled.section`
 
     .welcome-sction__content__image-cont {
       right: -225px;
-      .welcome-sction__content__image-cont__image {
+      & > *:first-child {
         width: 236px;
         height: 272px;
       }
@@ -120,7 +120,8 @@ const StyledWelcomeSection = styled.section`
 
     .welcome-sction__content__image-cont {
       right: -225px;
-      .welcome-sction__content__image-cont__image {
+
+      & > *:first-child {
         width: 236px;
         height: 272px;
       }
@@ -156,7 +157,8 @@ const StyledWelcomeSection = styled.section`
 
     .welcome-sction__content__image-cont {
       right: -466px;
-      .welcome-sction__content__image-cont__image {
+
+      & > *:first-child {
         width: 517px;
         height: 600px;
       }

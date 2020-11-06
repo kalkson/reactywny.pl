@@ -3,9 +3,32 @@ import styled from 'styled-components';
 const StyledNewestPostSection = styled.section`
   padding: ${({ theme }) => theme.paddings.mobile};
   background-color: ${({ theme }) => theme.colors.mainDark};
+  overflow: hidden;
 
   position: relative;
   box-shadow: inset 0px 130px 112px -129px rgba(0, 0, 0, 0.75);
+
+  .newest-post__icon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 0;
+
+    & path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: dash 30s linear infinite 500ms;
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dashoffset: 1000;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
 
   & header {
     text-align: right;
