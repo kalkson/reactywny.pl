@@ -1,7 +1,39 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require('path');
+const slugify = require('slugify');
 
-// You can delete this file if you're not using it
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        components: path.resolve(__dirname, 'src/components'),
+        templates: path.resolve(__dirname, 'src/templates'),
+        scss: path.resolve(__dirname, 'src/scss'),
+      },
+    },
+  });
+};
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const PostTemplate = path.resolve(`src/layouts/post.js`);
+  const result = await graphql(`
+    query queryCMSPage {
+      allDatoCmsPost {
+        nodes {
+          title
+          id
+        }
+      }
+    }
+  `);
+
+  result.data.allDatoCmsPost.nodes.forEach(post => {
+    createPage({
+      path: `posts/${slugify(post.title, { lower: true })}`,
+      component: PostTemplate,
+      context: {
+        id: post.id,
+      },
+    });
+  });
+};

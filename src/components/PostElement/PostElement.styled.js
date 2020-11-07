@@ -7,7 +7,7 @@ const StyledPostElement = styled.div`
   padding: 40px 0 40px 40px;
   color: ${({ theme }) => theme.colors.mainFair};
   font-weight: ${({ theme }) => theme.fonts.Bold};
-  width: fit-content;
+  width: 300px;
   margin: 0 auto;
   border-left: solid 5px ${({ theme }) => theme.colors.mainFair};
   position: relative;
@@ -40,6 +40,7 @@ const StyledPostElement = styled.div`
 
     &__image {
       width: 255px;
+      height: 140px;
     }
 
     &__title {
@@ -63,6 +64,7 @@ const StyledPostElement = styled.div`
   }
 
   @media ${({ theme }) => theme.media.laptop} {
+    width: 500px;
     .post {
       &__top {
         font-size: 2.5rem;

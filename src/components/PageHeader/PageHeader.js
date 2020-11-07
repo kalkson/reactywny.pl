@@ -77,7 +77,7 @@ const PageHeader = () => {
             </Link>
           </MenuLink>
           <MenuLink classes="header__nav__link-4">
-            <Link to="/article" onClick={() => setMenuVisible(false)}>
+            <Link to="/faq/#contact" onClick={() => setMenuVisible(false)}>
               KONTAKT
             </Link>
           </MenuLink>

@@ -6,10 +6,16 @@ const StyledWelcomeSection = styled.section`
   background-color: ${({ theme }) => theme.colors.mainDark};
   color: ${({ theme }) => theme.colors.mainFair};
 
+  overflow: hidden;
+
   background-image: url(${({ background }) => background});
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  background-position: center left;
+
+  transform: translatez(0);
+  -webkit-transform: translatez(0);
 
   & > header {
     z-index: 10;
