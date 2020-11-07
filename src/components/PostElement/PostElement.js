@@ -1,6 +1,7 @@
-import { Link } from 'gatsby';
-import propTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'gatsby';
+import Image from 'gatsby-image';
+import propTypes from 'prop-types';
 import slugify from 'slugify';
 import StyledPostElement from './PostElement.styled';
 
@@ -10,7 +11,7 @@ const PostElement = ({ data }) => {
     category,
     title,
     shortDescription,
-    featuredImage: { url },
+    featuredImage: { fluid },
   } = data;
 
   return (
@@ -20,7 +21,7 @@ const PostElement = ({ data }) => {
         <span className="post__top__category">{category}</span>
       </div>
       <span className="post__title">{title}</span>
-      <img src={url} alt="post" className="post__image" />
+      <Image fluid={fluid} />
       <span className="post__description">{shortDescription}</span>
       <Link to={slugify(title, { lower: true })} className="post__button">
         Czytaj
@@ -36,7 +37,7 @@ PostElement.propTypes = {
     title: propTypes.string.isRequired,
     shortDescription: propTypes.string.isRequired,
     featuredImage: propTypes.shape({
-      url: propTypes.string.isRequired,
+      fluid: propTypes.string.isRequired,
     }),
   }).isRequired,
 };

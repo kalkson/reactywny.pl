@@ -13,8 +13,7 @@ const StyledNewestPostSection = styled.section`
     top: -10px;
     left: -10px;
     z-index: 0;
-
-    & path {
+    + & path {
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
       animation: dash 30s linear infinite 500ms;

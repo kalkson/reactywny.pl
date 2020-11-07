@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'gatsby-image';
 import propTypes from 'prop-types';
 import { Disqus } from 'gatsby-plugin-disqus';
 import { graphql } from 'gatsby';
@@ -132,7 +133,9 @@ export const query = graphql`
       description
       title
       featuredImage {
-        url
+        fluid(maxWidth: 1920, imgixParams: { auto: "compress" }) {
+          ...GatsbyDatoCmsFluid
+        }
       }
       category
       postContent {
@@ -143,7 +146,9 @@ export const query = graphql`
         ... on DatoCmsPostImage {
           id
           imageData {
-            url
+            fluid(imgixParams: { auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
           }
         }
         ... on DatoCmsPostHeadline {
@@ -169,9 +174,13 @@ const PostLayout = ({ data }) => {
         <span className="post__top__category">{data.datoCmsPost.category}</span>
       </div>
       <span className="post__title">{data.datoCmsPost.title}</span>
-      <img
+      {/* <img
         src={data.datoCmsPost.featuredImage.url}
         alt="post"
+        className="post__featuredImage"
+      /> */}
+      <Image
+        fluid={data.datoCmsPost.featuredImage.fluid}
         className="post__featuredImage"
       />
       <span className="post__description">{data.datoCmsPost.description}</span>
@@ -184,13 +193,7 @@ const PostLayout = ({ data }) => {
           case 'paragraphContent':
             return <p className="post__paragraph">{item.paragraphContent}</p>;
           case 'imageData':
-            return (
-              <img
-                src={item.imageData.url}
-                className="post__image"
-                alt={item.imageData.id}
-              />
-            );
+            return <Image fluid={item.imageData.fluid} />;
           case 'headingContent':
             return <h2 className="post__paragraph">{item.headingContent}</h2>;
 
@@ -211,7 +214,7 @@ PostLayout.propTypes = {
       description: propTypes.string.isRequired,
       date: propTypes.string.isRequired,
       featuredImage: propTypes.shape({
-        url: propTypes.string.isRequired,
+        fluid: propTypes.string.isRequired,
       }).isRequired,
       postContent: propTypes.shape({
         map: propTypes.func.isRequired,

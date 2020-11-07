@@ -15,7 +15,10 @@ const query = graphql`
         title
         id
         featuredImage {
-          url
+          fluid(maxWidth: 478, imgixParams: { auto: "compress" }) {
+            ...GatsbyDatoCmsFluid
+            tracedSVG
+          }
         }
       }
     }
