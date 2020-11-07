@@ -90,7 +90,7 @@ const PostLayout = ({ data }) => {
           case 'imageData':
             return <Image fluid={item.imageData.fluid} />;
           case 'headingContent':
-            return <h2 className="post__paragraph">{item.headingContent}</h2>;
+            return <h2 className="post__heading">{item.headingContent}</h2>;
           case 'syntaxContent':
             console.log(item);
             return (
@@ -99,18 +99,13 @@ const PostLayout = ({ data }) => {
                 style={materialDark}
                 showLineNumbers
                 className="post__syntax"
-                customStyle={{ lineHeight: '25px' }}
               >
                 {item.syntaxContent}
               </SyntaxHighlighter>
             );
           case 'cliContent':
             return (
-              <SyntaxHighlighter
-                style={solarizedlight}
-                className="post__cli"
-                customStyle={{ padding: '40px 20px 25px' }}
-              >
+              <SyntaxHighlighter style={solarizedlight} className="post__cli">
                 {item.cliContent}
               </SyntaxHighlighter>
             );

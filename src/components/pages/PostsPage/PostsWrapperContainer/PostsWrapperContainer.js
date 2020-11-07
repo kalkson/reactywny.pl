@@ -7,7 +7,7 @@ import StyledPostsWrapper from './PostsWrapper.styled';
 
 const query = graphql`
   {
-    allDatoCmsPost(limit: 3) {
+    allDatoCmsPost {
       nodes {
         category
         date
@@ -15,7 +15,11 @@ const query = graphql`
         title
         id
         featuredImage {
-          fluid(maxWidth: 478, imgixParams: { auto: "compress" }) {
+          fluid(
+            maxWidth: 478
+            maxHeight: 300
+            imgixParams: { auto: "compress" }
+          ) {
             ...GatsbyDatoCmsFluid
             tracedSVG
           }

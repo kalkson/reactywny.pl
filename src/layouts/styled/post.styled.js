@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledPostLayout = styled.article`
-  padding: 200px 17px;
+  padding: 200px 17px 0;
   background-color: ${({ theme }) => theme.colors.mainDark};
   color: ${({ theme }) => theme.colors.mainFair};
   font-weight: ${({ theme }) => theme.fonts.Bold};
@@ -29,6 +29,8 @@ const StyledPostLayout = styled.article`
     &__featuredImage {
       width: 100vw;
       transform: translateX(-17px);
+      height: 200px;
+      box-shadow: inset 0px 0px 66px 5px rgba(0, 0, 0, 0.75);
     }
 
     &__image {
@@ -52,26 +54,38 @@ const StyledPostLayout = styled.article`
       margin-top: 100px;
     }
 
+    &__heading {
+      margin-bottom: 20px !important;
+      padding-bottom: 10px;
+      border-bottom: solid 2px ${({ theme }) => theme.colors.mainFair};
+    }
+
     &__syntax {
-      font-size: 1.2rem;
+      font-size: 0.9rem !important;
+      line-height: 15px;
+      font-weight: 500 !important;
       font-weight: initial;
       font-weight: 600;
-      width: 85%;
+      width: 100%;
+      margin-bottom: 30px !important;
     }
 
     &__cli {
-      font-size: 1.2rem;
-      font-weight: initial;
-      font-weight: 600;
-      width: 85%;
+      max-width: 85%;
+      min-width: 85%;
+      font-size: 0.9rem !important;
+      line-height: 15px;
+      font-weight: 500 !important;
+      padding: 10px;
+      margin-bottom: 30px !important;
     }
   }
 
   @media ${({ theme }) => theme.media.tablet} {
-    padding: 400px 232px 150px 80px;
+    padding: 400px 232px 0 80px;
 
     & > *:not(:last-child) {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     .post {
@@ -82,6 +96,7 @@ const StyledPostLayout = styled.article`
       &__featuredImage {
         width: 100%;
         transform: translateX(0);
+        height: 300px;
       }
 
       &__image {
@@ -97,13 +112,21 @@ const StyledPostLayout = styled.article`
       }
 
       &__paragraph {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        font-weight: 400;
       }
 
       &__syntax {
-        font-size: 1.6rem;
-        width: 100%;
-        font-weight: 600;
+        font-size: 1.6rem !important;
+        line-height: 30px;
+      }
+
+      &__cli {
+        max-width: 100%;
+        min-width: 45%;
+        font-size: 1.6rem !important;
+        line-height: 30px !important;
+        padding: 30px 20px 20px !important;
       }
     }
   }
@@ -119,6 +142,7 @@ const StyledPostLayout = styled.article`
       &__featuredImage {
         width: 100vw;
         transform: translateX(-208px);
+        height: 400px;
       }
     }
   }
