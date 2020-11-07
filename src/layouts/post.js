@@ -4,8 +4,11 @@ import Image from 'gatsby-image';
 import propTypes from 'prop-types';
 import { Disqus } from 'gatsby-plugin-disqus';
 import { graphql } from 'gatsby';
-// import PageFooter from '../components/PageFooter/PageFooter';
-// import PageHeader from '../components/PageHeader/PageHeader';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import {
+  materialDark,
+  solarizedlight,
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const StyledPostLayout = styled.article`
   padding: 200px 17px;
@@ -58,6 +61,20 @@ const StyledPostLayout = styled.article`
     &__disquis {
       margin-top: 100px;
     }
+
+    &__syntax {
+      font-size: 1.2rem;
+      font-weight: initial;
+      font-weight: 600;
+      width: 85%;
+    }
+
+    &__cli {
+      font-size: 1.2rem;
+      font-weight: initial;
+      font-weight: 600;
+      width: 85%;
+    }
   }
 
   @media ${({ theme }) => theme.media.tablet} {
@@ -91,6 +108,12 @@ const StyledPostLayout = styled.article`
 
       &__paragraph {
         font-size: 2rem;
+      }
+
+      &__syntax {
+        font-size: 1.6rem;
+        width: 100%;
+        font-weight: 600;
       }
     }
   }
@@ -155,6 +178,15 @@ export const query = graphql`
           id
           headingContent
         }
+        ... on DatoCmsPostSyntax {
+          id
+          syntaxContent
+          language
+        }
+        ... on DatoCmsPostCli {
+          id
+          cliContent
+        }
       }
     }
   }
@@ -183,11 +215,12 @@ const PostLayout = ({ data }) => {
         fluid={data.datoCmsPost.featuredImage.fluid}
         className="post__featuredImage"
       />
+
       <span className="post__description">{data.datoCmsPost.description}</span>
       {data.datoCmsPost.postContent.map(item => {
         const itemKey = Object.keys(item)[2];
 
-        console.log(itemKey);
+        console.log(item);
 
         switch (itemKey) {
           case 'paragraphContent':
@@ -196,6 +229,29 @@ const PostLayout = ({ data }) => {
             return <Image fluid={item.imageData.fluid} />;
           case 'headingContent':
             return <h2 className="post__paragraph">{item.headingContent}</h2>;
+          case 'syntaxContent':
+            console.log(item);
+            return (
+              <SyntaxHighlighter
+                language={item.language}
+                style={materialDark}
+                showLineNumbers
+                className="post__syntax"
+                customStyle={{ lineHeight: '25px' }}
+              >
+                {item.syntaxContent}
+              </SyntaxHighlighter>
+            );
+          case 'cliContent':
+            return (
+              <SyntaxHighlighter
+                style={solarizedlight}
+                className="post__cli"
+                customStyle={{ padding: '40px 20px 25px' }}
+              >
+                {item.cliContent}
+              </SyntaxHighlighter>
+            );
 
           default:
             return null;
