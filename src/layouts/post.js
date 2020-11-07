@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import propTypes from 'prop-types';
 import { Disqus } from 'gatsby-plugin-disqus';
+import { graphql } from 'gatsby';
 // import PageFooter from '../components/PageFooter/PageFooter';
 // import PageHeader from '../components/PageHeader/PageHeader';
 
@@ -122,7 +124,38 @@ const StyledPostLayout = styled.article`
   }
 `;
 
-const PostLayout = () => {
+export const query = graphql`
+  query querySingleDatoCMSPost($id: String!) {
+    datoCmsPost(id: { eq: $id }) {
+      id
+      date
+      description
+      title
+      featuredImage {
+        url
+      }
+      category
+      postContent {
+        ... on DatoCmsParagraph {
+          id
+          paragraphContent
+        }
+        ... on DatoCmsPostImage {
+          id
+          imageData {
+            url
+          }
+        }
+        ... on DatoCmsPostHeadline {
+          id
+          headingContent
+        }
+      }
+    }
+  }
+`;
+
+const PostLayout = ({ data }) => {
   const disqusConfig = {
     // url: `/post`,
     // identifier: 1,
@@ -130,78 +163,61 @@ const PostLayout = () => {
   };
 
   return (
-    <>
-      {/* <PageHeader /> */}
-      <StyledPostLayout>
-        <div className="post__top">
-          <date className="post__top__date">12 grudnia 20</date>
-          <span className="post__top__category">GitHub</span>
-        </div>
-        <span className="post__title">Czym jest GitHub?</span>
-        <img
-          src="https://source.unsplash.com/random/1920x400"
-          alt="post"
-          className="post__featuredImage"
-        />
-        <span className="post__description">
-          Praca z gitem może na początku powodować frustrację. W moim przypadku
-          tak było. Co zrobiłem, by czuć się w nim jak ryba w wodzie?
-        </span>
-        <p className="paragraph">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-          kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-          amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-          diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-          erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-          et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam
-        </p>
-        <img
-          src="https://source.unsplash.com/random/400x200"
-          alt="postImage"
-          className="post__image"
-        />
-        <p className="paragraph">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-          kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-          amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-          diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-          erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-          et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam
-        </p>
+    <StyledPostLayout>
+      <div className="post__top">
+        <date className="post__top__date">{data.datoCmsPost.date}</date>
+        <span className="post__top__category">{data.datoCmsPost.category}</span>
+      </div>
+      <span className="post__title">{data.datoCmsPost.title}</span>
+      <img
+        src={data.datoCmsPost.featuredImage.url}
+        alt="post"
+        className="post__featuredImage"
+      />
+      <span className="post__description">{data.datoCmsPost.description}</span>
+      {data.datoCmsPost.postContent.map(item => {
+        const itemKey = Object.keys(item)[2];
 
-        <Disqus config={disqusConfig} className="post__disquis" />
-      </StyledPostLayout>
-      {/* <PageFooter /> */}
-    </>
+        console.log(itemKey);
+
+        switch (itemKey) {
+          case 'paragraphContent':
+            return <p className="post__paragraph">{item.paragraphContent}</p>;
+          case 'imageData':
+            return (
+              <img
+                src={item.imageData.url}
+                className="post__image"
+                alt={item.imageData.id}
+              />
+            );
+          case 'headingContent':
+            return <h2 className="post__paragraph">{item.headingContent}</h2>;
+
+          default:
+            return null;
+        }
+      })}
+      <Disqus config={disqusConfig} className="post__disquis" />
+    </StyledPostLayout>
   );
+};
+
+PostLayout.propTypes = {
+  data: propTypes.shape({
+    datoCmsPost: propTypes.shape({
+      title: propTypes.string.isRequired,
+      category: propTypes.string.isRequired,
+      description: propTypes.string.isRequired,
+      date: propTypes.string.isRequired,
+      featuredImage: propTypes.shape({
+        url: propTypes.string.isRequired,
+      }).isRequired,
+      postContent: propTypes.shape({
+        map: propTypes.func.isRequired,
+      }).isRequired,
+    }),
+  }).isRequired,
 };
 
 export default PostLayout;

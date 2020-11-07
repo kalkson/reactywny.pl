@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `posts/${slugify(post.title, { lower: true })}`,
       component: PostTemplate,
       context: {
-        postId: post.id,
+        id: post.id,
       },
     });
   });
