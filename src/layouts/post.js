@@ -62,6 +62,8 @@ const PostLayout = ({ data }) => {
     // title: 'post',
   };
 
+  console.log(data);
+
   return (
     <StyledPostLayout>
       <SEO
@@ -74,11 +76,6 @@ const PostLayout = ({ data }) => {
         <span className="post__top__category">{data.datoCmsPost.category}</span>
       </div>
       <span className="post__title">{data.datoCmsPost.title}</span>
-      {/* <img
-        src={data.datoCmsPost.featuredImage.url}
-        alt="post"
-        className="post__featuredImage"
-      /> */}
       <Image
         fluid={data.datoCmsPost.featuredImage.fluid}
         className="post__featuredImage"
