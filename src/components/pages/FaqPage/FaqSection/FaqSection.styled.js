@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledFaqSection = styled.section`
-  padding: 220px 22px 150px;
+  padding: 220px 22px 50px;
   background-color: ${({ theme }) => theme.colors.mainFair};
 
   & > header {

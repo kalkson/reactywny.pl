@@ -48,6 +48,7 @@ const StyledPostLayout = styled.article`
 
     &__paragraph {
       font-size: 1.2rem;
+      line-height: 1.8rem;
     }
 
     &__disquis {
@@ -114,6 +115,7 @@ const StyledPostLayout = styled.article`
       &__paragraph {
         font-size: 1.6rem;
         font-weight: 400;
+        line-height: 2.4rem;
       }
 
       &__syntax {

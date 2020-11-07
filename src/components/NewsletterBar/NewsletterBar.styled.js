@@ -25,12 +25,14 @@ const StyledNewsletterBar = styled.div`
       margin: 5px 0 60px;
     }
 
-    &__input {
-      border-radius: 30px;
-      font-size: 1.2rem;
-      padding: 13px 0;
-      text-align: center;
-      width: 195px;
+    &__form {
+      display: flex;
+      flex-direction: column;
+
+      &__button {
+        background-color: transparent;
+        border: none;
+      }
     }
   }
 `;

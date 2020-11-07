@@ -1,17 +1,18 @@
 import React from 'react';
 import StyledNewsletterBar from './NewsletterBar.styled';
 import PageLink from '../PageLink/PageLink';
+import PageInput from '../PageInput/PageInput';
 
 const NewsletterBar = () => {
   return (
     <StyledNewsletterBar className="newsletter">
       <span className="newsletter__head">NEWSLETTER</span>
       <p className="newsletter__paragraph">
-        Zapisz się do newslettera by być na bieżąco z nowymi wpisami i
+        Zapisz się do newslettera, by być na bieżąco z nowymi wpisami i
         aktualnościami
       </p>
       <form action="" className="newsletter__form">
-        <input
+        <PageInput
           className="newsletter__form__input"
           type="email"
           placeholder="Adres e-mail"
