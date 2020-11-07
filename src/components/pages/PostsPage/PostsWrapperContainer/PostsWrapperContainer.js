@@ -1,10 +1,34 @@
 import Headline from 'components/Headline/Headline';
+import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import PostElement from 'components/PostElement/PostElement';
 import StyledPostsWrapperContainer from './PostsWrapperContainer.styled';
 import StyledPostsWrapper from './PostsWrapper.styled';
 
+const query = graphql`
+  {
+    allDatoCmsPost(limit: 3) {
+      nodes {
+        category
+        date
+        shortDescription
+        title
+        id
+        featuredImage {
+          url
+        }
+      }
+    }
+  }
+`;
+
 const PostWrapperContainer = () => {
+  const data = useStaticQuery(query);
+
+  const {
+    allDatoCmsPost: { nodes },
+  } = data;
+
   return (
     <StyledPostsWrapperContainer className="posts">
       <div className="posts__left-section">
@@ -22,11 +46,9 @@ const PostWrapperContainer = () => {
         </p>
       </div>
       <StyledPostsWrapper className="posts__wrapper">
-        <PostElement />
-        <PostElement />
-        <PostElement />
-        <PostElement />
-        <PostElement />
+        {nodes.map(post => {
+          return <PostElement key={post.id} data={post} />;
+        })}
       </StyledPostsWrapper>
     </StyledPostsWrapperContainer>
   );
