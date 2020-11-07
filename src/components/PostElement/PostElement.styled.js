@@ -40,6 +40,7 @@ const StyledPostElement = styled.div`
 
     &__image {
       width: 255px;
+      height: 140px;
     }
 
     &__title {

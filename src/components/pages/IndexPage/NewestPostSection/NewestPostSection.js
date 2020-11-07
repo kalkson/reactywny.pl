@@ -1,11 +1,27 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import NewPostElement from 'components/NewPostElement/NewPostElement';
 import PageLink from 'components/PageLink/PageLink';
 import Wires from 'assets/svg/wires.svg';
 import StyledNewestPostSection from './NewestPostSection.styled';
 import Headline from '../../../Headline/Headline';
 
+export const query = graphql`
+  {
+    allDatoCmsPost(limit: 3) {
+      nodes {
+        shortDescription
+        title
+        date
+        id
+      }
+    }
+  }
+`;
+
 const NewestPostSection = () => {
+  const data = useStaticQuery(query);
+
   return (
     <StyledNewestPostSection>
       <Wires className="newest-post__icon" />
@@ -15,9 +31,9 @@ const NewestPostSection = () => {
           <br /> posty
         </Headline>
         <div className="newest-post__wrapper">
-          <NewPostElement />
-          <NewPostElement />
-          <NewPostElement />
+          {data.allDatoCmsPost.nodes.map(post => (
+            <NewPostElement data={post} key={post.id} />
+          ))}
         </div>
       </div>
       <PageLink to="/posts">Zobacz wszystkie wpisy</PageLink>

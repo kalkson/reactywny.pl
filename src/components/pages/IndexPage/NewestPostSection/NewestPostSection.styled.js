@@ -54,19 +54,19 @@ const StyledNewestPostSection = styled.section`
     display: flex;
     flex-direction: column;
 
-    & > div:not(:last-child) {
+    & > a:not(:last-child) {
       margin-bottom: 30px;
     }
 
-    & > div:nth-child(1) {
+    & > a:nth-child(1) {
       align-self: flex-start;
     }
 
-    & > div:nth-child(2) {
+    & > a:nth-child(2) {
       align-self: center;
     }
 
-    & > div:nth-child(3) {
+    & > a:nth-child(3) {
       align-self: flex-end;
     }
   }
@@ -88,18 +88,18 @@ const StyledNewestPostSection = styled.section`
     }
 
     & .newest-post__wrapper {
-      & > div {
+      & > a {
         width: 500px;
         height: 200px;
 
         font-size: 1.8em;
       }
 
-      & > div:nth-child(1) {
+      & > a:nth-child(1) {
         align-self: center;
       }
 
-      & > div:nth-child(3) {
+      & > a:nth-child(3) {
         align-self: center;
       }
     }
