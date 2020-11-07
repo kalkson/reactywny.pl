@@ -9,6 +9,7 @@ import {
   solarizedlight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import StyledPostLayout from './styled/post.styled';
+import SEO from '../SEO';
 
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!) {
@@ -63,6 +64,11 @@ const PostLayout = ({ data }) => {
 
   return (
     <StyledPostLayout>
+      <SEO
+        title={data.datoCmsPost.title}
+        description={data.datoCmsPost.description}
+        post
+      />
       <div className="post__top">
         <date className="post__top__date">{data.datoCmsPost.date}</date>
         <span className="post__top__category">{data.datoCmsPost.category}</span>
