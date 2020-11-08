@@ -38,7 +38,7 @@ const withNewsletter = WrappedComponent => {
 
     return (
       <>
-        <WrappedComponent roman="hello" {...props} />
+        <WrappedComponent {...props} />
         <NewsletterButton
           isButtonVisible={isButtonVisible}
           setNewsletterVisible={setNewsletterVisible}

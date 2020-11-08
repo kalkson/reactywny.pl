@@ -21,15 +21,8 @@ const PageHeader = () => {
         ? 'up'
         : 'down';
     const newScrollPosition = document.body.getBoundingClientRect().top;
-    // console.log(newScrollDirection);
 
     setScrollPosition(newScrollPosition);
-
-    // if (e.wheelDelta <= 0 && window.scrollY >= 0) {
-    //   setScrolledDown(true);
-    // } else if (e.wheelDelta > 0 && window.scrollY <= 250) {
-    //   setScrolledDown(false);
-    // }
 
     if (scrollDirection === 'down' && window.scrollY >= 0) {
       setScrolledDown(true);

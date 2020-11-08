@@ -22,7 +22,7 @@ const StyledNewsletterBar = styled.div`
     right: 0;
     transform: translateX(0);
     `
-      : !isNewsletterVisible &&
+      : isNewsletterVisible === false &&
         `
         position: fixed !important;
         top: auto !important;
