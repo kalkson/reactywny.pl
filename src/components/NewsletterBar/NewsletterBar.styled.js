@@ -2,13 +2,34 @@ import styled from 'styled-components';
 
 const StyledNewsletterBar = styled.div`
   background-color: black;
-
   padding: 40px;
   color: ${({ theme }) => theme.colors.mainFair};
-  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  display: flex;
+  box-shadow: 0px 0px 43px 1px rgba(0, 0, 0, 0.75);
+
+  transition: transform 300ms ease-in-out 200ms;
+
+  ${({ isNewsletterVisible }) =>
+    isNewsletterVisible
+      ? isNewsletterVisible &&
+        `
+    position: fixed !important;
+    top: auto !important;
+    bottom: 100px;
+    right: 0;
+    transform: translateX(0);
+    `
+      : !isNewsletterVisible &&
+        `
+        position: fixed !important;
+        top: auto !important;
+      bottom: 100px;
+      right: 0;
+    transform: translateX(100%);
+    `}
 
   & > *:not(:last-child) {
     margin-bottom: 20px;

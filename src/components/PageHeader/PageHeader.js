@@ -13,7 +13,7 @@ import MenuLink from '../MenuLink/MenuLink';
 const PageHeader = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
   const [isScrolledDown, setScrolledDown] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(null);
 
   const listener = () => {
     const scrollDirection =

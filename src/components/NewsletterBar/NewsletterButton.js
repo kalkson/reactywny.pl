@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+import propTypes from 'prop-types';
 import MailIcon from '../../assets/svg/mail.svg';
 
 const StyledNewsletterButton = styled.button`
@@ -11,8 +12,15 @@ const StyledNewsletterButton = styled.button`
   right: 0;
   z-index: 100;
 
+  transition: transform 300ms ease-in;
+
+  transform: translateX(
+    ${({ isClosedOneTime, isButtonVisible }) =>
+      isClosedOneTime && isButtonVisible ? '50%' : '100%'}
+  );
+
   padding: 15px;
-  box-shadow: 0px 0px 43px 1px rgba(255, 255, 255, 0.75);
+  box-shadow: 0px 0px 43px 1px rgba(0, 0, 0, 0.75);
 
   & svg {
     width: 100%;
@@ -30,12 +38,33 @@ const StyledNewsletterButton = styled.button`
   }
 `;
 
-const NewsletterButton = () => {
+const NewsletterButton = (
+  {
+    isButtonVisible,
+    setNewsletterVisible,
+    isNewsletterVisible,
+    isClosedOneTime,
+  },
+  ref
+) => {
   return (
-    <StyledNewsletterButton title="Zapisz się do newslettera">
+    <StyledNewsletterButton
+      ref={ref}
+      title="Zapisz się do newslettera"
+      isButtonVisible={isButtonVisible}
+      isClosedOneTime={isClosedOneTime}
+      onClick={() => setNewsletterVisible(!isNewsletterVisible)}
+    >
       <MailIcon />
     </StyledNewsletterButton>
   );
 };
 
-export default NewsletterButton;
+NewsletterButton.propTypes = {
+  isButtonVisible: propTypes.bool.isRequired,
+  isNewsletterVisible: propTypes.bool.isRequired,
+  isClosedOneTime: propTypes.bool.isRequired,
+  setNewsletterVisible: propTypes.func.isRequired,
+};
+
+export default forwardRef(NewsletterButton);

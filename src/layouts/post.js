@@ -11,6 +11,7 @@ import {
 import StyledPostLayout from './styled/post.styled';
 import SEO from '../SEO';
 import HomeIcon from '../assets/svg/home.svg';
+import withNewsletter from '../components/hoc/withNewsletter';
 
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!) {
@@ -97,8 +98,6 @@ const PostLayout = ({ data }) => {
           {data.datoCmsPost.postContent.map(item => {
             const itemKey = Object.keys(item)[2];
 
-            console.log(item);
-
             switch (itemKey) {
               case 'paragraphContent':
                 return (
@@ -109,7 +108,6 @@ const PostLayout = ({ data }) => {
               case 'headingContent':
                 return <h2 className="post__heading">{item.headingContent}</h2>;
               case 'syntaxContent':
-                console.log(item);
                 return (
                   <SyntaxHighlighter
                     language={item.language}
@@ -159,4 +157,4 @@ PostLayout.propTypes = {
   }).isRequired,
 };
 
-export default PostLayout;
+export default withNewsletter(PostLayout);
