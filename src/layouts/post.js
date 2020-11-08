@@ -63,8 +63,6 @@ const PostLayout = ({ data }) => {
     // title: 'post',
   };
 
-  console.log(data);
-
   if (data)
     return (
       <>

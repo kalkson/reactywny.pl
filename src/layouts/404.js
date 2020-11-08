@@ -1,7 +1,7 @@
 import React from 'react';
 
-const NotFoundLayout = ({ children }) => {
-  return;
+const NotFoundLayout = () => {
+  return <div>ahahahha</div>;
 };
 
-export default NotFound;
+export default NotFoundLayout;
