@@ -13,7 +13,7 @@ import MenuLink from '../MenuLink/MenuLink';
 const PageHeader = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
   const [isScrolledDown, setScrolledDown] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(null);
 
   const listener = () => {
     const scrollDirection =
@@ -21,15 +21,8 @@ const PageHeader = () => {
         ? 'up'
         : 'down';
     const newScrollPosition = document.body.getBoundingClientRect().top;
-    // console.log(newScrollDirection);
 
     setScrollPosition(newScrollPosition);
-
-    // if (e.wheelDelta <= 0 && window.scrollY >= 0) {
-    //   setScrolledDown(true);
-    // } else if (e.wheelDelta > 0 && window.scrollY <= 250) {
-    //   setScrolledDown(false);
-    // }
 
     if (scrollDirection === 'down' && window.scrollY >= 0) {
       setScrolledDown(true);
@@ -77,7 +70,7 @@ const PageHeader = () => {
             </Link>
           </MenuLink>
           <MenuLink classes="header__nav__link-4">
-            <Link to="/article" onClick={() => setMenuVisible(false)}>
+            <Link to="/faq/#contact" onClick={() => setMenuVisible(false)}>
               KONTAKT
             </Link>
           </MenuLink>

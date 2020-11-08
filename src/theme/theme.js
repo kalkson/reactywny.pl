@@ -28,8 +28,8 @@ const theme = {
   },
 
   media: {
-    desktop: `(min-width: 1920px)`,
-    laptop: `(min-width: 1366px)`,
+    desktop: `(min-width: 1860px)`,
+    laptop: `(min-width: 1300px)`,
     tablet: `(min-width: 1024px)`,
     phone: `(min-width: 375px)`,
   },

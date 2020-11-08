@@ -7,7 +7,7 @@ const StyledPageHeader = styled.header`
   padding: ${({ theme }) => theme.paddings.mobile};
   background-color: ${({ theme }) => theme.colors.mainFair};
   justify-content: space-between;
-  transition: height 300ms ease-out;
+  transition: height 300ms ease-in-out 200ms;
   display: flex;
   justify-content: center;
   z-index: 10;
@@ -20,7 +20,7 @@ const StyledPageHeader = styled.header`
     !isScrolledDown && isMenuVisible ? '170px' : null};
 
   height: ${({ isMenuVisible, isScrolledDown }) =>
-    isScrolledDown && !isMenuVisible ? '70px' : null};
+    isScrolledDown && !isMenuVisible ? '50px' : null};
 
   & .menu-button {
     position: absolute;
@@ -40,19 +40,19 @@ const StyledPageHeader = styled.header`
     justify-self: center;
     width: fit-content;
     margin: 0 auto;
-    transform: translateY(20px);
 
-    transition: transform 300ms linear;
+    transition: transform 300ms ease-in;
 
-    transform: translateY(
-      ${({ isScrolledDown }) => (isScrolledDown ? '0' : null)}
-    );
+    /* transform: translateY(
+      ${({ isScrolledDown }) => (isScrolledDown ? '10px' : null)}
+    ); */
 
     &__image {
-      transition: width 300ms linear, height 300ms linear;
+      transition: width 300ms linear 200ms, height 300ms linear 200ms;
 
       width: 200px;
       height: 38px;
+      min-height: 25px;
 
       width: ${({ isScrolledDown }) => (isScrolledDown ? '130px' : null)};
       height: ${({ isScrolledDown }) => (isScrolledDown ? '25px' : null)};
@@ -60,6 +60,23 @@ const StyledPageHeader = styled.header`
 
     &__underline {
       font-size: 1.5rem;
+      display: none;
+      animation: underline-appear 300ms ease-in forwards 1s;
+      opacity: 0;
+
+      display: ${({ isScrolledDown }) => (!isScrolledDown ? 'block' : null)};
+      display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : null)};
+
+      @keyframes underline-appear {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     }
   }
 
@@ -79,6 +96,22 @@ const StyledPageHeader = styled.header`
     z-index: 5;
     left: calc(50% - 25px);
     display: none;
+    animation: image-appear 200ms linear;
+
+    display: ${({ isScrolledDown }) => (!isScrolledDown ? 'block' : null)};
+
+    display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : null)};
+
+    @keyframes image-appear {
+      0% {
+        opacity: 0;
+        transform: translate(100px, 200px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
   }
 
   & .header__nav {
@@ -88,7 +121,8 @@ const StyledPageHeader = styled.header`
     /* transform: translateY(-20px); */
 
     display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : 'none')};
-    animation: nav-appear 300ms ease-in;
+    animation: nav-appear 300ms ease-in forwards 620ms;
+    opacity: 0;
 
     @keyframes nav-appear {
       0% {
@@ -148,16 +182,16 @@ const StyledPageHeader = styled.header`
       }
 
       .header__nav__link-1:before {
-        animation-delay: 100ms;
+        animation-delay: 500ms;
       }
       .header__nav__link-2:before {
-        animation-delay: 200ms;
+        animation-delay: 600ms;
       }
       .header__nav__link-3:before {
-        animation-delay: 300ms;
+        animation-delay: 700ms;
       }
       .header__nav__link-4:before {
-        animation-delay: 400ms;
+        animation-delay: 800ms;
       }
 
       @keyframes menu-link-appear {
@@ -206,11 +240,17 @@ const StyledPageHeader = styled.header`
       isScrolledDown && !isMenuVisible ? '75px' : null};
 
     & .header__logo {
-      transition: top 300ms linear;
-      top: ${({ isScrolledDown }) => (isScrolledDown ? '10px' : null)};
+      transition: top 300ms linear, transform 300ms linear;
+      top: ${({ isScrolledDown }) => (isScrolledDown ? '0' : null)};
       position: relative;
 
+      transform: translateY(10px);
+
+      /* transform: ${({ isScrolledDown }) =>
+        isScrolledDown ? 'translateY(10px)' : null}; */
+
       &__image {
+        min-height: 60px;
         width: 580px;
         height: 160px;
         position: relative;
@@ -221,11 +261,6 @@ const StyledPageHeader = styled.header`
 
       &__underline {
         font-size: 3rem;
-        display: ${({ isScrolledDown }) => (isScrolledDown ? 'none' : null)};
-        display: ${({ isMenuVisible }) => (isMenuVisible ? 'inline' : null)};
-
-        opacity: ${({ isScrolledDown }) => (isScrolledDown ? 0 : null)};
-        opacity: ${({ isMenuVisible }) => (isMenuVisible ? 1 : null)};
       }
     }
 
@@ -282,7 +317,10 @@ const StyledPageHeader = styled.header`
     }
 
     & .header__image {
-      transform: scale(2);
+      width: 100px;
+      height: 60px;
+      bottom: -30px;
+      left: calc(50% - 50px);
     }
 
     & .header__nav {

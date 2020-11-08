@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-const StyledNewPostElement = styled.div`
+const StyledNewPostElement = styled(Link)`
   width: 300px;
   height: 140px;
   background-color: ${({ theme }) => theme.colors.mainFair};

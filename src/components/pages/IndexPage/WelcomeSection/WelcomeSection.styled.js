@@ -1,14 +1,44 @@
+import React from 'react';
 import styled from 'styled-components';
+import propTypes from 'prop-types';
+import BackgroundImage from 'gatsby-background-image';
+import { useStaticQuery, graphql } from 'gatsby';
 
-const StyledWelcomeSection = styled.section`
+const query = graphql`
+  {
+    background: file(name: { eq: "background-image" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920, toFormat: WEBP, webpQuality: 100) {
+          tracedSVG
+          src
+        }
+      }
+    }
+  }
+`;
+
+const BackgroundSection = ({ children }) => {
+  const data = useStaticQuery(query);
+
+  return (
+    <BackgroundImage
+      Tag="section"
+      className="welcome-section"
+      fluid={data.background.childImageSharp.fluid}
+    >
+      <StyledWelcomeSection>{children}</StyledWelcomeSection>
+    </BackgroundImage>
+  );
+};
+
+const StyledWelcomeSection = styled.div`
   position: relative;
   padding: 180px ${({ theme }) => theme.paddings.mobile};
-  background-color: ${({ theme }) => theme.colors.mainDark};
+  /* background-color: ${({ theme }) => theme.colors.mainDark}; */
   color: ${({ theme }) => theme.colors.mainFair};
 
   overflow: hidden;
 
-  background-image: url(${({ background }) => background});
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -172,4 +202,8 @@ const StyledWelcomeSection = styled.section`
   }
 `;
 
-export default StyledWelcomeSection;
+BackgroundSection.propTypes = {
+  children: propTypes.element.isRequired,
+};
+
+export default BackgroundSection;

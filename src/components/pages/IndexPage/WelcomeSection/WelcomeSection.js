@@ -13,24 +13,14 @@ const query = graphql`
         }
       }
     }
-    background: file(name: { eq: "background-image" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 100) {
-          src
-        }
-      }
-    }
   }
 `;
 
 const WelcomeSection = () => {
   const data = useStaticQuery(query);
-  console.log(data);
 
   return (
-    <StyledWelcomeSection
-      background={data.background.childImageSharp.fluid.src}
-    >
+    <StyledWelcomeSection>
       <Headline size={54} className="welcome-section__headline">
         <span style={{ color: '#61DAFB' }}>Ucz się</span>
         <br />

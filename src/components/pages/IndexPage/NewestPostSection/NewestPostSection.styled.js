@@ -13,8 +13,7 @@ const StyledNewestPostSection = styled.section`
     top: -10px;
     left: -10px;
     z-index: 0;
-
-    & path {
+    + & path {
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
       animation: dash 30s linear infinite 500ms;
@@ -36,6 +35,7 @@ const StyledNewestPostSection = styled.section`
     position: relative;
     z-index: 0;
     transform: translateY(-10px);
+    margin-top: 80px;
 
     &:after {
       content: '';
@@ -54,19 +54,19 @@ const StyledNewestPostSection = styled.section`
     display: flex;
     flex-direction: column;
 
-    & > div:not(:last-child) {
+    & > a:not(:last-child) {
       margin-bottom: 30px;
     }
 
-    & > div:nth-child(1) {
+    & > a:nth-child(1) {
       align-self: flex-start;
     }
 
-    & > div:nth-child(2) {
+    & > a:nth-child(2) {
       align-self: center;
     }
 
-    & > div:nth-child(3) {
+    & > a:nth-child(3) {
       align-self: flex-end;
     }
   }
@@ -88,18 +88,18 @@ const StyledNewestPostSection = styled.section`
     }
 
     & .newest-post__wrapper {
-      & > div {
+      & > a {
         width: 500px;
         height: 200px;
 
         font-size: 1.8em;
       }
 
-      & > div:nth-child(1) {
+      & > a:nth-child(1) {
         align-self: center;
       }
 
-      & > div:nth-child(3) {
+      & > a:nth-child(3) {
         align-self: center;
       }
     }
@@ -121,10 +121,6 @@ const StyledNewestPostSection = styled.section`
       justify-content: space-between;
 
       & header {
-        /* bottom: 150px;
-      left: -100px;
-      margin: 100px 0 0 200px;
-      position: absolute; */
         font-size: 9.3rem;
         margin-top: auto;
         margin-bottom: 130px;
@@ -142,8 +138,8 @@ const StyledNewestPostSection = styled.section`
         align-items: flex-end;
         justify-content: flex-end;
 
-        & > div {
-          width: 500px;
+        & > a {
+          width: 450px;
           height: 200px;
 
           font-size: 1.8em;
@@ -160,6 +156,22 @@ const StyledNewestPostSection = styled.section`
       text-align: right;
       margin-left: auto;
       margin-right: 120px;
+    }
+  }
+
+  @media ${({ theme }) => theme.media.desktop} {
+    display: flex;
+    flex-direction: column;
+
+    & > .newest-post {
+      & .newest-post__wrapper {
+        & > a {
+          width: 500px;
+          height: 200px;
+
+          font-size: 1.8em;
+        }
+      }
     }
   }
 `;
