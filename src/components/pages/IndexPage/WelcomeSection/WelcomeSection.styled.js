@@ -10,6 +10,7 @@ const query = graphql`
       childImageSharp {
         fluid(maxWidth: 1920, toFormat: WEBP, webpQuality: 100) {
           tracedSVG
+          srcSet
           src
         }
       }

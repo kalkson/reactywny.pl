@@ -12,6 +12,7 @@ const query = graphql`
         defaultImage: image
         defaultDescription: description
         siteUrl: url
+        author
       }
     }
   }
@@ -26,18 +27,36 @@ const SEO = ({ title, description, post, image }) => {
     defaultDescription,
     defaultImage,
     siteUrl,
+    author,
   } = site.siteMetadata;
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
+    image: image || defaultImage,
     url: `${siteUrl}${pathname}`,
+    author,
   };
 
   return (
     <Helmet title={seo.title}>
+      <html lang="pl" amp={post ? true : null} />
       <meta name="description" content={seo.description} />
+      <meta name="author" content={seo.author} />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="robots" content="index, follow" />
+      <meta
+        name="googlebot"
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      />
+      <meta
+        name="bingbot"
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      />
+      <meta
+        name="keywords"
+        content="react, reactywny, programowanie, javascript, blog, computer, science, rozwój, nauka"
+      />
       {seo.url && <meta property="og:url" content={seo.url} />}
       {(post ? true : null) && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
