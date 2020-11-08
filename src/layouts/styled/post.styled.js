@@ -13,6 +13,27 @@ const StyledPostLayout = styled.article`
   }
 
   .post {
+    &__nav {
+      display: flex;
+      font-size: 0.8rem;
+      color: darkgray;
+
+      &__previous {
+        display: flex;
+        align-items: center;
+        text-decoration: underline;
+
+        svg {
+          width: 0.8rem;
+          height: 0.8rem;
+          margin-right: 2px;
+          path {
+            fill: darkgray;
+          }
+        }
+      }
+    }
+
     &__top {
       font-size: 1.2rem;
 
@@ -90,6 +111,18 @@ const StyledPostLayout = styled.article`
     }
 
     .post {
+      &__nav {
+        font-size: 1.4rem;
+
+        &__previous {
+          svg {
+            width: 1.6rem;
+            height: 1.6rem;
+            margin-right: 5px;
+          }
+        }
+      }
+
       &__top {
         font-size: 2.5rem;
       }
