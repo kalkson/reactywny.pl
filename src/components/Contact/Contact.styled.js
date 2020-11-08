@@ -81,6 +81,41 @@ const StyledContact = styled.div`
       }
     }
   }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    align-items: flex-start;
+
+    & > header {
+      width: 35vw;
+      text-align: center;
+      font-size: 9.3rem;
+
+      &:after {
+      }
+    }
+
+    .contact {
+      &__paragraph {
+        width: 35vw;
+        font-size: 2.4rem;
+      }
+
+      &__form {
+        width: 50%;
+        margin-left: 200px;
+        &__input {
+          margin-left: auto;
+        }
+
+        &__textarea {
+          width: 100%;
+        }
+
+        &__button {
+        }
+      }
+    }
+  }
 `;
 
 export default StyledContact;

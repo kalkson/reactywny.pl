@@ -35,6 +35,13 @@ const StyledNewsletterBar = styled.div`
       }
     }
   }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    width: 55vw;
+    right: 0;
+    top: 70px;
+    position: absolute;
+  }
 `;
 
 export default StyledNewsletterBar;
