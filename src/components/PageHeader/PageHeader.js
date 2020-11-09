@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // import propTypes from 'prop-types';
 // import { graphql } from 'gatsby';
 // import Img from 'gatsby-image';
@@ -14,6 +14,8 @@ const PageHeader = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
   const [isScrolledDown, setScrolledDown] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(null);
+
+  const header = useRef(null);
 
   const listener = () => {
     const scrollDirection =
@@ -31,16 +33,27 @@ const PageHeader = () => {
     }
   };
 
+  const mouseDownHandler = e => {
+    if (!header.current || !header.current.contains(e.target)) {
+      setMenuVisible(0);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener('scroll', listener);
+    document.addEventListener('mousedown', mouseDownHandler);
 
-    return () => document.removeEventListener('scroll', listener);
+    return () => {
+      document.removeEventListener('scroll', listener);
+      document.removeEventListener('mousedown', mouseDownHandler);
+    };
   });
 
   return (
     <StyledPageHeader
       isMenuVisible={isMenuVisible}
       isScrolledDown={isScrolledDown}
+      ref={header}
     >
       <MenuButton
         setMenuVisible={setMenuVisible}

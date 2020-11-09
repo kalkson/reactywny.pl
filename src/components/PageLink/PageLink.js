@@ -13,8 +13,15 @@ const PageLink = ({ children, to }) => {
 };
 
 PageLink.propTypes = {
-  children: propTypes.element.isRequired,
-  to: propTypes.string.isRequired,
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]).isRequired,
+  to: propTypes.string,
+};
+
+PageLink.defaultProps = {
+  to: '',
 };
 
 export default PageLink;

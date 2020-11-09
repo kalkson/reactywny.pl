@@ -14,7 +14,6 @@ const withNewsletter = WrappedComponent => {
 
     const listener = () => {
       const documentHeight = document.body.clientHeight;
-      console.dir(window);
       if (
         window.scrollY >=
         0.7 * (documentHeight - window.screen.availHeight)
@@ -23,12 +22,10 @@ const withNewsletter = WrappedComponent => {
         setAllowScroll(false);
 
         button.current.style.transform = 'translateX(0)';
-        console.log(button.current.style.transform);
       }
     };
 
     useEffect(() => {
-      console.log(button);
       if (allowScroll) document.addEventListener('scroll', listener);
 
       return () => {
@@ -55,10 +52,6 @@ const withNewsletter = WrappedComponent => {
   HOC.displayName = 'withNewsletter';
 
   return HOC;
-
-  //   return HOC;
 };
-
-// withNewsletter.displayName = 'withNewsletter';
 
 export default withNewsletter;

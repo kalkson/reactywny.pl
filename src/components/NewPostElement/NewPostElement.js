@@ -16,7 +16,7 @@ const NewPostElement = ({ data }) => {
         </span>
         <span>
           <ArrowIcon className="newest-post__wrapper__left__icon" />
-          <date className="newest-post__wrapper__left__date">{date}</date>
+          <time className="newest-post__wrapper__left__date">{date}</time>
         </span>
       </div>
     </StyledNewPostElement>
@@ -27,9 +27,15 @@ NewPostElement.propTypes = {
   data: propTypes.shape({
     title: propTypes.string.isRequired,
     date: propTypes.string.isRequired,
-    category: propTypes.string.isRequired,
+    category: propTypes.string,
     shortDescription: propTypes.string.isRequired,
-  }).isRequired,
+  }),
+};
+
+NewPostElement.defaultProps = {
+  data: {
+    category: null,
+  },
 };
 
 export default NewPostElement;

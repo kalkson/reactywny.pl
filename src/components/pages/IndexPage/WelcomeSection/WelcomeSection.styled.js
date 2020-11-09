@@ -9,9 +9,7 @@ const query = graphql`
     background: file(name: { eq: "background-image" }) {
       childImageSharp {
         fluid(maxWidth: 1920, toFormat: WEBP, webpQuality: 100) {
-          tracedSVG
-          srcSet
-          src
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -204,7 +202,10 @@ const StyledWelcomeSection = styled.div`
 `;
 
 BackgroundSection.propTypes = {
-  children: propTypes.element.isRequired,
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]).isRequired,
 };
 
 export default BackgroundSection;

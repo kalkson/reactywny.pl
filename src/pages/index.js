@@ -4,7 +4,6 @@ import NewestPostSection from '../components/pages/IndexPage/NewestPostSection/N
 import MissionSection from '../components/pages/IndexPage/MissionSection/MissionSection';
 
 const IndexPage = () => {
-  // console.log(data);
   return (
     <>
       <WelcomeSection />

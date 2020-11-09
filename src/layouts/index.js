@@ -27,11 +27,10 @@ const MainLayout = ({ children }) => {
 };
 
 MainLayout.propTypes = {
-  children: propTypes.element,
-};
-
-MainLayout.defaultProps = {
-  children: '',
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]).isRequired,
 };
 
 export default MainLayout;

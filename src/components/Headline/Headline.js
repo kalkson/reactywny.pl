@@ -13,7 +13,10 @@ const Headline = ({ children, size }) => {
 };
 
 Headline.propTypes = {
-  children: propTypes.element.isRequired,
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]).isRequired,
   size: propTypes.number,
 };
 
