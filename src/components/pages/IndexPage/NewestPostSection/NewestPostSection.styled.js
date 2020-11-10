@@ -3,39 +3,24 @@ import styled from 'styled-components';
 const StyledNewestPostSection = styled.section`
   padding: ${({ theme }) => theme.paddings.mobile};
   background-color: ${({ theme }) => theme.colors.mainDark};
-  overflow: hidden;
 
   position: relative;
-  box-shadow: inset 0px 130px 112px -129px rgba(0, 0, 0, 0.75);
 
   .newest-post__icon {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    z-index: 0;
-    + & path {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: dash 30s linear infinite 500ms;
-    }
-
-    @keyframes dash {
-      0% {
-        stroke-dashoffset: 1000;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
+    top: -150px;
+    left: -20px;
+    z-index: 2;
   }
 
-  & header {
+  & h2 {
     text-align: right;
     color: ${({ theme }) => theme.colors.mainFair};
     position: relative;
-    z-index: 0;
     transform: translateY(-10px);
     margin-top: 80px;
+    z-index: 3;
+    font-size: 5.4rem;
 
     &:after {
       content: '';
@@ -53,6 +38,11 @@ const StyledNewestPostSection = styled.section`
     margin: 80px 0;
     display: flex;
     flex-direction: column;
+
+    & > a {
+      z-index: 5;
+      position: relative;
+    }
 
     & > a:not(:last-child) {
       margin-bottom: 30px;
@@ -78,13 +68,17 @@ const StyledNewestPostSection = styled.section`
   }
 
   @media ${({ theme }) => theme.media.tablet} {
-    & header {
+    & h2 {
       text-align: left;
       margin: 100px 0 0 200px;
 
       &:after {
         left: 80px;
       }
+    }
+
+    .newest-post__icon {
+      display: none;
     }
 
     & .newest-post__wrapper {
@@ -116,11 +110,15 @@ const StyledNewestPostSection = styled.section`
     display: flex;
     flex-direction: column;
 
+    .newest-post__icon {
+      display: block;
+    }
+
     & > .newest-post {
       display: flex;
       justify-content: space-between;
 
-      & header {
+      & h2 {
         font-size: 9.3rem;
         margin-top: auto;
         margin-bottom: 130px;

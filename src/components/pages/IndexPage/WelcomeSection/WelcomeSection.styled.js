@@ -1,42 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
-import propTypes from 'prop-types';
-import BackgroundImage from 'gatsby-background-image';
-import { useStaticQuery, graphql } from 'gatsby';
-
-const query = graphql`
-  {
-    background: file(name: { eq: "background-image" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, toFormat: WEBP, webpQuality: 100) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
-
-const BackgroundSection = ({ children }) => {
-  const data = useStaticQuery(query);
-
-  return (
-    <BackgroundImage
-      Tag="section"
-      className="welcome-section"
-      fluid={data.background.childImageSharp.fluid}
-    >
-      <StyledWelcomeSection>{children}</StyledWelcomeSection>
-    </BackgroundImage>
-  );
-};
 
 const StyledWelcomeSection = styled.div`
   position: relative;
-  padding: 180px ${({ theme }) => theme.paddings.mobile};
+  padding: 180px ${({ theme }) => theme.paddings.mobile} 50px;
   /* background-color: ${({ theme }) => theme.colors.mainDark}; */
   color: ${({ theme }) => theme.colors.mainFair};
-
-  overflow: hidden;
+  z-index: 1;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -46,10 +15,24 @@ const StyledWelcomeSection = styled.div`
   transform: translatez(0);
   -webkit-transform: translatez(0);
 
-  & > header {
-    z-index: 10;
+  .background-stripe {
+    background-color: black;
+    width: 500px;
+    height: 3500px;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    transform: rotate(-25deg);
+    z-index: 1;
+    display: none;
+  }
 
-    &::after {
+  & > h1 {
+    z-index: 0;
+    font-size: 5.4rem;
+    position: relative;
+
+    &:after {
       content: '';
       position: absolute;
       background-color: ${({ theme }) => theme.colors.mainBlue};
@@ -86,17 +69,8 @@ const StyledWelcomeSection = styled.div`
     right: -5px;
     z-index: 0;
 
-    &:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: calc(100% - 4px);
-      display: block;
-      outline: solid 3px ${({ theme }) => theme.colors.mainBlue};
-      background: transparent;
-      left: 5px;
-      bottom: 7px;
-      z-index: -1;
+    svg {
+      width: 120%;
     }
 
     & > *:first-child {
@@ -107,6 +81,11 @@ const StyledWelcomeSection = styled.div`
 
   @media ${({ theme }) => theme.media.tablet} {
     padding: 360px ${({ theme }) => theme.paddings.tablet};
+
+    .background-stripe {
+      display: block;
+      width: 400px;
+    }
 
     & .welcome-section__content {
       width: 340px;
@@ -132,12 +111,16 @@ const StyledWelcomeSection = styled.div`
     align-items: center;
     padding: 360px ${({ theme }) => theme.paddings.laptop} 30px;
 
-    & > header {
+    .background-stripe {
+      width: 500px;
+    }
+
+    & > h1 {
       font-size: 93px;
       position: relative;
       height: fit-content;
 
-      &::after {
+      &:after {
         height: 176px;
         width: 298px;
       }
@@ -168,12 +151,12 @@ const StyledWelcomeSection = styled.div`
     align-items: center;
     padding: 420px ${({ theme }) => theme.paddings.laptop} 160px;
 
-    & > header {
+    & > h1 {
       font-size: 93px;
       position: relative;
       height: fit-content;
 
-      &::after {
+      &:after {
         height: 176px;
         width: 298px;
       }
@@ -192,20 +175,14 @@ const StyledWelcomeSection = styled.div`
 
     .welcome-sction__content__image-cont {
       right: -466px;
+      top: 30px;
 
       & > *:first-child {
         width: 517px;
-        height: 600px;
+        height: fit-content;
       }
     }
   }
 `;
 
-BackgroundSection.propTypes = {
-  children: propTypes.oneOfType([
-    propTypes.arrayOf(propTypes.node),
-    propTypes.node,
-  ]).isRequired,
-};
-
-export default BackgroundSection;
+export default StyledWelcomeSection;

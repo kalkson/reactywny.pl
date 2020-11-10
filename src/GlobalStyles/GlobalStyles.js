@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding: 0;
-        background-color: #372f2f;
+        background-color: #23272A;
         overflow-x: hidden;
     }
 
@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-size: 1.6rem;
+        overflow-y: hidden;
     }
 
     a {

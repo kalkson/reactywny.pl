@@ -1,12 +1,11 @@
 import React from 'react';
-import Headline from 'components/Headline/Headline';
 import QuoteIcon from 'assets/svg/quote-icon.svg';
 import StyledMissionSection from './MissionSection.styled';
 
 const MissionSection = () => {
   return (
     <StyledMissionSection>
-      <Headline size={54}>Misja</Headline>
+      <h2>Misja</h2>
       <p className="mission-section__paragraph">
         <QuoteIcon className="mission-section__paragraph__icon" />
         Jako dziecko patrzył z fascynacją w działanie Internetu, nie będąc

@@ -6,6 +6,7 @@ const StyledHeadline = styled.header`
   font-size: ${({ size }) => size}px;
   font-weight: ${({ theme }) => theme.fonts.semiBold};
   position: relative;
+  z-index: 2;
 `;
 
 const Headline = ({ children, size }) => {
