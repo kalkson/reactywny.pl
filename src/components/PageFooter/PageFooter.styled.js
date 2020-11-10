@@ -49,6 +49,8 @@ const StyledPageFooter = styled.footer`
     .header__social {
       align-self: flex-end;
       transform: translateY(72px);
+      position: relative;
+      z-index: 3;
 
       & svg {
         height: 32px;

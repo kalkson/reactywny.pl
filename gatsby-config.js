@@ -7,7 +7,7 @@ module.exports = {
     description: `Reactywny blog o (głównie) programowaniu`,
     author: `Damian Kalka`,
     url: `htpps://reactywny.pl`,
-    image: `/favicon.ico`,
+    image: `/images/meta-image.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

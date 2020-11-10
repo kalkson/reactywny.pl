@@ -8,6 +8,7 @@ import {
   materialDark,
   solarizedlight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import slugify from 'slugify';
 import StyledPostLayout from './styled/post.styled';
 import SEO from '../SEO';
 import HomeIcon from '../assets/svg/home.svg';
@@ -58,11 +59,13 @@ export const query = graphql`
 `;
 
 const PostLayout = ({ data }) => {
-  const disqusConfig = {
-    // url: `/post`,
-    // identifier: 1,
-    // title: 'post',
-  };
+  const disqusConfig = data
+    ? {
+        url: slugify(data.datoCmsPost.title, { lower: true }),
+        identifier: data.datoCmsPost.id,
+        title: data.datoCmsPost.title,
+      }
+    : null;
 
   if (data)
     return (
@@ -81,7 +84,7 @@ const PostLayout = ({ data }) => {
             <span className="post__nav__current">{data.datoCmsPost.title}</span>
           </nav>
           <div className="post__top">
-            <date className="post__top__date">{data.datoCmsPost.date}</date>
+            <time className="post__top__date">{data.datoCmsPost.date}</time>
             <span className="post__top__category">
               {data.datoCmsPost.category}
             </span>
@@ -101,12 +104,18 @@ const PostLayout = ({ data }) => {
             switch (itemKey) {
               case 'paragraphContent':
                 return (
-                  <p className="post__paragraph">{item.paragraphContent}</p>
+                  <p className="post__paragraph" key={item.id}>
+                    {item.paragraphContent}
+                  </p>
                 );
               case 'imageData':
-                return <Image fluid={item.imageData.fluid} />;
+                return <Image key={item.id} fluid={item.imageData.fluid} />;
               case 'headingContent':
-                return <h2 className="post__heading">{item.headingContent}</h2>;
+                return (
+                  <h2 className="post__heading" key={item.id}>
+                    {item.headingContent}
+                  </h2>
+                );
               case 'syntaxContent':
                 return (
                   <SyntaxHighlighter
@@ -114,6 +123,7 @@ const PostLayout = ({ data }) => {
                     style={materialDark}
                     showLineNumbers
                     className="post__syntax"
+                    key={item.id}
                   >
                     {item.syntaxContent}
                   </SyntaxHighlighter>
@@ -123,6 +133,7 @@ const PostLayout = ({ data }) => {
                   <SyntaxHighlighter
                     style={solarizedlight}
                     className="post__cli"
+                    key={item.id}
                   >
                     {item.cliContent}
                   </SyntaxHighlighter>
@@ -143,18 +154,32 @@ const PostLayout = ({ data }) => {
 PostLayout.propTypes = {
   data: propTypes.shape({
     datoCmsPost: propTypes.shape({
+      id: propTypes.string,
       title: propTypes.string.isRequired,
       category: propTypes.string.isRequired,
       description: propTypes.string.isRequired,
       date: propTypes.string.isRequired,
+      postContent: propTypes.arrayOf(
+        propTypes.shape(
+          propTypes.oneOfType([propTypes.string, propTypes.shape])
+        )
+      ),
       featuredImage: propTypes.shape({
-        fluid: propTypes.string.isRequired,
+        fluid: propTypes.shape(propTypes.string),
       }).isRequired,
-      postContent: propTypes.shape({
-        map: propTypes.func.isRequired,
-      }).isRequired,
-    }),
-  }).isRequired,
+    }).isRequired,
+  }),
+};
+
+PostLayout.defaultProps = {
+  data: {
+    datoCmsPost: {
+      featuredImage: {
+        fluid: null,
+      },
+      postContent: null,
+    },
+  },
 };
 
 export default withNewsletter(PostLayout);

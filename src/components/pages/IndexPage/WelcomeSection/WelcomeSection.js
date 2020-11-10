@@ -1,33 +1,34 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
-import Image from 'gatsby-image';
+import { Link } from 'gatsby';
+// import Image from 'gatsby-image';
 import StyledWelcomeSection from './WelcomeSection.styled';
 import Headline from '../../../Headline/Headline';
+import Illustration from '../../../../assets/images/illu.svg';
 
-const query = graphql`
-  {
-    dk: file(name: { eq: "dk" }) {
-      childImageSharp {
-        fluid(maxWidth: 517, maxHeight: 600, quality: 100) {
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-  }
-`;
+// const query = graphql`
+//   {
+//     dk: file(name: { eq: "dk" }) {
+//       childImageSharp {
+//         fluid(maxWidth: 517, maxHeight: 600, quality: 100) {
+//           ...GatsbyImageSharpFluid_noBase64
+//         }
+//       }
+//     }
+//   }
+// `;
 
 const WelcomeSection = () => {
-  const data = useStaticQuery(query);
+  // const data = useStaticQuery(query);
 
   return (
     <StyledWelcomeSection>
-      <Headline size={54} className="welcome-section__headline">
+      <h1 size={54} className="welcome-section__headline">
         <span style={{ color: '#61DAFB' }}>Ucz się</span>
         <br />
         razem
         <br />
         ze mną
-      </Headline>
+      </h1>
       <div className="welcome-section__content">
         <Headline size={36}>Hello!</Headline>
         <p className="welcome-sction__content__paragraph">
@@ -46,9 +47,13 @@ const WelcomeSection = () => {
             alt="damian-kalka"
             className="welcome-sction__content__image-cont__image"
           /> */}
-          <Image fluid={data.dk.childImageSharp.fluid} />
+          {/* <Image fluid={data.dk.childImageSharp.fluid} /> */}
+          {/* <Image src={Illustration} /> */}
+          {/* <img src={Illustration} alt="mainImage" /> */}
+          <Illustration />
         </div>
       </div>
+      <div className="background-stripe" />
     </StyledWelcomeSection>
   );
 };

@@ -17,7 +17,7 @@ const PostElement = ({ data }) => {
   return (
     <StyledPostElement>
       <div className="post__top">
-        <date className="post__top__date">{date}</date>
+        <time className="post__top__date">{date}</time>
         <span className="post__top__category">{category}</span>
       </div>
       <span className="post__title">{title}</span>
@@ -37,9 +37,17 @@ PostElement.propTypes = {
     title: propTypes.string.isRequired,
     shortDescription: propTypes.string.isRequired,
     featuredImage: propTypes.shape({
-      fluid: propTypes.string.isRequired,
+      fluid: propTypes.shape(propTypes.string),
     }),
-  }).isRequired,
+  }),
+};
+
+PostElement.defaultProps = {
+  data: {
+    featuredImage: {
+      fluid: {},
+    },
+  },
 };
 
 export default PostElement;

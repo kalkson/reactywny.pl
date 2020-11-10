@@ -11,7 +11,10 @@ const MenuLink = ({ children, classes }) => {
 };
 
 MenuLink.propTypes = {
-  children: propTypes.element.isRequired,
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]).isRequired,
   classes: propTypes.string.isRequired,
 };
 
