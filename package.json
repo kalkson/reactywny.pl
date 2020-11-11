@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "reactywny.pl",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "static blog repo by Damian Kalka",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Damian Kalka",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.19",
     "@mdx-js/react": "^1.6.19",
@@ -62,7 +62,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
