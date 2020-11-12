@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import StyledNewsletterBar from './NewsletterBar.styled';
 import PageInput from '../PageInput/PageInput';
+import PageButton from '../PageButton/PageButton.styled';
 
 const NewsletterBar = ({ isNewsletterVisible }) => {
   const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ const NewsletterBar = ({ isNewsletterVisible }) => {
       isNewsletterVisible={isNewsletterVisible}
     >
       <span className="newsletter__success">
-        {sentResult && sentResult.result === 'success' && 'Dzięki!'}
+        {sentResult && sentResult.result === 'success' && 'Zapisano, dzięki!'}
       </span>
       <span className="newsletter__error">
         {sentResult &&
@@ -67,9 +68,9 @@ const NewsletterBar = ({ isNewsletterVisible }) => {
           onChange={e => handleChange(e)}
           disabled={sentResult && sentResult.result === 'success'}
         />
-        <button type="submit" className="newsletter__form__button">
-          Ślij
-        </button>
+        <PageButton type="submit" className="newsletter__form__button">
+          Wyślij
+        </PageButton>
       </form>
     </StyledNewsletterBar>
   );

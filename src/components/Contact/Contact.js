@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import StyledContact from './Contact.styled';
 import PageInput from '../PageInput/PageInput';
+import PageButton from '../PageButton/PageButton.styled';
 
 const Contact = () => {
   const form = useRef(null);
@@ -32,9 +33,9 @@ const Contact = () => {
           type="email"
         />
         <textarea className="contact__form__textarea" name="message" />
-        <button type="submit" className="contact__form__button">
-          Ślij
-        </button>
+        <PageButton type="submit" className="contact__form__button">
+          Wyślij
+        </PageButton>
       </form>
     </StyledContact>
   );
