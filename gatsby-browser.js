@@ -3,7 +3,3 @@ exports.onClientEntry = async () => {
     await import(`intersection-observer`);
   }
 };
-
-exports.shouldUpdateScroll = () => {
-  return false;
-};
