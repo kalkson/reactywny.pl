@@ -8,7 +8,7 @@ import {
   materialDark,
   solarizedlight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import slugify from 'slugify';
+// import slugify from 'slugify';
 import StyledPostLayout from './styled/post.styled';
 import SEO from '../SEO';
 import HomeIcon from '../assets/svg/home.svg';
@@ -61,7 +61,7 @@ export const query = graphql`
 const PostLayout = ({ data }) => {
   const disqusConfig = data
     ? {
-        url: slugify(data.datoCmsPost.title, { lower: true }),
+        // url: slugify(data.datoCmsPost.title, { lower: true }),
         identifier: data.datoCmsPost.id,
         title: data.datoCmsPost.title,
       }
@@ -98,51 +98,52 @@ const PostLayout = ({ data }) => {
           <span className="post__description">
             {data.datoCmsPost.description}
           </span>
-          {data.datoCmsPost.postContent.map(item => {
-            const itemKey = Object.keys(item)[2];
+          {data.datoCmsPost.postContent &&
+            data.datoCmsPost.postContent.map(item => {
+              const itemKey = Object.keys(item)[2];
 
-            switch (itemKey) {
-              case 'paragraphContent':
-                return (
-                  <p className="post__paragraph" key={item.id}>
-                    {item.paragraphContent}
-                  </p>
-                );
-              case 'imageData':
-                return <Image key={item.id} fluid={item.imageData.fluid} />;
-              case 'headingContent':
-                return (
-                  <h2 className="post__heading" key={item.id}>
-                    {item.headingContent}
-                  </h2>
-                );
-              case 'syntaxContent':
-                return (
-                  <SyntaxHighlighter
-                    language={item.language}
-                    style={materialDark}
-                    showLineNumbers
-                    className="post__syntax"
-                    key={item.id}
-                  >
-                    {item.syntaxContent}
-                  </SyntaxHighlighter>
-                );
-              case 'cliContent':
-                return (
-                  <SyntaxHighlighter
-                    style={solarizedlight}
-                    className="post__cli"
-                    key={item.id}
-                  >
-                    {item.cliContent}
-                  </SyntaxHighlighter>
-                );
+              switch (itemKey) {
+                case 'paragraphContent':
+                  return (
+                    <p className="post__paragraph" key={item.id}>
+                      {item.paragraphContent}
+                    </p>
+                  );
+                case 'imageData':
+                  return <Image key={item.id} fluid={item.imageData.fluid} />;
+                case 'headingContent':
+                  return (
+                    <h2 className="post__heading" key={item.id}>
+                      {item.headingContent}
+                    </h2>
+                  );
+                case 'syntaxContent':
+                  return (
+                    <SyntaxHighlighter
+                      language={item.language}
+                      style={materialDark}
+                      showLineNumbers
+                      className="post__syntax"
+                      key={item.id}
+                    >
+                      {item.syntaxContent}
+                    </SyntaxHighlighter>
+                  );
+                case 'cliContent':
+                  return (
+                    <SyntaxHighlighter
+                      style={solarizedlight}
+                      className="post__cli"
+                      key={item.id}
+                    >
+                      {item.cliContent}
+                    </SyntaxHighlighter>
+                  );
 
-              default:
-                return null;
-            }
-          })}
+                default:
+                  return null;
+              }
+            })}
           <Disqus config={disqusConfig} className="post__disquis" />
         </StyledPostLayout>
       </>

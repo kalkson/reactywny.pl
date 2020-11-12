@@ -20,7 +20,7 @@ const PostElement = ({ data }) => {
         <time className="post__top__date">{date}</time>
         <span className="post__top__category">{category}</span>
       </div>
-      <span className="post__title">{title}</span>
+      <h2 className="post__title">{title}</h2>
       <Image fluid={fluid} />
       <span className="post__description">{shortDescription}</span>
       <Link to={slugify(title, { lower: true })} className="post__button">

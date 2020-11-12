@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const StyledMissionSection = styled.section`
-  background-color: ${({ theme }) => theme.colors.mainFair};
+  /* background-color: ${({ theme }) => theme.colors.mainFair}; */
+  background-color: rgba(255, 255, 255, 0.9);
 
   padding: 125px ${({ theme }) => theme.paddings.mobile} 75px;
   z-index: 3;
@@ -67,26 +68,15 @@ const StyledMissionSection = styled.section`
     position: relative;
     padding: 0;
 
-    &:before {
-      content: '';
-      width: 526px;
-      height: 530px;
-      background-color: ${({ theme }) => theme.colors.mainDark};
-      top: 0;
-      left: 0;
-      position: absolute;
-      display: block;
-    }
-
     & > h2 {
       position: absolute;
-      bottom: 150px;
+      bottom: 120px;
       font-size: 9.3rem;
-      left: 200px;
+      left: 300px;
 
       &:before {
-        top: 30px;
-        left: 70px;
+        top: -20px;
+        left: -20px;
       }
 
       &:after {
@@ -114,24 +104,8 @@ const StyledMissionSection = styled.section`
     position: relative;
     padding: 0;
 
-    &:before {
-      content: '';
-      width: 526px;
-      height: 530px;
-      background-color: ${({ theme }) => theme.colors.mainDark};
-      top: 0;
-      left: 0;
-      position: absolute;
-      display: block;
-    }
-
     & > h2 {
-      left: 230px;
-
-      &:before {
-        top: 30px;
-        left: 70px;
-      }
+      left: 500px;
     }
 
     .mission-section__paragraph {

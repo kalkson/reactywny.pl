@@ -13,10 +13,11 @@ const StyledContact = styled.div`
     margin-bottom: 20px;
   }
 
-  & > header {
+  & > h2 {
     color: ${({ theme }) => theme.colors.mainFair};
     position: relative;
     z-index: 0;
+    font-size: 5.4rem;
 
     &:after {
       content: '';
@@ -85,7 +86,7 @@ const StyledContact = styled.div`
   @media ${({ theme }) => theme.media.laptop} {
     align-items: flex-start;
 
-    & > header {
+    & > h2 {
       width: 35vw;
       text-align: center;
       font-size: 9.3rem;

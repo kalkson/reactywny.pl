@@ -60,7 +60,9 @@ const PageHeader = () => {
         isMenuVisible={isMenuVisible}
       />
       <div className="header__logo">
-        <Logo className="header__logo__image" />
+        <Link to="/">
+          <Logo className="header__logo__image" />
+        </Link>
         <span className="header__logo__underline">learn with me</span>
       </div>
       <SocialLinks />

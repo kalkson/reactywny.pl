@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 const StyledNewPostElement = styled(Link)`
   width: 300px;
-  height: 140px;
+  /* height: 140px; */
   background-color: ${({ theme }) => theme.colors.mainFair};
 
   display: flex;

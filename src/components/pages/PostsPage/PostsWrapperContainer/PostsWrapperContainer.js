@@ -1,4 +1,3 @@
-import Headline from 'components/Headline/Headline';
 import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import PostElement from 'components/PostElement/PostElement';
@@ -39,7 +38,7 @@ const PostWrapperContainer = () => {
   return (
     <StyledPostsWrapperContainer className="posts">
       <div className="posts__left-section">
-        <Headline size={54}>Wpisy</Headline>
+        <h1>Wpisy</h1>
         <p className="posts__left-section__paragraph">
           Nowe wpisy pojawiają się raz w tygodniu - a przynajmniej taki jest
           zamiar. Jak na razie udaje mi się zachować regularność. W treści
