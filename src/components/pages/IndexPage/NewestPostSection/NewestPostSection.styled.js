@@ -110,10 +110,6 @@ const StyledNewestPostSection = styled.section`
     display: flex;
     flex-direction: column;
 
-    .newest-post__icon {
-      display: block;
-    }
-
     & > .newest-post {
       display: flex;
       justify-content: space-between;

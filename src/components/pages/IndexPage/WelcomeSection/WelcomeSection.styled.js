@@ -57,6 +57,7 @@ const StyledWelcomeSection = styled.div`
     .welcome-sction__content__paragraph {
       color: ${({ theme }) => theme.colors.mainDark};
       font-size: 1.3rem;
+      height: auto;
     }
   }
 
@@ -83,7 +84,6 @@ const StyledWelcomeSection = styled.div`
 
     & .welcome-section__content {
       width: 340px;
-      height: 500px;
       margin-right: 213px;
 
       .welcome-sction__content__paragraph {
@@ -123,7 +123,6 @@ const StyledWelcomeSection = styled.div`
 
     & .welcome-section__content {
       width: 370px;
-      height: 500px;
       margin-right: 213px;
 
       .welcome-sction__content__paragraph {
@@ -135,7 +134,7 @@ const StyledWelcomeSection = styled.div`
       right: -225px;
 
       & > svg {
-        width: 336px;
+        width: 330px;
         height: 272px;
         transform: translateX(40px);
       }
@@ -171,11 +170,12 @@ const StyledWelcomeSection = styled.div`
 
     .welcome-sction__content__image-cont {
       right: -466px;
-      top: 30px;
+      top: -100px;
 
-      & > *:first-child {
-        width: 517px;
-        height: fit-content;
+      & > svg {
+        width: 630px;
+        height: 572px;
+        transform: translateX(40px);
       }
     }
   }
