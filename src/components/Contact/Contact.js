@@ -15,12 +15,15 @@ const Contact = () => {
         poprzez skrzynkę pocztową na adres reactywny@kontakt.pl
       </p>
       <form
-        action=""
         name="contact"
         className="contact__form"
         method="POST"
         data-netlify="true"
+        netlify-honeypot="bot-field"
       >
+        <p class="hidden" style={{ display: none }}>
+          <input name="bot-field" />
+        </p>
         <PageInput
           placeholder="Adres e-mail"
           className="contact__form__input"
@@ -29,7 +32,7 @@ const Contact = () => {
         />
         <textarea className="contact__form__textarea" name="message" />
         <button type="submit" className="contact__form__button">
-          <PageLink>Ślij</PageLink>
+          Ślij
         </button>
       </form>
     </StyledContact>
