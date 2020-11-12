@@ -9,7 +9,7 @@ const StyledNewsletterBar = styled.div`
   text-align: center;
   display: flex;
   box-shadow: 0px 0px 43px 1px rgba(0, 0, 0, 0.75);
-
+  position: relative;
   transition: transform 300ms ease-in-out 200ms;
 
   ${({ isNewsletterVisible }) =>
@@ -54,6 +54,21 @@ const StyledNewsletterBar = styled.div`
         background-color: transparent;
         border: none;
       }
+    }
+
+    &__success,
+    &__error {
+      position: absolute;
+      bottom: 0;
+      font-size: 0.8em;
+    }
+
+    &__success {
+      color: green;
+    }
+
+    &__error {
+      color: red;
     }
   }
 
