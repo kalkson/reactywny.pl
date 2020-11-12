@@ -14,6 +14,7 @@ const Contact = () => {
         poprzez skrzynkę pocztową na adres reactywny@kontakt.pl
       </p>
       <form
+        action="/thanks/"
         name="contact"
         className="contact__form"
         method="POST"
