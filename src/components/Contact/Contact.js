@@ -25,7 +25,7 @@ const Contact = () => {
         <p className="hidden" style={{ display: 'none' }}>
           <input name="bot-field" />
         </p>
-        <input
+        <PageInput
           placeholder="Adres e-mail"
           className="contact__form__input"
           name="email"
