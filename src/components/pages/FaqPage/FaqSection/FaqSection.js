@@ -1,4 +1,3 @@
-import Headline from 'components/Headline/Headline';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
@@ -48,7 +47,7 @@ const FaqSection = () => {
 
   return (
     <StyledFaqSection className="faq">
-      <Headline size={54}>FAQ</Headline>
+      <h1>FAQ</h1>
       <StyledFaqItemsWrapper>
         {items.map(item => (
           <FaqItem data={item} key={item.headline} />

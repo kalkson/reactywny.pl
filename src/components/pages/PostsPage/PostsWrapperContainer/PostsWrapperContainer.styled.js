@@ -11,12 +11,14 @@ const StyledPostsWrapperContainer = styled.article`
     flex-direction: column;
     align-items: center;
 
-    & header {
+    & h1 {
       text-align: center;
       color: ${({ theme }) => theme.colors.mainFair};
       width: fit-content;
       z-index: 0;
       margin: 42px 0 70px;
+      font-size: 5.4rem;
+      position: relative;
 
       &:after {
         content: '';

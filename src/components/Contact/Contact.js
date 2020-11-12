@@ -1,13 +1,12 @@
 import React from 'react';
 import StyledContact from './Contact.styled';
-import Headline from '../Headline/Headline';
 import PageInput from '../PageInput/PageInput';
 import PageLink from '../PageLink/PageLink';
 
 const Contact = () => {
   return (
     <StyledContact className="contact" id="contact">
-      <Headline size={54}>Kontakt</Headline>
+      <h2>Kontakt</h2>
       <p className="contact__paragraph">
         Jeżeli nie znalazłeś odpowiedzi na swoje pytanie w FAQ, a mimo wszystko
         chcesz się o coś zapytać. to możesz do mnie napisać tutaj. Ewentualnie

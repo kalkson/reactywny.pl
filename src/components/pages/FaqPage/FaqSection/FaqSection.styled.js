@@ -4,12 +4,13 @@ const StyledFaqSection = styled.section`
   padding: 220px 22px 50px;
   background-color: ${({ theme }) => theme.colors.mainFair};
 
-  & > header {
+  & > h1 {
     color: darkgray;
     margin: 0 auto;
     position: relative;
     width: fit-content;
     z-index: 0;
+    font-size: 5.4rem;
 
     &:after {
       content: '';
