@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import StyledContact from './Contact.styled';
 import PageInput from '../PageInput/PageInput';
-import PageLink from '../PageLink/PageLink';
 
 const Contact = () => {
   const form = useRef(null);
@@ -21,7 +20,7 @@ const Contact = () => {
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
-        <p class="hidden" style={{ display: none }}>
+        <p className="hidden" style={{ display: 'none' }}>
           <input name="bot-field" />
         </p>
         <PageInput
