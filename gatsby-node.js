@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const PostTemplate = path.resolve(`src/layouts/post.js`);
   const result = await graphql(`
     query queryCMSPage {
-      allDatoCmsPost {
+      allDatoCmsPost(sort: { order: DESC, fields: date }) {
         nodes {
           title
           id

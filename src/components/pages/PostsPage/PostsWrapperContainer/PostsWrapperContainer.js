@@ -6,7 +6,7 @@ import StyledPostsWrapper from './PostsWrapper.styled';
 
 const query = graphql`
   {
-    allDatoCmsPost {
+    allDatoCmsPost(sort: { order: DESC, fields: date }) {
       nodes {
         category
         date
