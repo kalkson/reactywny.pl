@@ -11,6 +11,7 @@ const StyledNewsletterButton = styled.button`
   bottom: 110px;
   right: 0;
   z-index: 100;
+  transform: translate3d(0, 0, 0);
 
   transition: transform 300ms ease-in;
 

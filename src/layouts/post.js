@@ -16,6 +16,7 @@ import withNewsletter from '../components/hoc/withNewsletter';
 import PageHeader from '../components/PageHeader/PageHeader';
 import PageFooter from '../components/PageFooter/PageFooter';
 import Adnotation from '../components/Adnotation/Adnotation';
+import PostParagraph from '../components/PostParagraph/PostParagraph';
 
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!) {
@@ -56,6 +57,15 @@ export const query = graphql`
         ... on DatoCmsPostCli {
           id
           cliContent
+        }
+        ... on DatoCmsPostVideo {
+          id
+          videoLink {
+            height
+            width
+            url
+            title
+          }
         }
       }
     }
@@ -111,9 +121,11 @@ const PostLayout = ({ data }) => {
               switch (itemKey) {
                 case 'paragraphContent':
                   return (
-                    <p className="post__paragraph" key={item.id}>
-                      {item.paragraphContent}
-                    </p>
+                    <PostParagraph
+                      className="post__paragraph"
+                      key={item.id}
+                      content={item.paragraphContent}
+                    />
                   );
                 case 'imageData':
                   return <Image key={item.id} fluid={item.imageData.fluid} />;
@@ -144,6 +156,19 @@ const PostLayout = ({ data }) => {
                     >
                       {item.cliContent}
                     </SyntaxHighlighter>
+                  );
+                case 'videoLink':
+                  return (
+                    <>
+                      <iframe
+                        className="post__video"
+                        title={item.videoLink.title}
+                        src={item.videoLink.url.replace('watch?v=', 'embed/')}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </>
                   );
 
                 default:
