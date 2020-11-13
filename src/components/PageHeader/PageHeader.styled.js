@@ -13,6 +13,8 @@ const StyledPageHeader = styled.header`
   z-index: 10;
   box-shadow: 0px 30px 75px 0px rgba(0, 0, 0, 0.5);
 
+  transform: translate3d(0, 0, 0);
+
   height: ${({ isMenuVisible, isScrolledDown }) =>
     isScrolledDown && isMenuVisible ? '130px' : null};
 

@@ -3,9 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import propTypes from 'prop-types';
 import GlobalStyle from '../GlobalStyles/GlobalStyles';
 import theme from '../theme/theme';
-import PageHeader from '../components/PageHeader/PageHeader';
-import PageFooter from '../components/PageFooter/PageFooter';
-import SEO from '../SEO';
+import SEO from '../components/SEO';
 
 const StyledContainer = styled.div`
   position: relative;
@@ -18,9 +16,7 @@ const MainLayout = ({ children }) => {
       <SEO />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <PageHeader />
         <StyledContainer>{children}</StyledContainer>
-        <PageFooter />
       </ThemeProvider>
     </>
   );

@@ -10,9 +10,13 @@ import {
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 // import slugify from 'slugify';
 import StyledPostLayout from './styled/post.styled';
-import SEO from '../SEO';
+import SEO from '../components/SEO';
 import HomeIcon from '../assets/svg/home.svg';
 import withNewsletter from '../components/hoc/withNewsletter';
+import PageHeader from '../components/PageHeader/PageHeader';
+import PageFooter from '../components/PageFooter/PageFooter';
+import Adnotation from '../components/Adnotation/Adnotation';
+import PostParagraph from '../components/PostParagraph/PostParagraph';
 
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!) {
@@ -54,6 +58,15 @@ export const query = graphql`
           id
           cliContent
         }
+        ... on DatoCmsPostVideo {
+          id
+          videoLink {
+            height
+            width
+            url
+            title
+          }
+        }
       }
     }
   }
@@ -77,6 +90,7 @@ const PostLayout = ({ data }) => {
           post
           image={data.datoCmsPost.featuredImage.url}
         />
+        <PageHeader />
         <StyledPostLayout>
           <nav className="post__nav">
             <Link className="post__nav__previous" to="/posts">
@@ -107,9 +121,11 @@ const PostLayout = ({ data }) => {
               switch (itemKey) {
                 case 'paragraphContent':
                   return (
-                    <p className="post__paragraph" key={item.id}>
-                      {item.paragraphContent}
-                    </p>
+                    <PostParagraph
+                      className="post__paragraph"
+                      key={item.id}
+                      content={item.paragraphContent}
+                    />
                   );
                 case 'imageData':
                   return <Image key={item.id} fluid={item.imageData.fluid} />;
@@ -141,13 +157,28 @@ const PostLayout = ({ data }) => {
                       {item.cliContent}
                     </SyntaxHighlighter>
                   );
+                case 'videoLink':
+                  return (
+                    <>
+                      <iframe
+                        className="post__video"
+                        title={item.videoLink.title}
+                        src={item.videoLink.url.replace('watch?v=', 'embed/')}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </>
+                  );
 
                 default:
                   return null;
               }
             })}
+          <Adnotation />
           <Disqus config={disqusConfig} className="post__disquis" />
         </StyledPostLayout>
+        <PageFooter />
       </>
     );
 

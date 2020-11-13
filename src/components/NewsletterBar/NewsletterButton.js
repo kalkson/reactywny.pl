@@ -8,9 +8,10 @@ const StyledNewsletterButton = styled.button`
   background-color: black;
   width: 50px;
   height: 50px;
-  bottom: 100px;
+  bottom: 110px;
   right: 0;
   z-index: 100;
+  transform: translate3d(0, 0, 0);
 
   transition: transform 300ms ease-in;
 

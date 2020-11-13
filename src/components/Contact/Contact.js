@@ -11,6 +11,7 @@ const encode = data => {
 
 const Contact = () => {
   const [data, setData] = useState({ email: '', message: '' });
+  const [status, setStatus] = useState(null);
 
   const handleChange = e => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -22,7 +23,7 @@ const Contact = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...data }),
     })
-      .then(() => alert('Success!'))
+      .then(() => setStatus('success'))
       .catch(error => alert(error));
 
     e.preventDefault();
@@ -55,15 +56,23 @@ const Contact = () => {
           name="email"
           type="email"
           onChange={e => handleChange(e)}
+          disabled={status === 'success'}
+          required
         />
         <textarea
           className="contact__form__textarea"
           name="message"
           onChange={e => handleChange(e)}
+          disabled={status === 'success'}
+          required
         />
-        <PageButton type="submit" className="contact__form__button">
-          Wyślij
-        </PageButton>
+        {status === 'success' ? (
+          <span className="contact__form__success">Poszło!</span>
+        ) : (
+          <PageButton type="submit" className="contact__form__button">
+            Wyślij
+          </PageButton>
+        )}
       </form>
     </StyledContact>
   );
