@@ -1,10 +1,32 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import StyledContact from './Contact.styled';
 import PageInput from '../PageInput/PageInput';
 import PageButton from '../PageButton/PageButton.styled';
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+};
+
 const Contact = () => {
-  const form = useRef(null);
+  const [data, setData] = useState({ email: '', message: '' });
+
+  const handleChange = e => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = e => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...data }),
+    })
+      .then(() => alert('Success!'))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
 
   return (
     <StyledContact className="contact" id="contact">
@@ -21,6 +43,7 @@ const Contact = () => {
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
+        onSubmit={e => handleSubmit(e)}
       >
         <input type="hidden" name="form-name" value="contact" />
         <p className="hidden" style={{ display: 'none' }}>
@@ -31,8 +54,13 @@ const Contact = () => {
           className="contact__form__input"
           name="email"
           type="email"
+          onChange={e => handleChange(e)}
         />
-        <textarea className="contact__form__textarea" name="message" />
+        <textarea
+          className="contact__form__textarea"
+          name="message"
+          onChange={e => handleChange(e)}
+        />
         <PageButton type="submit" className="contact__form__button">
           Wyślij
         </PageButton>
