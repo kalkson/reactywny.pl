@@ -1,3 +1,5 @@
+const { default: slugify } = require('slugify');
+
 require('dotenv').config();
 
 module.exports = {
@@ -6,7 +8,7 @@ module.exports = {
     titleTemplate: `%s · reactywny.pl`,
     description: `Reactywny blog o (głównie) programowaniu`,
     author: `Damian Kalka`,
-    url: `htpps://reactywny.pl`,
+    url: `https://reactywny.pl`,
     image: `/images/meta-image.png`,
   },
   plugins: [
@@ -92,6 +94,57 @@ module.exports = {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint: process.env.MAILCHIMP_ENDPOINT,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                url
+                site_url: url
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allDatoCmsPost } }) => {
+              return allDatoCmsPost.nodes.map(node => {
+                return {
+                  description: node.description,
+                  pubDate: new Date(node.date).toUTCString,
+                  url: `${site.siteMetadata.url}/${slugify(node.title, {
+                    lower: true,
+                  })}`,
+                  guid:
+                    site.siteMetadata.url +
+                    slugify(node.title, { lower: true }),
+                  title: node.title,
+                  custom_elements: [{ 'content:encoded': node.html }],
+                };
+              });
+            },
+            query: `
+              {
+                allDatoCmsPost(sort: {order: DESC, fields: date}) {
+                  nodes {
+                    category
+                    date
+                    description
+                    title
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'RSS Feed',
+          },
+        ],
       },
     },
   ],
