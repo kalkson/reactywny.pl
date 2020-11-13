@@ -117,15 +117,22 @@ module.exports = {
               return allDatoCmsPost.nodes.map(node => {
                 return {
                   description: node.description,
-                  pubDate: new Date(node.date).toUTCString,
-                  url: `${site.siteMetadata.url}/${slugify(node.title, {
+                  date: new Date(node.date).toUTCString(),
+                  url: `${site.siteMetadata.url}/posts/${slugify(node.title, {
                     lower: true,
                   })}`,
                   guid:
                     site.siteMetadata.url +
                     slugify(node.title, { lower: true }),
                   title: node.title,
-                  custom_elements: [{ 'content:encoded': node.html }],
+                  enclosure: node.featuredImage && {
+                    url: node.featuredImage.url,
+                  },
+                  custom_elements: [
+                    {
+                      'content:encoded': node.html,
+                    },
+                  ],
                 };
               });
             },
@@ -137,12 +144,17 @@ module.exports = {
                     date
                     description
                     title
+                    featuredImage {
+                      url
+                    }
                   }
                 }
               }
             `,
             output: '/rss.xml',
-            title: 'RSS Feed',
+            title: 'reactywny.pl',
+            language: 'polish',
+            author: 'Damian Kalka',
           },
         ],
       },
