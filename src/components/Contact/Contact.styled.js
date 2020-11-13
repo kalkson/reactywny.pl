@@ -80,6 +80,12 @@ const StyledContact = styled.div`
         border: none;
         margin-top: 20px;
       }
+
+      &__success {
+        color: green;
+        margin-top: 10px;
+        font-style: italic;
+      }
     }
   }
 

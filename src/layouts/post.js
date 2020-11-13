@@ -13,6 +13,8 @@ import StyledPostLayout from './styled/post.styled';
 import SEO from '../SEO';
 import HomeIcon from '../assets/svg/home.svg';
 import withNewsletter from '../components/hoc/withNewsletter';
+import PageHeader from '../components/PageHeader/PageHeader';
+import PageFooter from '../components/PageFooter/PageFooter';
 
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!) {
@@ -77,6 +79,7 @@ const PostLayout = ({ data }) => {
           post
           image={data.datoCmsPost.featuredImage.url}
         />
+        <PageHeader />
         <StyledPostLayout>
           <nav className="post__nav">
             <Link className="post__nav__previous" to="/posts">
@@ -148,6 +151,7 @@ const PostLayout = ({ data }) => {
             })}
           <Disqus config={disqusConfig} className="post__disquis" />
         </StyledPostLayout>
+        <PageFooter />
       </>
     );
 
