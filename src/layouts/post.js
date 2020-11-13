@@ -15,6 +15,7 @@ import HomeIcon from '../assets/svg/home.svg';
 import withNewsletter from '../components/hoc/withNewsletter';
 import PageHeader from '../components/PageHeader/PageHeader';
 import PageFooter from '../components/PageFooter/PageFooter';
+import Adnotation from '../components/Adnotation/Adnotation';
 
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!) {
@@ -149,6 +150,7 @@ const PostLayout = ({ data }) => {
                   return null;
               }
             })}
+          <Adnotation />
           <Disqus config={disqusConfig} className="post__disquis" />
         </StyledPostLayout>
         <PageFooter />

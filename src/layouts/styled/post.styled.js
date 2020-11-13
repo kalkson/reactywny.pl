@@ -73,7 +73,7 @@ const StyledPostLayout = styled.article`
     }
 
     &__disquis {
-      margin-top: 100px;
+      margin-top: 40px;
     }
 
     &__heading {
