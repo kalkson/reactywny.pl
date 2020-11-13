@@ -3,8 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import propTypes from 'prop-types';
 import GlobalStyle from '../GlobalStyles/GlobalStyles';
 import theme from '../theme/theme';
-import SEO from '../SEO';
-
+import SEO from '../components/SEO';
 const StyledContainer = styled.div`
   position: relative;
   z-index: 1;

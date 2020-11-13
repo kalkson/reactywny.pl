@@ -10,7 +10,7 @@ import {
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 // import slugify from 'slugify';
 import StyledPostLayout from './styled/post.styled';
-import SEO from '../SEO';
+import SEO from '../components/SEO';
 import HomeIcon from '../assets/svg/home.svg';
 import withNewsletter from '../components/hoc/withNewsletter';
 import PageHeader from '../components/PageHeader/PageHeader';

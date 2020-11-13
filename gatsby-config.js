@@ -4,9 +4,9 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `reactywny.pl`,
+    title: `reactywny.pl - mały frontendowy świat`,
     titleTemplate: `%s · reactywny.pl`,
-    description: `Reactywny blog o (głównie) programowaniu`,
+    description: `Reactywny blog o (głównie) programowaniu, ale nie tylko. Nie brakuje tutaj także tematyki rozwoju osobistego związanej z branżą IT.`,
     author: `Damian Kalka`,
     url: `https://reactywny.pl`,
     image: `/images/meta-image.png`,
@@ -62,7 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: './src/favicon.png',
+        logo: './src/assets/images/favicon.png',
 
         // WebApp Manifest Configuration
         appName: null, // Inferred with your package.json
