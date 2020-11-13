@@ -46,6 +46,10 @@ const SEO = ({ title, description, post, image }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="robots" content="index, follow" />
       <meta
+        name="google-site-verification"
+        content="LvSVKhHP1WVlwuBTctHWmGjQ2MoQhmaxdFwPAFKg8ro"
+      />
+      <meta
         name="googlebot"
         content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
       />
