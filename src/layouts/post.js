@@ -25,6 +25,7 @@ export const query = graphql`
         fluid(maxWidth: 1920, imgixParams: { auto: "compress" }) {
           ...GatsbyDatoCmsFluid
         }
+        url
       }
       category
       postContent {
@@ -74,6 +75,7 @@ const PostLayout = ({ data }) => {
           title={data.datoCmsPost.title}
           description={data.datoCmsPost.description}
           post
+          image={data.datoCmsPost.featuredImage.url}
         />
         <StyledPostLayout>
           <nav className="post__nav">
@@ -167,6 +169,7 @@ PostLayout.propTypes = {
       ),
       featuredImage: propTypes.shape({
         fluid: propTypes.shape(propTypes.string),
+        url: propTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
   }),
