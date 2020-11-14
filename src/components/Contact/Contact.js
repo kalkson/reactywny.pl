@@ -35,7 +35,7 @@ const Contact = () => {
       <p className="contact__paragraph">
         Jeżeli nie znalazłeś odpowiedzi na swoje pytanie w FAQ, a mimo wszystko
         chcesz się o coś zapytać. to możesz do mnie napisać tutaj. Ewentualnie
-        poprzez skrzynkę pocztową na adres reactywny@kontakt.pl
+        poprzez skrzynkę pocztową na adres kontakt@reactywny.pl
       </p>
       <form
         action="/thanks/"

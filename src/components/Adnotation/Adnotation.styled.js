@@ -5,12 +5,24 @@ const StyledAdnotation = styled.div`
   display: flex;
   padding: 14px;
   position: relative;
-  width: 80%;
   margin-left: auto;
   margin-top: 100px;
   margin-bottom: 0;
   transform: translateX(17px);
   border-radius: 50px 0 0 50px;
+
+  &:before {
+    border-radius: 100px 0 0 100px;
+    content: '';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100vw;
+    background-color: ${({ theme }) => theme.colors.mainFair};
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 
   .adnotation {
     &__image {
@@ -21,6 +33,7 @@ const StyledAdnotation = styled.div`
       height: 84px;
       position: relative;
       z-index: 1;
+
       /* height: 84px;
       width: 200px; */
     }
@@ -36,7 +49,7 @@ const StyledAdnotation = styled.div`
         color: ${({ theme }) => theme.colors.mainFair};
         font-style: italic;
         font-weight: 900;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         position: relative;
         z-index: 0;
 
@@ -54,7 +67,7 @@ const StyledAdnotation = styled.div`
       }
 
       &__paragraph {
-        font-size: 0.9rem;
+        font-size: 1.4rem;
         font-weight: 400;
       }
     }
@@ -62,17 +75,9 @@ const StyledAdnotation = styled.div`
 
   @media ${({ theme }) => theme.media.tablet} {
     padding: 30px;
-    border-radius: 100px 0 0 100px;
+    border-radius: 100px;
 
-    background: transparent;
-    background: linear-gradient(
-      270deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(241, 234, 234, 1) 100%
-    );
     position: relative;
-    transform: translateX(300px);
-    width: 100%;
 
     .adnotation {
       &__image {
@@ -83,7 +88,7 @@ const StyledAdnotation = styled.div`
       &__description {
         width: 200px;
         &__name {
-          font-size: 2rem;
+          font-size: 2.3rem;
 
           &:before {
             width: 92px;
@@ -92,7 +97,7 @@ const StyledAdnotation = styled.div`
         }
 
         &__paragraph {
-          font-size: 1.4rem;
+          font-size: 1.8rem;
         }
       }
     }

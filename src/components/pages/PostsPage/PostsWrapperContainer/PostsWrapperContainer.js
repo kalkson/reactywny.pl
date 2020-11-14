@@ -40,15 +40,16 @@ const PostWrapperContainer = () => {
       <div className="posts__left-section">
         <h1>Wpisy</h1>
         <p className="posts__left-section__paragraph">
-          Nowe wpisy pojawiają się raz w tygodniu - a przynajmniej taki jest
-          zamiar. Jak na razie udaje mi się zachować regularność. W treści
-          artykułów serwuję jak najrzetelniejszą wiedzę. <br />
+          Nowe wpisy pojawiają się przynajmniej raz w tygodniu - a przynajmniej
+          taki jest zamiar. W treści artykułów staram się serwować jak
+          najrzetelniejszą wiedzę, tak aby odbiorcy, czyli Wy, mogli mieć
+          zaufanie do tego co im prezentuje. <br />
           <br />
           Kwestie, które poruszam w mojej twórczości dotyczą twardej jak skała
           strony technicznej, jak również tej miękkiej, o której nie wolno
           zapominać, a która w branży jest nie mniej ważna. <br />
           <br />
-          Zapraszam do czytania, jak i komentowania
+          Zapraszam do czytania, jak i komentowania.
         </p>
       </div>
       <StyledPostsWrapper className="posts__wrapper">

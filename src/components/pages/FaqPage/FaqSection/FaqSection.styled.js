@@ -26,7 +26,7 @@ const StyledFaqSection = styled.section`
   }
 
   @media ${({ theme }) => theme.media.tablet} {
-    padding-top: 400px;
+    padding: 400px 22px 150px;
   }
 `;
 
