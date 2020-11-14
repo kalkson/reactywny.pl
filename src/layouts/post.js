@@ -85,7 +85,7 @@ const PostLayout = ({ data }) => {
     return (
       <>
         <SEO
-          title={data.datoCmsPost.title}
+          title={`${data.datoCmsPost.title} - reactywny.pl`}
           description={data.datoCmsPost.description}
           post
           image={data.datoCmsPost.featuredImage.url}
@@ -105,7 +105,7 @@ const PostLayout = ({ data }) => {
               {data.datoCmsPost.category}
             </span>
           </div>
-          <span className="post__title">{data.datoCmsPost.title}</span>
+          <h1 className="post__title">{data.datoCmsPost.title}</h1>
           <Image
             fluid={data.datoCmsPost.featuredImage.fluid}
             className="post__featuredImage"

@@ -4,13 +4,14 @@ import NewestPostSection from '../components/pages/IndexPage/NewestPostSection/N
 import MissionSection from '../components/pages/IndexPage/MissionSection/MissionSection';
 import PageHeader from '../components/PageHeader/PageHeader';
 import PageFooter from '../components/PageFooter/PageFooter';
+import SEO from '../components/SEO';
 
 const IndexPage = () => {
   return (
     <>
+      <SEO />
       <PageHeader />
       <WelcomeSection />
-      {/* <ImageWrapper className="asd" fluid={data.file.childImageSharp.fluid} /> */}
       <NewestPostSection />
       <MissionSection />
       <PageFooter />

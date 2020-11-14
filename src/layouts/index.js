@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
+import CookieConsent from 'react-cookie-consent';
 import propTypes from 'prop-types';
 import GlobalStyle from '../GlobalStyles/GlobalStyles';
 import theme from '../theme/theme';
-import SEO from '../components/SEO';
 
 const StyledContainer = styled.div`
   position: relative;
@@ -13,7 +14,17 @@ const StyledContainer = styled.div`
 const MainLayout = ({ children }) => {
   return (
     <>
-      <SEO />
+      <CookieConsent
+        location="bottom"
+        buttonText="Zaakceptuj"
+        declineButtonText="Odrzuć"
+        cookieName="gatsby-gdpr-google-analytics"
+      >
+        Korzystając ze strony zgadzasz się na używanie plików cookies, które są
+        instalowane na Twoim urządzeniu. Więcej o plikach cookies oraz o
+        możliwościach zmiany ich ustawień dowiesz się w{' '}
+        <Link to="/privacy">Polityce Prywatności.</Link>
+      </CookieConsent>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledContainer>{children}</StyledContainer>
