@@ -43,6 +43,12 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
     }
+
+    .CookieConsent {
+        width: 20%;
+        right: 10px !important;
+        bottom: 10px !important;
+    }
 `;
 
 export default GlobalStyle;
