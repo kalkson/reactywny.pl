@@ -60,7 +60,7 @@ const StyledPostLayout = styled.article`
 
     &__title {
       font-size: 3rem;
-      font-weight: ${({ theme }) => theme.fonts.semiBold};
+      font-weight: ${({ theme }) => theme.fonts.Bold};
     }
 
     &__description {
@@ -68,8 +68,15 @@ const StyledPostLayout = styled.article`
     }
 
     &__paragraph {
-      font-size: 1.2rem;
-      line-height: 1.8rem;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      font-weight: 400;
+
+      & a {
+        text-decoration: underline;
+        color: ${({ theme }) => theme.colors.mainBlue};
+        font-weight: 500;
+      }
     }
 
     &__disquis {
@@ -78,8 +85,9 @@ const StyledPostLayout = styled.article`
 
     &__heading {
       margin-bottom: 20px !important;
-      padding-bottom: 10px;
-      border-bottom: solid 2px ${({ theme }) => theme.colors.mainFair};
+      margin-top: 30px;
+      padding-bottom: 5px;
+      border-bottom: solid 2px rgba(255, 255, 255, 0.1);
     }
 
     &__syntax {
@@ -154,7 +162,8 @@ const StyledPostLayout = styled.article`
       }
 
       &__description {
-        font-size: 3.6rem;
+        font-size: 3rem;
+        font-weight: 600;
       }
 
       &__paragraph {
@@ -179,6 +188,10 @@ const StyledPostLayout = styled.article`
       &__video {
         height: 36.6vw;
         width: 65vw;
+      }
+
+      &__heading {
+        margin-top: 5px;
       }
     }
   }

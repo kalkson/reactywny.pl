@@ -5,31 +5,67 @@ const StyledPrivacyWrapper = styled.article`
   flex-direction: column;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.mainFair};
+  width: 100%;
+  margin: 0 auto;
+  font-size: 1.2rem;
 
-  li {
-    margin: 5px 0;
+  & > svg {
+    width: 90%;
   }
 
-  & h1,
-  h2 {
-    margin: 20px 0;
+  ul,
+  ol {
+    padding: 0;
   }
 
-  & ol,
-  ul {
-    padding: 20px;
+  & > ol {
+    & > li {
+      & > ul,
+      ol {
+        padding: 0 0 0 10px;
+
+        & > li {
+          margin: 10px 0;
+
+          & li {
+            margin: 2px 0 2px 20px;
+          }
+        }
+      }
+    }
   }
 
-  & > ol li {
-    margin-left: 20px;
+  & h2,
+  h3 {
+    margin: 10px 0;
   }
 
-  p {
-    margin: 20px 0;
-    transform: translateX(-20px);
-  }
+  padding: 200px 30px;
 
-  padding: 400px;
+  @media ${({ theme }) => theme.media.tablet} {
+    width: 1000px;
+    padding: 400px 0;
+
+    font-size: 1.5rem;
+
+    li {
+      margin: 5px 0 5px;
+    }
+
+    & ol,
+    ul {
+      padding: 20px 0 20px 0;
+    }
+
+    & > ol li {
+      margin-left: 20px;
+    }
+
+    p {
+      margin: 20px 0;
+      transform: translateX(-20px);
+    }
+  }
 `;
 
 export default StyledPrivacyWrapper;

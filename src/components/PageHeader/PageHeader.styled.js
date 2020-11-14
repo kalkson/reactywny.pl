@@ -30,6 +30,7 @@ const StyledPageHeader = styled.header`
     top: ${({ theme }) => theme.paddings.mobile};
     transform-origin: center;
     transition: transform 300ms ease-in-out;
+    background: none;
 
     /* transform: scale(${({ isScrolledDown }) =>
       isScrolledDown ? 0.7 : 1}); */

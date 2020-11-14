@@ -9,10 +9,10 @@ const StyledAdnotation = styled.div`
   margin-top: 100px;
   margin-bottom: 0;
   transform: translateX(17px);
-  border-radius: 50px 0 0 50px;
+  border-radius: 140px 0 0 140px;
 
   &:before {
-    border-radius: 100px 0 0 100px;
+    border-radius: 140px 0 0 140px;
     content: '';
     position: absolute;
     display: block;
@@ -29,8 +29,8 @@ const StyledAdnotation = styled.div`
       border-radius: 100px;
       border: solid 4px ${({ theme }) => theme.colors.mainDark};
       display: block;
-      width: 84px;
-      height: 84px;
+      width: 100px;
+      height: 100px;
       position: relative;
       z-index: 1;
 
@@ -49,7 +49,7 @@ const StyledAdnotation = styled.div`
         color: ${({ theme }) => theme.colors.mainFair};
         font-style: italic;
         font-weight: 900;
-        font-size: 1.7rem;
+        font-size: 1.4rem;
         position: relative;
         z-index: 0;
 
@@ -67,7 +67,7 @@ const StyledAdnotation = styled.div`
       }
 
       &__paragraph {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         font-weight: 400;
       }
     }

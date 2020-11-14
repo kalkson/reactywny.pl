@@ -4,9 +4,11 @@ import StyledPrivacyWrapper from './PrivacyWrapper.styled';
 
 const PrivacyWrapper = () => {
   return (
-    <StyledPrivacyWrapper>
-      <Privacy />
-    </StyledPrivacyWrapper>
+    <div style={{ width: '100%', backgroundColor: '#F1EAEA' }}>
+      <StyledPrivacyWrapper>
+        <Privacy />
+      </StyledPrivacyWrapper>
+    </div>
   );
 };
 
