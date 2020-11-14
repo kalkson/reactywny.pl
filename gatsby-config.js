@@ -9,6 +9,7 @@ module.exports = {
     description: `Reactywny blog o (głównie) programowaniu, ale nie tylko. Nie brakuje tutaj także tematyki rozwoju osobistego związanej z branżą IT.`,
     author: `Damian Kalka`,
     url: `https://reactywny.pl`,
+    siteUrl: `https://reactywny.pl`,
     image: `/images/meta-image.png`,
   },
   plugins: [
@@ -20,6 +21,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     'gatsby-plugin-eslint',
     `gatsby-plugin-layout`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/privacy`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

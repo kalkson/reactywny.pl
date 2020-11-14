@@ -19,6 +19,10 @@ const MainLayout = ({ children }) => {
         buttonText="Zaakceptuj"
         declineButtonText="Odrzuć"
         cookieName="gatsby-gdpr-google-analytics"
+        containerClasses="consent"
+        buttonClasses="consent__button"
+        contentClasses="consent__text"
+        buttonWrapperClasses="consent__buttons"
       >
         Korzystając ze strony zgadzasz się na używanie plików cookies, które są
         instalowane na Twoim urządzeniu. Więcej o plikach cookies oraz o

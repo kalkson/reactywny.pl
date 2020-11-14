@@ -44,10 +44,35 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
-    .CookieConsent {
-        width: 20%;
-        right: 10px !important;
-        bottom: 10px !important;
+    .consent {
+        width: 400px !important;
+
+        @media (max-width: 425px) {
+            width: 100% !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        }
+
+        bottom: 20px !important;
+        left: 20px !important;
+        display: flex !important;
+
+        a {
+            text-decoration: underline;
+        }
+
+        &__buttons {
+            margin-left: auto;
+        }
+
+        &__button {
+            background-color: #61DAFB !important;
+            padding: 10px 15px !important;
+        }
+
+        &__text {
+
+        }
     }
 `;
 
