@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledPageHeader = styled.header`
   position: fixed;
   height: 130px;
-  width: 100vw;
+  width: 100%;
   padding: ${({ theme }) => theme.paddings.mobile};
   background-color: ${({ theme }) => theme.colors.mainFair};
   justify-content: space-between;
@@ -281,8 +281,8 @@ const StyledPageHeader = styled.header`
         font-weight: ${({ theme }) => theme.fonts.ExtraBold};
         transform-origin: left;
         opacity: 0;
-        position: relative;
-        right: 5px;
+        position: absolute;
+        left: -5px;
 
         animation: close-appear 300ms ease-in-out 150ms forwards;
 

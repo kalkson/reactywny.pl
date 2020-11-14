@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledMenuButton = styled.div`
+const StyledMenuButton = styled.button`
   width: 34px;
   height: 24px;
   position: relative;
