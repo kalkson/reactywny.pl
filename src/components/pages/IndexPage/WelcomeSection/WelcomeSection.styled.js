@@ -58,6 +58,8 @@ const StyledWelcomeSection = styled.div`
       color: ${({ theme }) => theme.colors.mainDark};
       font-size: 1.3rem;
       height: auto;
+      z-index: 6;
+      position: relative;
     }
   }
 
@@ -171,6 +173,7 @@ const StyledWelcomeSection = styled.div`
     .welcome-sction__content__image-cont {
       right: -466px;
       top: -100px;
+      z-index: 2;
 
       & > svg {
         width: 630px;

@@ -98,6 +98,10 @@ const StyledPostLayout = styled.article`
       font-weight: 600;
       width: 100%;
       margin-bottom: 30px !important;
+
+      & * {
+        font-family: 'Fira Code', monospace;
+      }
     }
 
     &__cli {

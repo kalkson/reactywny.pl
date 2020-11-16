@@ -40,7 +40,7 @@ const SEO = ({ title, description, post, image }) => {
 
   return (
     <Helmet title={seo.title}>
-      <html lang="pl" amp={post ? true : null} />
+      <html lang="pl" />
       <meta name="description" content={seo.description} />
       <meta name="author" content={seo.author} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -47,9 +47,13 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Montserrat`,
+            family: `Roboto`,
             subsets: ['latin'],
-            variants: [`400`, `500`, `600`, `700`, `800`, `900`],
+            variants: [`400`, `500`, `600`, `700`, `900`],
+          },
+          {
+            family: `Fira Code`,
+            variants: [`400`, `500`, `600`],
           },
         ],
       },
@@ -77,7 +81,7 @@ module.exports = {
         developerName: null,
         developerURL: null,
         dir: 'auto',
-        lang: 'en-US',
+        lang: 'pl-PL',
         background: '#fff',
         theme_color: '#fff',
         display: 'standalone',
@@ -87,8 +91,8 @@ module.exports = {
 
         icons: {
           android: true,
-          appleIcon: true,
-          appleStartup: true,
+          appleIcon: false,
+          appleStartup: false,
           coast: false,
           favicons: true,
           firefox: true,
@@ -128,18 +132,37 @@ module.exports = {
                   url: `${site.siteMetadata.url}/posts/${slugify(node.title, {
                     lower: true,
                   })}`,
-                  guid:
-                    site.siteMetadata.url +
-                    slugify(node.title, { lower: true }),
+                  guid: `${site.siteMetadata.url}/${slugify(node.title, {
+                    lower: true,
+                  })}`,
                   title: node.title,
                   enclosure: node.featuredImage && {
                     url: node.featuredImage.url,
+                    medium: `image`,
                   },
                   custom_elements: [
                     {
-                      'content:encoded': node.html,
+                      'media:content': {
+                        _attr: {
+                          'xmlns:media': 'http://search.yahoo.com/mrss/',
+                          url: node.featuredImage.url,
+                          medium: `image`,
+                          type: `image/jpeg`,
+                        },
+                      },
                     },
                   ],
+                  // custom_elements: [
+                  //   {
+                  //     'itunes:image': {
+                  //       _attr: {
+                  //         href:
+                  //           'http://example.com/podcasts/everything/AllAboutEverything/Episode1.jpg',
+                  //       },
+                  //     },
+                  //   },
+                  //   { 'itunes:duration': '7:04' },
+                  // ],
                 };
               });
             },
@@ -171,6 +194,12 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: ['G-ZG3XX8H22F'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        configFile: 'robots-txt.config.js',
       },
     },
   ],
