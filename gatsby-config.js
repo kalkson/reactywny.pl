@@ -148,21 +148,11 @@ module.exports = {
                           url: node.featuredImage.url,
                           medium: `image`,
                           type: `image/jpeg`,
+                          width: 325,
                         },
                       },
                     },
                   ],
-                  // custom_elements: [
-                  //   {
-                  //     'itunes:image': {
-                  //       _attr: {
-                  //         href:
-                  //           'http://example.com/podcasts/everything/AllAboutEverything/Episode1.jpg',
-                  //       },
-                  //     },
-                  //   },
-                  //   { 'itunes:duration': '7:04' },
-                  // ],
                 };
               });
             },
