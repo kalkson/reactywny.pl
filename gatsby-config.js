@@ -42,20 +42,28 @@ module.exports = {
         },
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: `Roboto`,
+    //         subsets: ['latin'],
+    //         variants: [`400`, `500`, `600`, `700`, `900`],
+    //       },
+    //       {
+    //         family: `Fira Code`,
+    //         variants: [`400`, `500`, `600`],
+    //       },
+    //     ],
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            subsets: ['latin'],
-            variants: [`400`, `500`, `600`, `700`, `900`],
-          },
-          {
-            family: `Fira Code`,
-            variants: [`400`, `500`, `600`],
-          },
-        ],
+        google: {
+          families: ['Roboto', 'Fira Code'],
+        },
       },
     },
     {
