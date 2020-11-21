@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import NewPost from './NewPost/NewPost';
 import StyledNewPostCarousel from './NewPostCarousel.styled';
 import Arrow from '../../assets/svg/arrow-1.svg';
-import 'swiped-events';
 
 const query = graphql`
   {
@@ -73,6 +72,8 @@ const NewPostCarousel = ({ className }) => {
   };
 
   useEffect(() => {
+    import('swiped-events');
+
     elements = Array.from(wrapper.current.children).filter(
       element => element.tagName === 'DIV'
     );
