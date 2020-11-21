@@ -11,6 +11,7 @@ const StyledNewestPostSection = styled.section`
     top: -150px;
     left: -20px;
     z-index: 2;
+    display: none;
   }
 
   & h2 {
@@ -35,7 +36,7 @@ const StyledNewestPostSection = styled.section`
   }
 
   & .newest-post__wrapper {
-    margin: 80px 0;
+    margin: 100px auto 80px;
     display: flex;
     flex-direction: column;
 
@@ -117,7 +118,7 @@ const StyledNewestPostSection = styled.section`
       & h2 {
         font-size: 9.3rem;
         margin-top: auto;
-        margin-bottom: 130px;
+        margin-bottom: 50px;
 
         &:after {
           width: 326px;
@@ -128,7 +129,7 @@ const StyledNewestPostSection = styled.section`
       }
 
       & .newest-post__wrapper {
-        padding: 0 120px;
+        margin: 200px 100px 80px 0;
         align-items: flex-end;
         justify-content: flex-end;
 

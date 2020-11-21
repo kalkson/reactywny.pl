@@ -42,22 +42,6 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: `Roboto`,
-    //         subsets: ['latin'],
-    //         variants: [`400`, `500`, `600`, `700`, `900`],
-    //       },
-    //       {
-    //         family: `Fira Code`,
-    //         variants: [`400`, `500`, `600`],
-    //       },
-    //     ],
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
@@ -82,9 +66,7 @@ module.exports = {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: './src/assets/images/favicon.png',
-
-        // WebApp Manifest Configuration
-        appName: null, // Inferred with your package.json
+        appName: null,
         appDescription: null,
         developerName: null,
         developerURL: null,

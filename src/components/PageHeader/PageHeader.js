@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import propTypes from 'prop-types';
-// import { graphql } from 'gatsby';
-// import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import StyledPageHeader from './PageHeader.styled';
 import Logo from '../../assets/svg/logo-2.svg';
