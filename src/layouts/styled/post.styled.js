@@ -55,7 +55,7 @@ const StyledPostLayout = styled.article`
     }
 
     &__image {
-      width: 100%;
+      max-width: 100%;
     }
 
     &__title {
@@ -158,7 +158,7 @@ const StyledPostLayout = styled.article`
       }
 
       &__image {
-        width: 80%;
+        max-width: 80%;
       }
 
       &__title {
@@ -205,7 +205,7 @@ const StyledPostLayout = styled.article`
 
     .post {
       &__image {
-        width: 80%;
+        max-width: 80%;
       }
 
       &__featuredImage {
@@ -227,7 +227,7 @@ const StyledPostLayout = styled.article`
     .post {
       &__image {
         height: 36.6vw;
-        width: 65vw;
+        max-width: 65vw;
       }
 
       &__featuredImage {
