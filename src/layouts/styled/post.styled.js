@@ -7,6 +7,7 @@ const StyledPostLayout = styled.article`
   font-weight: ${({ theme }) => theme.fonts.Bold};
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   & > *:not(:last-child) {
     margin-bottom: 20px;
@@ -68,9 +69,9 @@ const StyledPostLayout = styled.article`
     }
 
     &__paragraph {
-      font-size: 1.6rem;
+      font-size: 1.9rem;
       line-height: 2.2rem;
-      font-weight: 400;
+      font-weight: 300;
 
       & a {
         text-decoration: underline;
@@ -85,13 +86,13 @@ const StyledPostLayout = styled.article`
 
     &__heading {
       margin-bottom: 20px !important;
-      margin-top: 30px;
-      padding-bottom: 5px;
+      padding-top: 30px;
+      padding-bottom: 10px;
       border-bottom: solid 2px rgba(255, 255, 255, 0.1);
     }
 
     &__syntax {
-      font-size: 0.9rem !important;
+      font-size: 1.3rem !important;
       line-height: 15px;
       font-weight: 500 !important;
       font-weight: initial;
@@ -105,13 +106,18 @@ const StyledPostLayout = styled.article`
     }
 
     &__cli {
-      max-width: 85%;
-      min-width: 85%;
-      font-size: 0.9rem !important;
+      max-width: 100%;
+      min-width: 100%;
+      font-size: 1.3rem !important;
       line-height: 15px;
       font-weight: 500 !important;
       padding: 10px;
       margin-bottom: 30px !important;
+      margin-top: 0;
+
+      & * {
+        font-family: 'Fira Code', monospace !important;
+      }
     }
 
     &__video {
@@ -123,6 +129,78 @@ const StyledPostLayout = styled.article`
       @media (min-width: 425px) {
         width: 90%;
         height: 300px;
+      }
+    }
+
+    &__quote {
+      font-size: 3rem;
+      font-weight: 100;
+      font-style: italic;
+      padding-left: 30px;
+      border-left: solid 4px rgba(255, 255, 255, 0.3);
+    }
+
+    &__photo {
+      display: block;
+      position: relative;
+      /* margin: 0 auto; */
+      &__image {
+      }
+
+      &__sign {
+        text-align: center;
+        font-weight: 300;
+        font-style: italic;
+        display: inline-block;
+        width: 100%;
+        margin-top: 15px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    &__source {
+      color: ${({ theme }) => theme.colors.mainFair};
+      margin-top: 70px;
+      padding-top: 20px;
+      font-size: 2rem;
+      border-top: solid 3px rgba(255, 255, 255, 0.4);
+
+      &__list {
+        padding-left: 20px;
+        padding-right: 10px;
+        font-size: 0.8em;
+        font-weight: 300;
+        font-style: italic;
+        text-decoration: underline;
+        color: ${({ theme }) => theme.colors.mainBlue};
+        word-wrap: break-word;
+      }
+    }
+
+    &__navHead {
+      color: ${({ theme }) => theme.colors.mainFair};
+      font-size: 2rem;
+      border-top: solid 1px rgba(255, 255, 255, 0.3);
+      border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+      padding: 20px 0;
+
+      &__list {
+        font-size: 0.95em;
+        font-weight: 300;
+        font-style: italic;
+        text-decoration: underline;
+        color: ${({ theme }) => theme.colors.mainBlue};
+        padding: 0 0 0 40px;
+        margin: 0;
+        /* list-style-type: none; */
+
+        &__item {
+          margin: 3px 0;
+
+          &::marker {
+            color: white;
+          }
+        }
       }
     }
   }
@@ -171,7 +249,7 @@ const StyledPostLayout = styled.article`
       }
 
       &__paragraph {
-        font-size: 1.6rem;
+        font-size: 1.9rem;
         font-weight: 400;
         line-height: 2.4rem;
       }
@@ -196,6 +274,14 @@ const StyledPostLayout = styled.article`
 
       &__heading {
         margin-top: 5px;
+      }
+
+      &__source {
+        padding-top: 20px;
+
+        &__list {
+          font-size: 0.8em;
+        }
       }
     }
   }

@@ -144,7 +144,6 @@ const StyledPageHeader = styled.header`
       & > li {
         position: relative;
         transition: transform 200ms ease-in-out;
-        letter-spacing: 2px;
         font-weight: ${({ theme }) => theme.fonts.Black};
 
         &:before {

@@ -18,8 +18,6 @@ const query = graphql`
 const Adnotation = () => {
   const data = useStaticQuery(query);
 
-  console.log(data);
-
   return (
     <StyledAdnotation className="adnotation">
       <Image

@@ -72,6 +72,7 @@ const SEO = ({ title, description, post, image }) => {
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
+      {post ? <style>{`html { scroll-behavior: smooth;}`}</style> : null}
     </Helmet>
   );
 };

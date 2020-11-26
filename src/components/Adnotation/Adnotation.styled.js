@@ -9,20 +9,7 @@ const StyledAdnotation = styled.div`
   margin-top: 100px;
   margin-bottom: 0;
   transform: translateX(17px);
-  border-radius: 140px 0 0 140px;
-
-  &:before {
-    border-radius: 140px 0 0 140px;
-    content: '';
-    position: absolute;
-    display: block;
-    height: 100%;
-    width: 100vw;
-    background-color: ${({ theme }) => theme.colors.mainFair};
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
+  width: 100%;
 
   .adnotation {
     &__image {
@@ -74,10 +61,9 @@ const StyledAdnotation = styled.div`
   }
 
   @media ${({ theme }) => theme.media.tablet} {
-    padding: 30px;
-    border-radius: 100px;
-
     position: relative;
+    width: fit-content;
+    padding: 14px 0 14px 14px;
 
     .adnotation {
       &__image {

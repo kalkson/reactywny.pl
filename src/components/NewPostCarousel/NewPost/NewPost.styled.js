@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 const StyledNewPost = styled.div`
   width: 100%;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   height: 100%;
   position: absolute;
   background-color: ${({ theme }) => theme.colors.mainFair};
   padding: 10px;
   display: flex;
   flex-direction: column;
-  border-radius: 0 0 50px 0;
 
   & > * {
     position: relative;

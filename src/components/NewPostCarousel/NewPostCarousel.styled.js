@@ -42,15 +42,15 @@ const StyledNewPostCarousel = styled.div`
   }
   & > div:nth-of-type(3) {
     z-index: 3;
-    opacity: 0.9;
+    opacity: 0.8;
   }
   & > div:nth-of-type(4) {
     z-index: 2;
-    opacity: 0.8;
+    opacity: 0.7;
   }
   & > div:nth-of-type(5) {
     z-index: 1;
-    opacity: 0.75;
+    opacity: 0.6;
   }
 
   @media (min-width: 768px) {

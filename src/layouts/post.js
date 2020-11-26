@@ -8,7 +8,6 @@ import {
   materialDark,
   solarizedlight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import slugify from 'slugify';
 import StyledPostLayout from './styled/post.styled';
 import SEO from '../components/SEO';
 import HomeIcon from '../assets/svg/home.svg';
@@ -25,6 +24,8 @@ export const query = graphql`
       date
       description
       title
+      postSource
+      isTabled
       featuredImage {
         fluid(maxWidth: 1920, imgixParams: { auto: "compress" }) {
           ...GatsbyDatoCmsFluid
@@ -41,9 +42,12 @@ export const query = graphql`
           id
           imageData {
             fluid(imgixParams: { auto: "compress" }) {
+              height
+              width
               ...GatsbyDatoCmsFluid
             }
           }
+          postImageSign
         }
         ... on DatoCmsPostHeadline {
           id
@@ -66,6 +70,14 @@ export const query = graphql`
             url
             title
           }
+        }
+        ... on DatoCmsPostEmbed {
+          id
+          embedContent
+        }
+        ... on DatoCmsPostQuote {
+          id
+          quoteContent
         }
       }
     }
@@ -114,6 +126,26 @@ const PostLayout = ({ data }) => {
           <span className="post__description">
             {data.datoCmsPost.description}
           </span>
+          {data.datoCmsPost.isTabled && (
+            <nav className="post__navHead">
+              <h4>Nawigacja</h4>
+              <ul className="post__navHead__list">
+                <br />
+                {data.datoCmsPost.postContent.map(item => {
+                  const itemKey = Object.keys(item)[2];
+
+                  if (itemKey === 'headingContent')
+                    return (
+                      <li className="post__navHead__list__item">
+                        <a href={`#${item.id}`}>{item.headingContent}</a>
+                      </li>
+                    );
+
+                  return null;
+                })}
+              </ul>
+            </nav>
+          )}
           {data.datoCmsPost.postContent &&
             data.datoCmsPost.postContent.map(item => {
               const itemKey = Object.keys(item)[2];
@@ -128,10 +160,28 @@ const PostLayout = ({ data }) => {
                     />
                   );
                 case 'imageData':
-                  return <Image key={item.id} fluid={item.imageData.fluid} />;
+                  console.log(item.imageData.width);
+                  return (
+                    <div
+                      className="post__photo"
+                      style={{
+                        maxWidth: item.imageData.fluid.width,
+                        maxHeight: item.imageData.fluid.height,
+                      }}
+                    >
+                      <Image
+                        className="post__photo__image"
+                        key={item.id}
+                        fluid={item.imageData.fluid}
+                      />
+                      <span className="post__photo__sign">
+                        {item.postImageSign}
+                      </span>
+                    </div>
+                  );
                 case 'headingContent':
                   return (
-                    <h2 className="post__heading" key={item.id}>
+                    <h2 className="post__heading" key={item.id} id={item.id}>
                       {item.headingContent}
                     </h2>
                   );
@@ -170,11 +220,39 @@ const PostLayout = ({ data }) => {
                       />
                     </>
                   );
+                case 'quoteContent':
+                  return (
+                    <PostParagraph
+                      className="post__quote"
+                      key={item.id}
+                      content={item.quoteContent}
+                    />
+                  );
 
                 default:
                   return null;
               }
             })}
+          {data.datoCmsPost.postSource && (
+            <div className="post__source">
+              <h4 className="post__source__heading">Źródła</h4>
+              <ul className="post__source__list">
+                {JSON.parse(data.datoCmsPost.postSource).sources.map(source => {
+                  return (
+                    <li key={source} className="post__source__list__item">
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={source}
+                      >
+                        {source}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
           <Adnotation />
           <Disqus config={disqusConfig} className="post__disquis" />
         </StyledPostLayout>
@@ -193,6 +271,8 @@ PostLayout.propTypes = {
       category: propTypes.string.isRequired,
       description: propTypes.string.isRequired,
       date: propTypes.string.isRequired,
+      postSource: propTypes.string.isRequired,
+      isTabled: propTypes.bool,
       postContent: propTypes.arrayOf(
         propTypes.shape(
           propTypes.oneOfType([propTypes.string, propTypes.shape])
@@ -213,6 +293,7 @@ PostLayout.defaultProps = {
         fluid: null,
       },
       postContent: null,
+      isTabled: false,
     },
   },
 };
