@@ -1,5 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PostElement from 'components/PostElement/PostElement';
 import StyledPostsWrapperContainer from './PostsWrapperContainer.styled';
 import StyledPostsWrapper from './PostsWrapper.styled';
@@ -32,6 +32,8 @@ const query = graphql`
 const PostWrapperContainer = () => {
   const [isPicturesDisplayed, changePictureDisplay] = useState(true);
   const [searchInputContent, changeSearchInputContent] = useState('');
+  const [activeCategory, setActiveCategory] = useState('');
+  const [categories, setCategories] = useState([]);
 
   const data = useStaticQuery(query);
 
@@ -39,13 +41,27 @@ const PostWrapperContainer = () => {
     allDatoCmsPost: { nodes },
   } = data;
 
+  useEffect(() => {
+    const tmpArray = [];
+
+    nodes.forEach(node => {
+      if (!tmpArray.includes(node.category)) tmpArray.push(node.category);
+    });
+
+    console.log(tmpArray);
+    setCategories(tmpArray);
+  }, []);
+
   const handleSwitch = () => {
     changePictureDisplay(!isPicturesDisplayed);
   };
 
   const handleChange = e => {
-    console.log(e.target.value);
     changeSearchInputContent(e.target.value);
+  };
+
+  const handleSelect = e => {
+    setActiveCategory(e.target.value);
   };
 
   return (
@@ -70,11 +86,16 @@ const PostWrapperContainer = () => {
         <PostWrapperOptions
           handleSwitch={handleSwitch}
           handleChange={handleChange}
+          handleSelect={handleSelect}
+          categories={categories}
         />
         {nodes
           .filter(post => {
             const tmp = `${post.title} ${post.shortDescription} ${post.category}`;
             return tmp.toLowerCase().includes(searchInputContent.toLowerCase());
+          })
+          .filter(post => {
+            return post.category.includes(activeCategory);
           })
           .map(post => {
             return (

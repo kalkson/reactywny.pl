@@ -2,7 +2,14 @@ import React from 'react';
 import propTypes from 'prop-types';
 import StyledPostWrapperOptions from './StyledPostWrapperOptions';
 
-const PostWrapperOptions = ({ handleSwitch, handleChange }) => {
+const PostWrapperOptions = ({
+  handleSwitch,
+  handleChange,
+  handleSelect,
+  categories,
+}) => {
+  console.log(categories);
+
   return (
     <StyledPostWrapperOptions>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -12,10 +19,21 @@ const PostWrapperOptions = ({ handleSwitch, handleChange }) => {
           className="searchInput"
           onChange={e => handleChange(e)}
         />
-        <label htmlFor="category">
-          Kategoria{' '}
-          <select className="category" id="category" placeholder="kategoria">
-            {/* <option value="react" /> */}
+        <label htmlFor="category" className="categoryLabel">
+          <select
+            className="category"
+            id="category"
+            placeholder="kategoria"
+            onChange={e => handleSelect(e)}
+          >
+            <option value="" aria-label="empty">
+              wszystko
+            </option>
+            {categories.map(category => (
+              <option key="category" value={category} aria-label={category}>
+                {category}
+              </option>
+            ))}
           </select>
         </label>
       </div>
@@ -31,6 +49,8 @@ const PostWrapperOptions = ({ handleSwitch, handleChange }) => {
 PostWrapperOptions.propTypes = {
   handleSwitch: propTypes.func.isRequired,
   handleChange: propTypes.func.isRequired,
+  handleSelect: propTypes.func.isRequired,
+  categories: propTypes.shape(propTypes.string).isRequired,
 };
 
 export default PostWrapperOptions;

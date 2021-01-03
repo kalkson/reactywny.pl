@@ -3,15 +3,14 @@ import styled from 'styled-components';
 const StyledPostWrapperOptions = styled.div`
   width: 100%;
   position: relative;
-  /* display: flex; */
-  /* justify-content: space-between; */
   padding-left: 45px;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.mainFair};
+  /* width: 455px; */
 
   .searchInput {
     font-size: 2rem;
-    padding: 10px;
+    padding: 6px;
     border: solid 2px ${({ theme }) => theme.colors.mainBlue};
     outline: none;
     border-radius: 10px;
@@ -19,12 +18,31 @@ const StyledPostWrapperOptions = styled.div`
 
   .category {
     font-size: 2rem;
-    padding: 10px;
+    padding: 6px;
     border: solid 2px ${({ theme }) => theme.colors.mainBlue};
     outline: none;
     border-radius: 10px;
     width: 100px;
     margin-left: auto;
+    position: relative;
+    width: 150px;
+  }
+
+  .categoryLabel {
+    position: relative;
+  }
+
+  .categoryLabel:before {
+    content: 'Kategoria';
+    left: 0;
+    bottom: calc(100% + 5px);
+    position: absolute;
+    display: inline;
+  }
+
+  .category:hover {
+    background-color: none;
+    outline: none;
   }
 
   .switch {
@@ -32,7 +50,6 @@ const StyledPostWrapperOptions = styled.div`
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin-top: 20px;
   }
 
   .switch:after {
