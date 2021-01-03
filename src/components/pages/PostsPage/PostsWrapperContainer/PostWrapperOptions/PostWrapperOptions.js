@@ -2,12 +2,25 @@ import React from 'react';
 import propTypes from 'prop-types';
 import StyledPostWrapperOptions from './StyledPostWrapperOptions';
 
-const PostWrapperOptions = ({ handleSwitch }) => {
+const PostWrapperOptions = ({ handleSwitch, handleChange }) => {
   return (
     <StyledPostWrapperOptions>
-      <input type="text" placeholder="wyszukaj wpis" className="searchInput" />
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <input
+          type="text"
+          placeholder="wyszukaj wpis"
+          className="searchInput"
+          onChange={e => handleChange(e)}
+        />
+        <label htmlFor="category">
+          Kategoria{' '}
+          <select className="category" id="category" placeholder="kategoria">
+            {/* <option value="react" /> */}
+          </select>
+        </label>
+      </div>
+      <br />
       <label className="switch" htmlFor="switch">
-        Ukryj obrazy
         <input type="checkbox" id="switch" onClick={() => handleSwitch()} />
         <span className="slider round" />
       </label>
@@ -17,6 +30,7 @@ const PostWrapperOptions = ({ handleSwitch }) => {
 
 PostWrapperOptions.propTypes = {
   handleSwitch: propTypes.func.isRequired,
+  handleChange: propTypes.func.isRequired,
 };
 
 export default PostWrapperOptions;

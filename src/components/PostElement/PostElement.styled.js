@@ -6,7 +6,6 @@ const StyledPostElement = styled.div`
   padding: 40px 0 40px 40px;
   padding: 40px 0 40px 40px;
   color: ${({ theme }) => theme.colors.mainFair};
-  font-weight: ${({ theme }) => theme.fonts.Bold};
   width: 300px;
   margin: 0 auto;
   border-left: solid 5px ${({ theme }) => theme.colors.mainFair};

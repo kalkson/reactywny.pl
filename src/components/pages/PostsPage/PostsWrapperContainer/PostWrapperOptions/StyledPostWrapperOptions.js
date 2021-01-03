@@ -3,10 +3,11 @@ import styled from 'styled-components';
 const StyledPostWrapperOptions = styled.div`
   width: 100%;
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
   padding-left: 45px;
   margin-bottom: 20px;
+  color: ${({ theme }) => theme.colors.mainFair};
 
   .searchInput {
     font-size: 2rem;
@@ -16,11 +17,22 @@ const StyledPostWrapperOptions = styled.div`
     border-radius: 10px;
   }
 
+  .category {
+    font-size: 2rem;
+    padding: 10px;
+    border: solid 2px ${({ theme }) => theme.colors.mainBlue};
+    outline: none;
+    border-radius: 10px;
+    width: 100px;
+    margin-left: auto;
+  }
+
   .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-top: 20px;
   }
 
   .switch:after {
@@ -29,6 +41,9 @@ const StyledPostWrapperOptions = styled.div`
     white-space: nowrap;
     color: ${({ theme }) => theme.colors.mainFair};
     text-align: right;
+    position: absolute;
+    top: calc(50% - 1rem);
+    left: calc(100% + 10px);
   }
 
   .switch input {

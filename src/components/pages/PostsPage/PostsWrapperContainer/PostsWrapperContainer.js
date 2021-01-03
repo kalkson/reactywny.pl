@@ -31,6 +31,7 @@ const query = graphql`
 
 const PostWrapperContainer = () => {
   const [isPicturesDisplayed, changePictureDisplay] = useState(true);
+  const [searchInputContent, changeSearchInputContent] = useState('');
 
   const data = useStaticQuery(query);
 
@@ -40,6 +41,11 @@ const PostWrapperContainer = () => {
 
   const handleSwitch = () => {
     changePictureDisplay(!isPicturesDisplayed);
+  };
+
+  const handleChange = e => {
+    console.log(e.target.value);
+    changeSearchInputContent(e.target.value);
   };
 
   return (
@@ -61,16 +67,24 @@ const PostWrapperContainer = () => {
         </p>
       </div>
       <StyledPostsWrapper className="posts__wrapper">
-        <PostWrapperOptions handleSwitch={handleSwitch} />
-        {nodes.map(post => {
-          return (
-            <PostElement
-              key={post.id}
-              data={post}
-              isPicturesDisplayed={isPicturesDisplayed}
-            />
-          );
-        })}
+        <PostWrapperOptions
+          handleSwitch={handleSwitch}
+          handleChange={handleChange}
+        />
+        {nodes
+          .filter(post => {
+            const tmp = `${post.title} ${post.shortDescription} ${post.category}`;
+            return tmp.toLowerCase().includes(searchInputContent.toLowerCase());
+          })
+          .map(post => {
+            return (
+              <PostElement
+                key={post.id}
+                data={post}
+                isPicturesDisplayed={isPicturesDisplayed}
+              />
+            );
+          })}
       </StyledPostsWrapper>
     </StyledPostsWrapperContainer>
   );
