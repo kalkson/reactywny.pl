@@ -23,7 +23,7 @@ const PageHeader = () => {
 
     setScrollPosition(newScrollPosition);
 
-    if (scrollDirection === 'down' && window.scrollY >= 0) {
+    if (scrollDirection === 'down' && window.scrollY >= 15) {
       setScrolledDown(true);
     } else if (scrollDirection === 'up' && window.scrollY <= 50) {
       setScrolledDown(false);
