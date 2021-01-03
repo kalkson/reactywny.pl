@@ -62,7 +62,7 @@ const StyledPostWrapperOptions = styled.div`
   }
 
   .category:hover {
-    background-color: none;
+    /* background-color: none; */
     outline: none;
   }
 

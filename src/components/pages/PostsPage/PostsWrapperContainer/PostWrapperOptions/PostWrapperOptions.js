@@ -27,7 +27,7 @@ const PostWrapperOptions = ({
             onChange={e => handleSelect(e)}
           >
             <option value="" aria-label="empty">
-              wszystko
+              wszystkie
             </option>
             {categories.map(category => (
               <option key="category" value={category} aria-label={category}>
