@@ -1,12 +1,28 @@
 import styled from 'styled-components';
 
 const StyledPostWrapperOptions = styled.div`
-  width: 100%;
   position: relative;
-  padding-left: 45px;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.mainFair};
-  /* width: 455px; */
+  margin: 0 auto;
+  width: 300px;
+  margin-bottom: 30px;
+
+  @media ${({ theme }) => theme.media.tablet} {
+    width: 100%;
+    padding-left: 45px;
+  }
+
+  .inputsContainer {
+    display: flex;
+    flex-direction: column;
+
+    @media ${({ theme }) => theme.media.laptop} {
+      justify-content: initial;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 
   .searchInput {
     font-size: 2rem;
@@ -30,6 +46,11 @@ const StyledPostWrapperOptions = styled.div`
 
   .categoryLabel {
     position: relative;
+    margin-top: 40px;
+
+    @media ${({ theme }) => theme.media.laptop} {
+      margin-top: 0;
+    }
   }
 
   .categoryLabel:before {

@@ -12,7 +12,7 @@ const PostWrapperOptions = ({
 
   return (
     <StyledPostWrapperOptions>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div className="inputsContainer">
         <input
           type="text"
           placeholder="wyszukaj wpis"
