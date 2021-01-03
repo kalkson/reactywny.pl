@@ -43,6 +43,21 @@ const StyledPostElement = styled.div`
       height: 140px;
     }
 
+    &__picture {
+      animation-name: image-appear;
+      animation-duration: 400ms;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes image-appear {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     &__title {
       font-size: 2.2rem;
       font-weight: ${({ theme }) => theme.fonts.semiBold};

@@ -1,8 +1,9 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
 import PostElement from 'components/PostElement/PostElement';
 import StyledPostsWrapperContainer from './PostsWrapperContainer.styled';
 import StyledPostsWrapper from './PostsWrapper.styled';
+import PostWrapperOptions from './PostWrapperOptions/PostWrapperOptions';
 
 const query = graphql`
   {
@@ -29,16 +30,23 @@ const query = graphql`
 `;
 
 const PostWrapperContainer = () => {
+  const [isPicturesDisplayed, changePictureDisplay] = useState(true);
+
   const data = useStaticQuery(query);
 
   const {
     allDatoCmsPost: { nodes },
   } = data;
 
+  const handleSwitch = () => {
+    changePictureDisplay(!isPicturesDisplayed);
+  };
+
   return (
     <StyledPostsWrapperContainer className="posts">
       <div className="posts__left-section">
         <h1>Wpisy</h1>
+
         <p className="posts__left-section__paragraph">
           Nowe wpisy pojawiają się przynajmniej raz w tygodniu - a przynajmniej
           taki jest zamiar. W treści artykułów staram się serwować jak
@@ -53,8 +61,15 @@ const PostWrapperContainer = () => {
         </p>
       </div>
       <StyledPostsWrapper className="posts__wrapper">
+        <PostWrapperOptions handleSwitch={handleSwitch} />
         {nodes.map(post => {
-          return <PostElement key={post.id} data={post} />;
+          return (
+            <PostElement
+              key={post.id}
+              data={post}
+              isPicturesDisplayed={isPicturesDisplayed}
+            />
+          );
         })}
       </StyledPostsWrapper>
     </StyledPostsWrapperContainer>
