@@ -184,5 +184,11 @@ module.exports = {
         configFile: 'robots-txt.config.js',
       },
     },
+    {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `pub-9835108854416789`,
+      },
+    },
   ],
 };
