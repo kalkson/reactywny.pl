@@ -33,7 +33,7 @@ NewPost.propTypes = {
     date: propTypes.string,
     category: propTypes.string,
     featuredImage: propTypes.shape({
-      fluid: propTypes.string,
+      fluid: propTypes.shape(),
     }),
   }).isRequired,
 };

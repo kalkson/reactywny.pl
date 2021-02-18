@@ -87,7 +87,6 @@ export const query = graphql`
 const PostLayout = ({ data }) => {
   const disqusConfig = data
     ? {
-        // url: slugify(data.datoCmsPost.title, { lower: true }),
         identifier: data.datoCmsPost.id,
         title: data.datoCmsPost.title,
       }
@@ -96,6 +95,7 @@ const PostLayout = ({ data }) => {
   if (data)
     return (
       <>
+        {console.log(data)}
         <SEO
           title={`${data.datoCmsPost.title} - reactywny.pl`}
           description={data.datoCmsPost.description}
@@ -160,7 +160,6 @@ const PostLayout = ({ data }) => {
                     />
                   );
                 case 'imageData':
-                  console.log(item.imageData.width);
                   return (
                     <div
                       className="post__photo"
@@ -271,15 +270,11 @@ PostLayout.propTypes = {
       category: propTypes.string.isRequired,
       description: propTypes.string.isRequired,
       date: propTypes.string.isRequired,
-      postSource: propTypes.string.isRequired,
+      postSource: propTypes.string,
       isTabled: propTypes.bool,
-      postContent: propTypes.arrayOf(
-        propTypes.shape(
-          propTypes.oneOfType([propTypes.string, propTypes.shape])
-        )
-      ),
+      postContent: propTypes.string,
       featuredImage: propTypes.shape({
-        fluid: propTypes.shape(propTypes.string),
+        fluid: propTypes.shape(),
         url: propTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
@@ -294,6 +289,7 @@ PostLayout.defaultProps = {
       },
       postContent: null,
       isTabled: false,
+      postSource: null,
     },
   },
 };

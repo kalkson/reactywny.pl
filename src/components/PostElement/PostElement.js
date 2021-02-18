@@ -38,7 +38,7 @@ PostElement.propTypes = {
     title: propTypes.string.isRequired,
     shortDescription: propTypes.string.isRequired,
     featuredImage: propTypes.shape({
-      fluid: propTypes.shape(propTypes.string),
+      fluid: propTypes.shape(),
     }),
   }),
 };
