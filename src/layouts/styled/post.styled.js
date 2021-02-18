@@ -70,13 +70,22 @@ const StyledPostLayout = styled.article`
 
     &__paragraph {
       font-size: 1.9rem;
-      line-height: 2.2rem;
+      line-height: 3rem;
       font-weight: 300;
 
       & a {
         text-decoration: underline;
         color: ${({ theme }) => theme.colors.mainBlue};
         font-weight: 500;
+      }
+
+      & .tag {
+        font-weight: 200;
+        color: inherit;
+        background-color: #853947d9;
+        padding: 1px 5px;
+        border-radius: 3px;
+        margin: 0 3px;
       }
     }
 
@@ -246,12 +255,6 @@ const StyledPostLayout = styled.article`
       &__description {
         font-size: 3rem;
         font-weight: 600;
-      }
-
-      &__paragraph {
-        font-size: 1.9rem;
-        font-weight: 400;
-        line-height: 2.4rem;
       }
 
       &__syntax {

@@ -24,7 +24,7 @@ const Contact = () => {
       body: encode({ 'form-name': 'contact', ...data }),
     })
       .then(() => setStatus('success'))
-      .catch(error => alert(error));
+      .catch(error => console.log(error));
 
     e.preventDefault();
   };

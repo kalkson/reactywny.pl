@@ -17,7 +17,6 @@ const NewsletterBar = ({ isNewsletterVisible }) => {
 
   const handleChange = e => {
     setEmail(e.target.value);
-    console.log(sentResult);
   };
 
   const handlePrevent = e => {

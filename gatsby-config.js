@@ -65,35 +65,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: './src/assets/images/favicon.png',
-        appName: null,
-        appDescription: null,
-        developerName: null,
-        developerURL: null,
-        dir: 'auto',
-        lang: 'pl-PL',
-        background: '#fff',
-        theme_color: '#fff',
-        display: 'standalone',
-        orientation: 'any',
-        start_url: '/?homescreen=1',
-        version: '1.0',
-
-        icons: {
-          android: true,
-          appleIcon: false,
-          appleStartup: false,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          yandex: false,
-          windows: false,
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint: process.env.MAILCHIMP_ENDPOINT,
@@ -174,7 +145,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: ['G-ZG3XX8H22F'],
       },
     },
@@ -188,6 +158,18 @@ module.exports = {
       resolve: `gatsby-plugin-google-adsense`,
       options: {
         publisherId: `pub-9835108854416789`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `reactywny.pl`,
+        short_name: `reactywny.pl`,
+        start_url: `/`,
+        background_color: `#23272a`,
+        theme_color: `#61DAFB`,
+        display: `standalone`,
+        icon: `src/assets/images/favicon.png`,
       },
     },
   ],

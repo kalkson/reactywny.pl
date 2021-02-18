@@ -39,16 +39,38 @@ const StyledNewsletterButton = styled.button`
   }
 `;
 
-const NewsletterButton = (
-  {
-    isButtonVisible,
-    setNewsletterVisible,
-    isNewsletterVisible,
-    isClosedOneTime,
-  },
-  ref
-) => {
-  return (
+// const NewsletterButton = forwardRef(
+//   (
+//     {
+//       isButtonVisible,
+//       setNewsletterVisible,
+//       isNewsletterVisible,
+//       isClosedOneTime,
+//     },
+//     ref
+//   ) => (
+//     <StyledNewsletterButton
+//       ref={ref}
+//       title="Zapisz się do newslettera"
+//       isButtonVisible={isButtonVisible}
+//       isClosedOneTime={isClosedOneTime}
+//       onClick={() => setNewsletterVisible(!isNewsletterVisible)}
+//     >
+//       <MailIcon />
+//     </StyledNewsletterButton>
+//   )
+// );
+
+const NewsletterButton = forwardRef(
+  (
+    {
+      isButtonVisible,
+      setNewsletterVisible,
+      isNewsletterVisible,
+      isClosedOneTime,
+    },
+    ref
+  ) => (
     <StyledNewsletterButton
       ref={ref}
       title="Zapisz się do newslettera"
@@ -58,8 +80,10 @@ const NewsletterButton = (
     >
       <MailIcon />
     </StyledNewsletterButton>
-  );
-};
+  )
+);
+
+NewsletterButton.displayName = 'NewsletterButton';
 
 NewsletterButton.propTypes = {
   isButtonVisible: propTypes.bool.isRequired,
@@ -68,4 +92,4 @@ NewsletterButton.propTypes = {
   setNewsletterVisible: propTypes.func.isRequired,
 };
 
-export default forwardRef(NewsletterButton);
+export default NewsletterButton;
