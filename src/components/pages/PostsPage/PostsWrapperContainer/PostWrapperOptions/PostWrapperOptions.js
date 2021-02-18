@@ -8,8 +8,6 @@ const PostWrapperOptions = ({
   handleSelect,
   categories,
 }) => {
-  console.log(categories);
-
   return (
     <StyledPostWrapperOptions>
       <div className="inputsContainer">
@@ -30,7 +28,7 @@ const PostWrapperOptions = ({
               wszystkie
             </option>
             {categories.map(category => (
-              <option key="category" value={category} aria-label={category}>
+              <option key={category} value={category} aria-label={category}>
                 {category}
               </option>
             ))}
@@ -50,7 +48,7 @@ PostWrapperOptions.propTypes = {
   handleSwitch: propTypes.func.isRequired,
   handleChange: propTypes.func.isRequired,
   handleSelect: propTypes.func.isRequired,
-  categories: propTypes.shape(propTypes.string).isRequired,
+  categories: propTypes.arrayOf(propTypes.string).isRequired,
 };
 
 export default PostWrapperOptions;

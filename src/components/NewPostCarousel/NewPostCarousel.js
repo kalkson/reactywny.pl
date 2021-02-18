@@ -77,7 +77,6 @@ const NewPostCarousel = ({ className }) => {
     elements = Array.from(wrapper.current.children).filter(
       element => element.tagName === 'DIV'
     );
-    console.log(elements.length);
 
     elements.forEach((element, i) => {
       gsap.set(element, {

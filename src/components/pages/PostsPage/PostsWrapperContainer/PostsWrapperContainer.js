@@ -48,7 +48,6 @@ const PostWrapperContainer = () => {
       if (!tmpArray.includes(node.category)) tmpArray.push(node.category);
     });
 
-    console.log(tmpArray);
     setCategories(tmpArray);
   }, []);
 

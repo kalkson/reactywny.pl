@@ -79,7 +79,7 @@ const StyledPostLayout = styled.article`
         font-weight: 500;
       }
 
-      & .paragraph-tag-element {
+      & .tag {
         font-weight: 200;
         color: inherit;
         background-color: #853947d9;
