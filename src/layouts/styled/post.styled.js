@@ -82,7 +82,7 @@ const StyledPostLayout = styled.article`
       & .tag {
         font-weight: 200;
         color: inherit;
-        background-color: #853947d9;
+        background-color: #3e5a60;
         padding: 1px 5px;
         border-radius: 3px;
         margin: 0 3px;
