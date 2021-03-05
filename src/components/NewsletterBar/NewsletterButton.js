@@ -88,8 +88,12 @@ NewsletterButton.displayName = 'NewsletterButton';
 NewsletterButton.propTypes = {
   isButtonVisible: propTypes.bool.isRequired,
   isNewsletterVisible: propTypes.bool.isRequired,
-  isClosedOneTime: propTypes.bool.isRequired,
+  isClosedOneTime: propTypes.bool,
   setNewsletterVisible: propTypes.func.isRequired,
+};
+
+NewsletterButton.defaultProps = {
+  isClosedOneTime: false,
 };
 
 export default NewsletterButton;

@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import StyledPageHeader from './PageHeader.styled';
 import Logo from '../../assets/svg/logo-2.svg';
 import MenuButton from '../MenuButton/MenuButton';
-import SocialLinks from '../SocialLinks/SocialLinks';
 import HeaderSVG from '../../assets/svg/header-image.svg';
 import MenuLink from '../MenuLink/MenuLink';
 
@@ -32,7 +31,7 @@ const PageHeader = () => {
 
   const mouseDownHandler = e => {
     if (!header.current || !header.current.contains(e.target)) {
-      setMenuVisible(0);
+      setMenuVisible(false);
     }
   };
 
@@ -62,7 +61,6 @@ const PageHeader = () => {
         </Link>
         <span className="header__logo__underline">learn with me</span>
       </div>
-      <SocialLinks />
       <HeaderSVG className="header__image" />
       <nav className="header__nav">
         <ul>

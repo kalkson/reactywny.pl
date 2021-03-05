@@ -5,7 +5,7 @@ import { Disqus } from 'gatsby-plugin-disqus';
 import { graphql, Link } from 'gatsby';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
-  materialDark,
+  xonokai as materialDark,
   solarizedlight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import StyledPostLayout from './styled/post.styled';
@@ -41,9 +41,8 @@ export const query = graphql`
         ... on DatoCmsPostImage {
           id
           imageData {
-            fluid(imgixParams: { auto: "compress" }) {
-              height
-              width
+            width
+            fluid(maxWidth: 700) {
               ...GatsbyDatoCmsFluid
             }
           }
@@ -136,7 +135,7 @@ const PostLayout = ({ data }) => {
 
                   if (itemKey === 'headingContent')
                     return (
-                      <li className="post__navHead__list__item">
+                      <li className="post__navHead__list__item" key={item.id}>
                         <a href={`#${item.id}`}>{item.headingContent}</a>
                       </li>
                     );
@@ -161,17 +160,11 @@ const PostLayout = ({ data }) => {
                   );
                 case 'imageData':
                   return (
-                    <div
-                      className="post__photo"
-                      style={{
-                        maxWidth: item.imageData.fluid.width,
-                        maxHeight: item.imageData.fluid.height,
-                      }}
-                    >
+                    <div className="post__photo" key={item.id}>
                       <Image
                         className="post__photo__image"
-                        key={item.id}
                         fluid={item.imageData.fluid}
+                        style={{ width: '100%' }}
                       />
                       <span className="post__photo__sign">
                         {item.postImageSign}
@@ -208,16 +201,15 @@ const PostLayout = ({ data }) => {
                   );
                 case 'videoLink':
                   return (
-                    <>
-                      <iframe
-                        className="post__video"
-                        title={item.videoLink.title}
-                        src={item.videoLink.url.replace('watch?v=', 'embed/')}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </>
+                    <iframe
+                      key={item.videolink.title}
+                      className="post__video"
+                      title={item.videoLink.title}
+                      src={item.videoLink.url.replace('watch?v=', 'embed/')}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   );
                 case 'quoteContent':
                   return (
@@ -272,7 +264,12 @@ PostLayout.propTypes = {
       date: propTypes.string.isRequired,
       postSource: propTypes.string,
       isTabled: propTypes.bool,
-      postContent: propTypes.string,
+      postContent: propTypes.oneOfType([
+        propTypes.array,
+        propTypes.node,
+        propTypes.shape,
+        propTypes.string,
+      ]),
       featuredImage: propTypes.shape({
         fluid: propTypes.shape(),
         url: propTypes.string.isRequired,

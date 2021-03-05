@@ -101,13 +101,33 @@ const StyledPostLayout = styled.article`
     }
 
     &__syntax {
+      border: none !important;
       font-size: 1.3rem !important;
       line-height: 15px;
       font-weight: 500 !important;
       font-weight: initial;
       font-weight: 600;
       width: 100%;
-      margin-bottom: 30px !important;
+      margin-bottom: 50px !important;
+
+      ::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
 
       & * {
         font-family: 'Fira Code', monospace;
@@ -150,11 +170,11 @@ const StyledPostLayout = styled.article`
     }
 
     &__photo {
-      display: block;
+      display: flex;
+      flex-direction: column;
       position: relative;
-      /* margin: 0 auto; */
-      &__image {
-      }
+      margin: 70px 0 !important;
+      align-items: center;
 
       &__sign {
         text-align: center;
@@ -244,9 +264,9 @@ const StyledPostLayout = styled.article`
         height: 300px;
       }
 
-      &__image {
+      /* &__image {
         max-width: 80%;
-      }
+      } */
 
       &__title {
         font-size: 5.6rem;
