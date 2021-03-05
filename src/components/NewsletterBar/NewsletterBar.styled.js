@@ -8,7 +8,10 @@ const StyledNewsletterBar = styled.div`
   align-items: center;
   text-align: center;
   display: flex;
-  box-shadow: 0px 0px 43px 1px rgba(0, 0, 0, 0.75);
+  ${({ isNewsletterVisible }) =>
+    isNewsletterVisible
+      ? 'box-shadow: 0px 0px 43px 1px rgba(0, 0, 0, 0.75)'
+      : null};
   position: relative;
   transition: transform 300ms ease-in-out 200ms;
 

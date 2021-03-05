@@ -43,12 +43,10 @@ const StyledPostElement = styled.div`
     }
 
     &__picture {
-      animation-name: image-appear;
-      animation-duration: 400ms;
-      animation-fill-mode: forwards;
+      animation: post-image-appear 400ms forwards;
     }
 
-    @keyframes image-appear {
+    @keyframes post-image-appear {
       0% {
         opacity: 0;
       }

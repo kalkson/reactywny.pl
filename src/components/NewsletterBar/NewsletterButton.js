@@ -21,7 +21,8 @@ const StyledNewsletterButton = styled.button`
   );
 
   padding: 15px;
-  box-shadow: 0px 0px 43px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: ${({ isButtonVisible }) =>
+    isButtonVisible ? '0px 0px 43px 1px rgba(0, 0, 0, 0.75)' : 'none'};
 
   & svg {
     width: 100%;
@@ -38,28 +39,6 @@ const StyledNewsletterButton = styled.button`
     padding: 22px;
   }
 `;
-
-// const NewsletterButton = forwardRef(
-//   (
-//     {
-//       isButtonVisible,
-//       setNewsletterVisible,
-//       isNewsletterVisible,
-//       isClosedOneTime,
-//     },
-//     ref
-//   ) => (
-//     <StyledNewsletterButton
-//       ref={ref}
-//       title="Zapisz się do newslettera"
-//       isButtonVisible={isButtonVisible}
-//       isClosedOneTime={isClosedOneTime}
-//       onClick={() => setNewsletterVisible(!isNewsletterVisible)}
-//     >
-//       <MailIcon />
-//     </StyledNewsletterButton>
-//   )
-// );
 
 const NewsletterButton = forwardRef(
   (
