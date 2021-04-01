@@ -72,7 +72,8 @@ const NewPostCarousel = ({ className }) => {
   };
 
   useEffect(() => {
-    import('swiped-events');
+    // eslint-disable-next-line global-require
+    require('swiped-events');
 
     elements = Array.from(wrapper.current.children).filter(
       element => element.tagName === 'DIV'

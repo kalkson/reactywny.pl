@@ -12,7 +12,8 @@ const NewPost = ({
   return (
     <StyledNewPost className={className}>
       <div className="top">
-        <span className="date">{date}</span>&nbsp;
+        <span className="date">{date}</span>
+        &nbsp;
         <span className="category">{category}</span>
       </div>
       <h4 className="heading">{title}</h4>

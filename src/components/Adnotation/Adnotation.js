@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import StyledAdnotation from './Adnotation.styled';
 
@@ -7,9 +7,7 @@ const query = graphql`
   {
     file(name: { eq: "damian-kalka" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }
@@ -20,10 +18,12 @@ const Adnotation = () => {
 
   return (
     <StyledAdnotation className="adnotation">
-      <Image
-        fluid={data.file.childImageSharp.fluid}
-        className="adnotation__image"
-      />
+      <div className="adnotation__image-container">
+        <GatsbyImage
+          image={data.file.childImageSharp.gatsbyImageData}
+          className="adnotation__image"
+        />
+      </div>
       <div className="adnotation__description">
         <h4 className="adnotation__description__name">Damian Kalka</h4>
         <p className="adnotation__description__paragraph">

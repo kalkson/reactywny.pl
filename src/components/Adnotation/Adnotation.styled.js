@@ -12,7 +12,7 @@ const StyledAdnotation = styled.div`
   width: 100%;
 
   .adnotation {
-    &__image {
+    &__image-container {
       border-radius: 100px;
       border: solid 4px ${({ theme }) => theme.colors.mainDark};
       display: block;
@@ -20,9 +20,7 @@ const StyledAdnotation = styled.div`
       height: 100px;
       position: relative;
       z-index: 1;
-
-      /* height: 84px;
-      width: 200px; */
+      overflow: hidden;
     }
 
     &__description {
@@ -67,6 +65,11 @@ const StyledAdnotation = styled.div`
 
     .adnotation {
       &__image {
+        height: 150px;
+        width: 150px;
+      }
+
+      &__image-container {
         height: 150px;
         width: 150px;
       }

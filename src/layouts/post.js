@@ -94,7 +94,6 @@ const PostLayout = ({ data }) => {
   if (data)
     return (
       <>
-        {console.log(data)}
         <SEO
           title={`${data.datoCmsPost.title} - reactywny.pl`}
           description={data.datoCmsPost.description}
@@ -131,7 +130,7 @@ const PostLayout = ({ data }) => {
               <ul className="post__navHead__list">
                 <br />
                 {data.datoCmsPost.postContent.map(item => {
-                  const itemKey = Object.keys(item)[2];
+                  const itemKey = Object.keys(item)[1];
 
                   if (itemKey === 'headingContent')
                     return (
@@ -147,7 +146,7 @@ const PostLayout = ({ data }) => {
           )}
           {data.datoCmsPost.postContent &&
             data.datoCmsPost.postContent.map(item => {
-              const itemKey = Object.keys(item)[2];
+              const itemKey = Object.keys(item)[1];
 
               switch (itemKey) {
                 case 'paragraphContent':
