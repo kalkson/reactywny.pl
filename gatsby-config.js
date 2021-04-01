@@ -21,7 +21,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-eslint',
-    `gatsby-plugin-layout`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

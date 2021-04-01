@@ -4,7 +4,6 @@ const StyledPostElement = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px 0 40px 40px;
-  padding: 40px 0 40px 40px;
   color: ${({ theme }) => theme.colors.mainFair};
   width: 300px;
   margin: 0 auto;

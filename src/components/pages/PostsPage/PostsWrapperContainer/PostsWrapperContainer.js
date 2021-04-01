@@ -15,14 +15,7 @@ const query = graphql`
         title
         id
         featuredImage {
-          fluid(
-            maxWidth: 478
-            maxHeight: 300
-            imgixParams: { auto: "compress" }
-          ) {
-            ...GatsbyDatoCmsFluid
-            tracedSVG
-          }
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }
@@ -102,7 +95,7 @@ const PostWrapperContainer = () => {
             return (
               <PostElement
                 key={post.id}
-                data={post}
+                {...post}
                 isPicturesDisplayed={isPicturesDisplayed}
               />
             );
