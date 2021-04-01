@@ -16,10 +16,7 @@ const query = graphql`
         description
         category
         featuredImage {
-          fluid(maxWidth: 500, imgixParams: { auto: "compress" }) {
-            ...GatsbyDatoCmsFluid
-          }
-          url
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }
@@ -33,11 +30,9 @@ const NewPostCarousel = ({ className }) => {
 
   const [isSwipeable, setSwipeable] = useState(true);
 
-  const toPrevious = e => {
+  const toPrevious = () => {
     if (!isSwipeable) return;
     setSwipeable(false);
-
-    console.dir(e);
 
     gsap.to(elements[0], {
       opacity: 0,
@@ -72,7 +67,8 @@ const NewPostCarousel = ({ className }) => {
   };
 
   useEffect(() => {
-    import('swiped-events');
+    // eslint-disable-next-line global-require
+    require('swiped-events');
 
     elements = Array.from(wrapper.current.children).filter(
       element => element.tagName === 'DIV'
@@ -87,9 +83,9 @@ const NewPostCarousel = ({ className }) => {
 
     wrapper.current.addEventListener('swiped-left', toPrevious);
 
-    return () => {
-      wrapper.current.removeEventListener('swiped-left', toPrevious);
-    };
+    // return () => {
+    //   wrapper.current.removeEventListener('swiped-left', toPrevious);
+    // };
   });
 
   return (
@@ -103,11 +99,7 @@ const NewPostCarousel = ({ className }) => {
       </button>
       {data.allDatoCmsPost.nodes.map((node, i) => {
         return (
-          <NewPost
-            key={node.id}
-            className={`carousel__post-${i}`}
-            data={node}
-          />
+          <NewPost key={node.id} className={`carousel__post-${i}`} {...node} />
         );
       })}
     </StyledNewPostCarousel>

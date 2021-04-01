@@ -15,14 +15,7 @@ const query = graphql`
         title
         id
         featuredImage {
-          fluid(
-            maxWidth: 478
-            maxHeight: 300
-            imgixParams: { auto: "compress" }
-          ) {
-            ...GatsbyDatoCmsFluid
-            tracedSVG
-          }
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }
@@ -72,11 +65,13 @@ const PostWrapperContainer = () => {
           Nowe wpisy pojawiają się przynajmniej raz w tygodniu - a przynajmniej
           taki jest zamiar. W treści artykułów staram się serwować jak
           najrzetelniejszą wiedzę, tak aby odbiorcy, czyli Wy, mogli mieć
-          zaufanie do tego co im prezentuje. <br />
+          zaufanie do tego co im prezentuje.
+          <br />
           <br />
           Kwestie, które poruszam w mojej twórczości dotyczą twardej jak skała
           strony technicznej, jak również tej miękkiej, o której nie wolno
-          zapominać, a która w branży jest nie mniej ważna. <br />
+          zapominać, a która w branży jest nie mniej ważna.
+          <br />
           <br />
           Zapraszam do czytania, jak i komentowania.
         </p>
@@ -100,7 +95,7 @@ const PostWrapperContainer = () => {
             return (
               <PostElement
                 key={post.id}
-                data={post}
+                {...post}
                 isPicturesDisplayed={isPicturesDisplayed}
               />
             );

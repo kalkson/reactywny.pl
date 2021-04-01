@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import propTypes from 'prop-types';
 import { Disqus } from 'gatsby-plugin-disqus';
 import { graphql, Link } from 'gatsby';
@@ -27,10 +27,7 @@ export const query = graphql`
       postSource
       isTabled
       featuredImage {
-        fluid(maxWidth: 1920, imgixParams: { auto: "compress" }) {
-          ...GatsbyDatoCmsFluid
-        }
-        url
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1920)
       }
       category
       postContent {
@@ -40,11 +37,9 @@ export const query = graphql`
         }
         ... on DatoCmsPostImage {
           id
+
           imageData {
-            width
-            fluid(maxWidth: 700) {
-              ...GatsbyDatoCmsFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
           }
           postImageSign
         }
@@ -94,7 +89,6 @@ const PostLayout = ({ data }) => {
   if (data)
     return (
       <>
-        {console.log(data)}
         <SEO
           title={`${data.datoCmsPost.title} - reactywny.pl`}
           description={data.datoCmsPost.description}
@@ -117,8 +111,8 @@ const PostLayout = ({ data }) => {
             </span>
           </div>
           <h1 className="post__title">{data.datoCmsPost.title}</h1>
-          <Image
-            fluid={data.datoCmsPost.featuredImage.fluid}
+          <GatsbyImage
+            image={data.datoCmsPost.featuredImage.gatsbyImageData}
             className="post__featuredImage"
           />
 
@@ -131,7 +125,7 @@ const PostLayout = ({ data }) => {
               <ul className="post__navHead__list">
                 <br />
                 {data.datoCmsPost.postContent.map(item => {
-                  const itemKey = Object.keys(item)[2];
+                  const itemKey = Object.keys(item)[1];
 
                   if (itemKey === 'headingContent')
                     return (
@@ -147,7 +141,7 @@ const PostLayout = ({ data }) => {
           )}
           {data.datoCmsPost.postContent &&
             data.datoCmsPost.postContent.map(item => {
-              const itemKey = Object.keys(item)[2];
+              const itemKey = Object.keys(item)[1];
 
               switch (itemKey) {
                 case 'paragraphContent':
@@ -161,10 +155,16 @@ const PostLayout = ({ data }) => {
                 case 'imageData':
                   return (
                     <div className="post__photo" key={item.id}>
-                      <Image
+                      {/* <Image
                         className="post__photo__image"
                         fluid={item.imageData.fluid}
                         style={{ width: '100%' }}
+                      /> */}
+                      <GatsbyImage
+                        className="post__photo__image"
+                        image={item.imageData.gatsbyImageData}
+                        // fluid={item.imageData.fluid}
+                        // style={{ width: '100%' }}
                       />
                       <span className="post__photo__sign">
                         {item.postImageSign}
@@ -273,6 +273,7 @@ PostLayout.propTypes = {
       featuredImage: propTypes.shape({
         fluid: propTypes.shape(),
         url: propTypes.string.isRequired,
+        gatsbyImageData: propTypes.shape(),
       }).isRequired,
     }).isRequired,
   }),

@@ -9,7 +9,8 @@ const PageFooter = () => {
       <SocialLinks />
       <Logo className="footer__logo" />
       <span className="footer__adnotation">
-        &copy; Damian Kalka 2021 <br />
+        &copy; Damian Kalka 2021
+        <br />
         Wszelkie prawa zastrzeżone
       </span>
     </StyledPageFooter>

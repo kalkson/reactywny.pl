@@ -3,6 +3,7 @@ const { default: slugify } = require('slugify');
 require('dotenv').config();
 
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: `reactywny.pl - mały frontendowy świat`,
     titleTemplate: `%s · reactywny.pl`,
@@ -20,7 +21,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-eslint',
-    `gatsby-plugin-layout`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

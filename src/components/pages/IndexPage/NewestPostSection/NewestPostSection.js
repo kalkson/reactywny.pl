@@ -11,7 +11,8 @@ const NewestPostSection = () => {
       <div className="newest-post">
         <h2 className="newest-post__headline">
           <span style={{ color: '#61DAFB' }}>Najnowsze</span>
-          <br /> posty
+          <br />
+          posty
         </h2>
         <NewPostCarousel className="newest-post__wrapper" />
       </div>
