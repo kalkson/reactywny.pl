@@ -1,8 +1,8 @@
 import React from 'react';
-import PageLink from 'components/PageLink/PageLink';
-import Wires from 'assets/svg/wires.svg';
+import PageLink from '../../../atoms/PageLink/PageLink';
+import Wires from '../../../../assets/svg/wires.svg';
 import StyledNewestPostSection from './NewestPostSection.styled';
-import NewPostCarousel from '../../../NewPostCarousel/NewPostCarousel';
+import NewPostCarousel from '../../../organisms/NewPostCarousel/NewPostCarousel';
 
 const NewestPostSection = () => {
   return (

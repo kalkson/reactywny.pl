@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import StyledWelcomeSection from './WelcomeSection.styled';
-import Headline from '../../../Headline/Headline';
+import Headline from '../../../atoms/Headline/Headline';
 import Illustration from '../../../../assets/images/illu.svg';
 
 const WelcomeSection = () => {

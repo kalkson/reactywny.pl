@@ -1,8 +1,8 @@
 import React from 'react';
 import PostWrapperContainer from 'components/pages/PostsPage/PostsWrapperContainer/PostsWrapperContainer';
-import SEO from '../components/SEO';
-import PageHeader from '../components/PageHeader/PageHeader';
-import PageFooter from '../components/PageFooter/PageFooter';
+import SEO from '../seo/SEO';
+import PageHeader from '../components/organisms/PageHeader/PageHeader';
+import PageFooter from '../components/molecules/PageFooter/PageFooter';
 
 const PostsPage = () => (
   <>

@@ -1,6 +1,6 @@
 import React from 'react';
-import NewsletterBar from '../../../NewsletterBar/NewsletterBar';
-import Contact from '../../../Contact/Contact';
+import NewsletterBar from '../../../molecules/NewsletterBar/NewsletterBar';
+import Contact from '../../../organisms/Contact/ContactForm';
 import StyledContactSecton from './ContactSection.styled';
 
 const ContactSection = () => {

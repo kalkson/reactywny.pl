@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import StyledContact from './Contact.styled';
-import PageInput from '../PageInput/PageInput';
-import PageButton from '../PageButton/PageButton.styled';
+import StyledContactForm from './ContactForm.styled';
+import PageInput from '../../atoms/PageInput/PageInput';
+import PageButton from '../../atoms/PageButton/PageButton.styled';
 
 const encode = data => {
   return Object.keys(data)
@@ -9,7 +9,7 @@ const encode = data => {
     .join('&');
 };
 
-const Contact = () => {
+const ContactForm = () => {
   const [data, setData] = useState({ email: '', message: '' });
   const [status, setStatus] = useState(null);
 
@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <StyledContact className="contact" id="contact">
+    <StyledContactForm className="contact" id="contact">
       <h2>Kontakt</h2>
       <p className="contact__paragraph">
         Jeżeli nie znalazłeś odpowiedzi na swoje pytanie w FAQ, a mimo wszystko
@@ -74,8 +74,8 @@ const Contact = () => {
           </PageButton>
         )}
       </form>
-    </StyledContact>
+    </StyledContactForm>
   );
 };
 
-export default Contact;
+export default ContactForm;

@@ -6,7 +6,7 @@ const Adnotation = () => (
   <StyledAdnotation className="adnotation">
     <div className="adnotation__image-container">
       <StaticImage
-        src="../../assets/images/damian-kalka.jpg"
+        src="../../../assets/images/damian-kalka.jpg"
         alt="moje zdjęcie"
         layout="fullWidth"
         placeholder="blurred"

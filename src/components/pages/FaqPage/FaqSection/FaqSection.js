@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import FaqItem from 'components/FaqItem/FaqItem';
+import FaqItem from 'components/atoms/FaqItem/FaqItem';
 import StyledFaqSection from './FaqSection.styled';
 
 export const query = graphql`

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledContact = styled.div`
+const StyledContactForm = styled.div`
   background-color: ${({ theme }) => theme.colors.mainDark};
   display: flex;
   flex-direction: column;
@@ -96,9 +96,6 @@ const StyledContact = styled.div`
       width: 35vw;
       text-align: center;
       font-size: 9.3rem;
-
-      &:after {
-      }
     }
 
     .contact {
@@ -117,12 +114,9 @@ const StyledContact = styled.div`
         &__textarea {
           width: 100%;
         }
-
-        &__button {
-        }
       }
     }
   }
 `;
 
-export default StyledContact;
+export default StyledContactForm;

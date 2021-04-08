@@ -1,8 +1,8 @@
 import React from 'react';
-import PageHeader from '../components/PageHeader/PageHeader';
-import PageFooter from '../components/PageFooter/PageFooter';
+import PageHeader from '../components/organisms/PageHeader/PageHeader';
+import PageFooter from '../components/molecules/PageFooter/PageFooter';
 import PrivacyWrapper from '../components/pages/PrivacyPage/PrivacyWrapper';
-import SEO from '../components/SEO';
+import SEO from '../seo/SEO';
 
 const PrivacyPage = () => (
   <>

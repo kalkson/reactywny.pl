@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
-import MailIcon from '../../assets/svg/mail.svg';
+import MailIcon from '../../../assets/svg/mail.svg';
 
 const StyledNewsletterButton = styled.button`
   position: fixed;

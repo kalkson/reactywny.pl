@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import slugify from 'slugify';
 import propTypes from 'prop-types';
-import StyledNewPost from './NewPost.styled';
+import StyledNewPost from './NewPostCorouselItem.styled';
 
 const NewPost = ({
   className,

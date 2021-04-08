@@ -1,6 +1,6 @@
 import React from 'react';
-import SocialLinks from 'components/SocialLinks/SocialLinks';
-import Logo from 'assets/svg/logo-1.svg';
+import SocialLinks from '../SocialLinks/SocialLinks';
+import Logo from '../../../assets/svg/logo-1.svg';
 import StyledPageFooter from './PageFooter.styled';
 
 const PageFooter = () => {

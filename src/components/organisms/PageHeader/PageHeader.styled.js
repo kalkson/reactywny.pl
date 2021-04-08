@@ -6,7 +6,7 @@ const StyledPageHeader = styled.header`
   width: 100%;
   padding: ${({ theme }) => theme.paddings.mobile};
   background-color: ${({ theme }) => theme.colors.mainFair};
-  justify-content: space-between;
+  /* justify-content: space-between; */
   transition: height 300ms ease-in-out 200ms;
   display: flex;
   justify-content: center;
@@ -31,9 +31,6 @@ const StyledPageHeader = styled.header`
     transform-origin: center;
     transition: transform 300ms ease-in-out;
     background: none;
-
-    /* transform: scale(${({ isScrolledDown }) =>
-      isScrolledDown ? 0.7 : 1}); */
   }
 
   & .header__logo {
@@ -45,10 +42,6 @@ const StyledPageHeader = styled.header`
     margin: 0 auto;
 
     transition: transform 300ms ease-in;
-
-    /* transform: translateY(
-      ${({ isScrolledDown }) => (isScrolledDown ? '10px' : null)}
-    ); */
 
     &__image {
       transition: width 300ms linear 200ms, height 300ms linear 200ms;
@@ -304,10 +297,6 @@ const StyledPageHeader = styled.header`
     & .header__social {
       top: 30px;
       right: 30px;
-
-      /* top: ${({ isScrolledDown, theme }) =>
-        isScrolledDown ? 'calc(50% - 22px)' : theme.paddings.tablet};
-      } */
 
       transform: ${({ isScrolledDown }) =>
         isScrolledDown ? 'translateY(-15px)' : null};

@@ -2,9 +2,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React, { useRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import gsap from 'gsap';
-import NewPost from './NewPost/NewPost';
+import NewPostCarouselItem from './NewPostCarouselItem/NewPostCarouselItem';
 import StyledNewPostCarousel from './NewPostCarousel.styled';
-import Arrow from '../../assets/svg/arrow-1.svg';
+import Arrow from '../../../assets/svg/arrow-1.svg';
 
 const query = graphql`
   {
@@ -99,7 +99,11 @@ const NewPostCarousel = ({ className }) => {
       </button>
       {data.allDatoCmsPost.nodes.map((node, i) => {
         return (
-          <NewPost key={node.id} className={`carousel__post-${i}`} {...node} />
+          <NewPostCarouselItem
+            key={node.id}
+            className={`carousel__post-${i}`}
+            {...node}
+          />
         );
       })}
     </StyledNewPostCarousel>

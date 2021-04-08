@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React, { useState, useEffect, useRef } from 'react';
-import NewsletterBar from '../NewsletterBar/NewsletterBar';
-import NewsletterButton from '../NewsletterBar/NewsletterButton';
+import NewsletterBar from '../components/molecules/NewsletterBar/NewsletterBar';
+import NewsletterButton from '../components/molecules/NewsletterBar/NewsletterButton';
 
 const withNewsletter = WrappedComponent => {
   const HOC = props => {

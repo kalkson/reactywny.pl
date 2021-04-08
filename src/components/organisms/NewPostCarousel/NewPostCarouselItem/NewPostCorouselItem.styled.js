@@ -19,9 +19,6 @@ const StyledNewPost = styled.div`
   }
 
   & > .top {
-    & > .date {
-    }
-
     & > .category {
       color: ${({ theme }) => theme.colors.mainBlue};
       font-weight: 800;

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import StyledNewsletterBar from './NewsletterBar.styled';
-import PageInput from '../PageInput/PageInput';
-import PageButton from '../PageButton/PageButton.styled';
+import PageInput from '../../atoms/PageInput/PageInput';
+import PageButton from '../../atoms/PageButton/PageButton.styled';
 
 const NewsletterBar = ({ isNewsletterVisible }) => {
   const [email, setEmail] = useState('');

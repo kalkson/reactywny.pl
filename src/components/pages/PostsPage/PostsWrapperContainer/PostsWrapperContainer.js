@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import PostElement from 'components/PostElement/PostElement';
+import PostElement from '../../../molecules/PostElement/PostElement';
 import StyledPostsWrapperContainer from './PostsWrapperContainer.styled';
 import StyledPostsWrapper from './PostsWrapper.styled';
 import PostWrapperOptions from './PostWrapperOptions/PostWrapperOptions';

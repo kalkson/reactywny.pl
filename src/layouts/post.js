@@ -9,13 +9,13 @@ import {
   solarizedlight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import StyledPostLayout from './styled/post.styled';
-import SEO from '../components/SEO';
+import SEO from '../seo/SEO';
 import HomeIcon from '../assets/svg/home.svg';
-import withNewsletter from '../components/hoc/withNewsletter';
-import PageHeader from '../components/PageHeader/PageHeader';
-import PageFooter from '../components/PageFooter/PageFooter';
-import Adnotation from '../components/Adnotation/Adnotation';
-import PostParagraph from '../components/PostParagraph/PostParagraph';
+import withNewsletter from '../hoc/withNewsletter';
+import PageHeader from '../components/organisms/PageHeader/PageHeader';
+import PageFooter from '../components/molecules/PageFooter/PageFooter';
+import Adnotation from '../components/molecules/Adnotation/Adnotation';
+import PostParagraph from '../components/molecules/PostParagraph/PostParagraph';
 
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!) {
