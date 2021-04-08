@@ -15,7 +15,11 @@ const query = graphql`
         title
         id
         featuredImage {
-          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            forceBlurhash: true
+          )
         }
       }
     }

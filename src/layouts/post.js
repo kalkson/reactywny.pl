@@ -27,7 +27,12 @@ export const query = graphql`
       postSource
       isTabled
       featuredImage {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1920)
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          placeholder: BLURRED
+          width: 1920
+          forceBlurhash: true
+        )
       }
       category
       postContent {
