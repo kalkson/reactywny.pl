@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { window, document } from 'browser-monads';
 
 // eslint-disable-next-line import/prefer-default-export
 export const useScroll = () => {
