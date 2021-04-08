@@ -16,8 +16,7 @@ const StyledNewsletterButton = styled.button`
   transition: transform 300ms ease-in;
 
   transform: translateX(
-    ${({ isClosedOneTime, isButtonVisible }) =>
-      isClosedOneTime && isButtonVisible ? '50%' : '100%'}
+    ${({ isButtonVisible }) => (isButtonVisible ? '0' : '100%')}
   );
 
   padding: 15px;

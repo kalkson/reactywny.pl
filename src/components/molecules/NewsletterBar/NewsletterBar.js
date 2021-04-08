@@ -5,7 +5,13 @@ import StyledNewsletterBar from './NewsletterBar.styled';
 import PageInput from '../../atoms/PageInput/PageInput';
 import PageButton from '../../atoms/PageButton/PageButton.styled';
 
-const NewsletterBar = ({ isNewsletterVisible }) => {
+const NewsletterBar = ({
+  isNewsletterVisible,
+  isCloseButtonVisible,
+  setCloseOneTime,
+  setNewsletterVisible,
+  setButtonVisible,
+}) => {
   const [email, setEmail] = useState('');
   const [sentResult, setResult] = useState(null);
 
@@ -71,16 +77,37 @@ const NewsletterBar = ({ isNewsletterVisible }) => {
           Wyślij
         </PageButton>
       </form>
+      {isCloseButtonVisible && (
+        <button
+          type="button"
+          className="newsletter__close-button"
+          onClick={() => {
+            setCloseOneTime(true);
+            setNewsletterVisible(false);
+            setButtonVisible(false);
+          }}
+        >
+          x
+        </button>
+      )}
     </StyledNewsletterBar>
   );
 };
 
 NewsletterBar.propTypes = {
   isNewsletterVisible: propTypes.bool,
+  isCloseButtonVisible: propTypes.bool,
+  setCloseOneTime: propTypes.func,
+  setNewsletterVisible: propTypes.func,
+  setButtonVisible: propTypes.func,
 };
 
 NewsletterBar.defaultProps = {
   isNewsletterVisible: null,
+  isCloseButtonVisible: null,
+  setNewsletterVisible: null,
+  setButtonVisible: null,
+  setCloseOneTime: null,
 };
 
 export default NewsletterBar;

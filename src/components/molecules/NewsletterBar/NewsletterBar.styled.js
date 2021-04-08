@@ -73,6 +73,15 @@ const StyledNewsletterBar = styled.div`
     &__error {
       color: red;
     }
+
+    &__close-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 2rem;
+      background: none;
+      color: ${({ theme }) => theme.colors.mainFair};
+    }
   }
 
   @media ${({ theme }) => theme.media.laptop} {

@@ -3,7 +3,7 @@ import WelcomeSection from '../components/pages/IndexPage/WelcomeSection/Welcome
 import NewestPostSection from '../components/pages/IndexPage/NewestPostSection/NewestPostSection';
 import MissionSection from '../components/pages/IndexPage/MissionSection/MissionSection';
 import PageHeader from '../components/organisms/PageHeader/PageHeader';
-import PageFooter from '../components/molecules/PageFooter/PageFooter'; 
+import PageFooter from '../components/molecules/PageFooter/PageFooter';
 import SEO from '../seo/SEO';
 
 const IndexPage = () => {

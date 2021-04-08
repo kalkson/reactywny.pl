@@ -3,35 +3,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import NewsletterBar from '../components/molecules/NewsletterBar/NewsletterBar';
 import NewsletterButton from '../components/molecules/NewsletterBar/NewsletterButton';
+import { useScroll } from '../hooks/useScroll';
 
 const withNewsletter = WrappedComponent => {
   const HOC = props => {
+    const [scrollLevel] = useScroll();
     const [isButtonVisible, setButtonVisible] = useState(false);
     const [isNewsletterVisible, setNewsletterVisible] = useState(false);
-    const [allowScroll, setAllowScroll] = useState(true);
+    const [isClosedOneTime, setCloseOneTime] = useState(false);
 
     const button = useRef(null);
 
-    const listener = () => {
-      const documentHeight = document.body.clientHeight;
-      if (
-        window.scrollY >=
-        0.7 * (documentHeight - window.screen.availHeight)
-      ) {
-        setButtonVisible(true);
-        setAllowScroll(false);
-
-        button.current.style.transform = 'translateX(0)';
-      }
-    };
-
     useEffect(() => {
-      if (allowScroll) document.addEventListener('scroll', listener);
-
-      return () => {
-        document.removeEventListener('scroll', listener);
-      };
-    });
+      if (scrollLevel > 65 && !isButtonVisible && !isClosedOneTime)
+        setButtonVisible(true);
+      else if (scrollLevel <= 65 && isButtonVisible) {
+        setButtonVisible(false);
+        setNewsletterVisible(false);
+      }
+    }, [scrollLevel]);
 
     return (
       <>
@@ -45,6 +35,9 @@ const withNewsletter = WrappedComponent => {
         <NewsletterBar
           isNewsletterVisible={isNewsletterVisible}
           setNewsletterVisible={setNewsletterVisible}
+          setCloseOneTime={setCloseOneTime}
+          setButtonVisible={setButtonVisible}
+          isCloseButtonVisible
         />
       </>
     );

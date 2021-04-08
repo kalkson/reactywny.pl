@@ -47,6 +47,7 @@
     "react-helmet": "^6.1.0",
     "react-spring": "^8.0.27",
     "react-syntax-highlighter": "^15.4.3",
+    "rxjs": "^6.6.7",
     "slugify": "^1.4.6",
     "styled-components": "^5.2.3",
     "swiped-events": "^1.1.4"
