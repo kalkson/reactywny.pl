@@ -1,36 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import StyledPageHeader from './PageHeader.styled';
 import Logo from '../../../assets/svg/logo-2.svg';
 import MenuButton from '../../atoms/MenuButton/MenuButton';
-import MenuLink from '../../atoms/MenuLink/MenuLink';
+import PageHeaderContainer from './PageHeaderContainer.styled';
 
 const PageHeader = () => {
+  const [isMenuVisible, setMenuVisible] = useState(false);
+
   return (
-    <StyledPageHeader className="container">
-      <MenuButton />
-      <div className="header__logo">
-        <Link to="/">
-          <Logo className="header__logo__image" />
-        </Link>
+    <PageHeaderContainer className="header">
+      {/* svg */}
+      <svg className="clip-image">
+        <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 H1 V0.997 s-0.332,0.019,-0.402,-0.037 c-0.006,-0.004,-0.064,-0.161,-0.119,-0.275 S0,0.636,0,0.636" />
+        </clipPath>
+      </svg>
+
+      <svg className="clip-image">
+        <clipPath id="my-clip-path-mobile" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 H1 V0.976 s-0.46,0.055,-0.529,0 a0.416,2,0,0,1,-0.109,-0.125 C0.307,0.739,0.265,0.687,0.252,0.676 C0.149,0.59,0,0.623,0,0.623" />
+        </clipPath>
+      </svg>
+      {/* svg end */}
+
+      <div className={`header__wrapper${isMenuVisible ? ' active' : ''}`}>
+        <StyledPageHeader
+          className="container header-elements"
+          isMenuVisible={isMenuVisible}
+        >
+          <MenuButton
+            className="header-elements__button"
+            aria-label="rozwiń menu"
+            role="button"
+            isMenuVisible={isMenuVisible}
+            setMenuVisible={setMenuVisible}
+          />
+
+          <nav className="header-elements__nav">
+            <ul className="header-elements__list">
+              <li>
+                <Link className="header-elements__link" to="/">
+                  home
+                </Link>
+              </li>
+              <li>
+                <Link className="header-elements__link" to="/posts">
+                  wpisy
+                </Link>
+              </li>
+              <li>
+                <Link className="header-elements__link" to="/faq">
+                  faq
+                </Link>
+              </li>
+              <li>
+                <Link className="header-elements__link" to="/faq/#contact">
+                  kontakt
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <Link to="/">
+            <div className="header-elements__logo">
+              <Logo className="header-elements__image" />
+            </div>
+          </Link>
+        </StyledPageHeader>
       </div>
-      <nav className="header__nav">
-        <ul>
-          <MenuLink>
-            <Link to="/">home</Link>
-          </MenuLink>
-          <MenuLink>
-            <Link to="/posts">wpisy</Link>
-          </MenuLink>
-          <MenuLink>
-            <Link to="/faq">faq</Link>
-          </MenuLink>
-          <MenuLink>
-            <Link to="/faq/#contact">kontakt</Link>
-          </MenuLink>
-        </ul>
-      </nav>
-    </StyledPageHeader>
+    </PageHeaderContainer>
   );
 };
 

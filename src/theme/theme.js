@@ -3,6 +3,7 @@ const theme = {
     desktop: '1366px',
     laptop: '1024px',
     tablet: '768px',
+    mobileXL: '576px',
     mobileL: '420px',
     mobile: '375px',
     mobileS: '315px',
@@ -32,10 +33,13 @@ const theme = {
   },
 
   media: {
-    desktop: `(min-width: 1860px)`,
-    laptop: `(min-width: 1300px)`,
-    tablet: `(min-width: 1024px)`,
-    phone: `(min-width: 375px)`,
+    desktop: `(min-width: 1366px)`,
+    laptop: `(min-width: 1024px)`,
+    tablet: `(min-width: 768px)`,
+    mobileXL: `(min-width: 576px)`,
+    mobileL: `(min-width: 420px)`,
+    mobile: `(min-width: 375px)`,
+    mobileS: `(min-width: 315px)`,
   },
 };
 
