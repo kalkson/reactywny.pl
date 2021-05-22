@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledNewestPostSection = styled.section`
   padding: ${({ theme }) => theme.paddings.mobile};
-  background-color: ${({ theme }) => theme.colors.mainDark};
+  background-color: ${({ theme }) => theme.colors.primary};
 
   position: relative;
 

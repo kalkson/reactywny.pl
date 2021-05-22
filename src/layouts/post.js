@@ -12,8 +12,6 @@ import StyledPostLayout from './styled/post.styled';
 import SEO from '../seo/SEO';
 import HomeIcon from '../assets/svg/home.svg';
 import withNewsletter from '../hoc/withNewsletter';
-import PageHeader from '../components/organisms/PageHeader/PageHeader';
-import PageFooter from '../components/molecules/PageFooter/PageFooter';
 import Adnotation from '../components/molecules/Adnotation/Adnotation';
 import PostParagraph from '../components/molecules/PostParagraph/PostParagraph';
 
@@ -100,7 +98,6 @@ const PostLayout = ({ data }) => {
           post
           image={data.datoCmsPost.featuredImage.url}
         />
-        <PageHeader />
         <StyledPostLayout>
           <nav className="post__nav">
             <Link className="post__nav__previous" to="/posts">
@@ -252,7 +249,6 @@ const PostLayout = ({ data }) => {
           <Adnotation />
           <Disqus config={disqusConfig} className="post__disquis" />
         </StyledPostLayout>
-        <PageFooter />
       </>
     );
 

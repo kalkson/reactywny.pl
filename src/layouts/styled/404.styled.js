@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Styled404Layout = styled.div`
   width: 100%;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.mainDark}
+  background: ${({ theme }) => theme.colors.primary}
     url('https://images.unsplash.com/gifs/weird/weird-9.gif') no-repeat center
     border-box;
   background-size: cover;
@@ -21,7 +21,7 @@ const Styled404Layout = styled.div`
     }
 
     #Path_2 {
-      fill: ${({ theme }) => theme.colors.mainDark};
+      fill: ${({ theme }) => theme.colors.primary};
     }
   }
 

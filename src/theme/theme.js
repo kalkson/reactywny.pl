@@ -1,9 +1,11 @@
 const theme = {
   breakpoints: {
-    desktop: '1920px',
-    laptop: '1366px',
-    tablet: '1024px',
+    desktop: '1366px',
+    laptop: '1024px',
+    tablet: '768px',
+    mobileL: '420px',
     mobile: '375px',
+    mobileS: '315px',
   },
 
   paddings: {
@@ -22,6 +24,8 @@ const theme = {
   },
 
   colors: {
+    primary: '#1f2937',
+    text: '#fff',
     mainBlue: '#61DAFB',
     mainFair: '#F1EAEA',
     mainDark: '#23272A',

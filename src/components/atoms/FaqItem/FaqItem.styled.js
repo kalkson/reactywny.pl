@@ -14,7 +14,7 @@ const StyledFaqItem = styled.div`
 
   @media (min-width: 768px) {
     padding: 20px;
-    background-color: ${({ theme }) => theme.colors.mainDark};
+    background-color: ${({ theme }) => theme.colors.primary};
 
     & > span {
       font-size: 4rem;

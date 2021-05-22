@@ -7,7 +7,7 @@ const StyledMenuButton = styled.button`
   cursor: pointer;
 
   & .menu-button__element {
-    background-color: ${({ theme }) => theme.colors.mainDark};
+    background-color: ${({ theme }) => theme.colors.primary};
     width: 30px;
     position: relative;
     transition: transform 300ms ease-in-out, left 300ms ease-in-out,

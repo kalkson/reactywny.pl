@@ -23,7 +23,7 @@ const StyledMissionSection = styled.section`
     }
 
     &:before {
-      background-color: ${({ theme }) => theme.colors.mainDark};
+      background-color: ${({ theme }) => theme.colors.primary};
       width: 300px;
       height: 300px;
       border-radius: 150px;

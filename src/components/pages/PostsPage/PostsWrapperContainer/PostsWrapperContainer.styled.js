@@ -4,7 +4,7 @@ const StyledPostsWrapperContainer = styled.article`
   padding-top: 130px;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.mainDark};
+  background-color: ${({ theme }) => theme.colors.primary};
 
   .posts__left-section {
     display: flex;

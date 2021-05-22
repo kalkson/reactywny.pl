@@ -14,7 +14,7 @@ const StyledAdnotation = styled.div`
   .adnotation {
     &__image-container {
       border-radius: 100px;
-      border: solid 4px ${({ theme }) => theme.colors.mainDark};
+      border: solid 4px ${({ theme }) => theme.colors.primary};
       display: block;
       width: 100px;
       height: 100px;
@@ -24,13 +24,13 @@ const StyledAdnotation = styled.div`
     }
 
     &__description {
-      color: ${({ theme }) => theme.colors.mainDark};
+      color: ${({ theme }) => theme.colors.primary};
       width: 120px;
       margin-left: 10px;
 
       &__name {
         margin-bottom: 7px;
-        background-color: ${({ theme }) => theme.colors.mainDark};
+        background-color: ${({ theme }) => theme.colors.primary};
         color: ${({ theme }) => theme.colors.mainFair};
         font-style: italic;
         font-weight: 900;
@@ -40,7 +40,7 @@ const StyledAdnotation = styled.div`
 
         &:before {
           content: '';
-          background-color: ${({ theme }) => theme.colors.mainDark};
+          background-color: ${({ theme }) => theme.colors.primary};
           height: 100%;
           left: -52px;
           width: 52px;

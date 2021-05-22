@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledPostLayout = styled.article`
   padding: 200px 17px 0;
-  background-color: ${({ theme }) => theme.colors.mainDark};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.mainFair};
   font-weight: ${({ theme }) => theme.fonts.Bold};
   display: flex;

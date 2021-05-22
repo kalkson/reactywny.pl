@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledContactForm = styled.div`
-  background-color: ${({ theme }) => theme.colors.mainDark};
+  background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-direction: column;
   align-items: center;

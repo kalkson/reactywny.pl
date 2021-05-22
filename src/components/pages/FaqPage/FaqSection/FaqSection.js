@@ -18,7 +18,7 @@ const StyledFaqItemsWrapper = styled.div`
   grid-template-columns: repeat(1, 1fr);
   margin-top: 50px;
 
-  color: ${({ theme }) => theme.colors.mainDark};
+  color: ${({ theme }) => theme.colors.primary};
 
   @media (min-width: 768px) {
     grid-gap: 20px;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledWelcomeSection = styled.div`
   position: relative;
   padding: 180px ${({ theme }) => theme.paddings.mobile} 50px;
-  /* background-color: ${({ theme }) => theme.colors.mainDark}; */
+  /* background-color: ${({ theme }) => theme.colors.primary}; */
   color: ${({ theme }) => theme.colors.mainFair};
   z-index: 1;
 
@@ -55,7 +55,7 @@ const StyledWelcomeSection = styled.div`
     }
 
     .welcome-sction__content__paragraph {
-      color: ${({ theme }) => theme.colors.mainDark};
+      color: ${({ theme }) => theme.colors.primary};
       font-size: 1.3rem;
       height: auto;
       z-index: 6;

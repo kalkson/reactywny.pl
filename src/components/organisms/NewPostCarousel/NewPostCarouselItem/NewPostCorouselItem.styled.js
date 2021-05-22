@@ -48,12 +48,12 @@ const StyledNewPost = styled.div`
     font-style: italic;
     font-weight: 900;
     font-size: 2rem;
-    background-color: ${({ theme }) => theme.colors.mainDark};
+    background-color: ${({ theme }) => theme.colors.primary};
     padding: 5px 15px 5px 0;
 
     &:before {
       content: '';
-      background-color: ${({ theme }) => theme.colors.mainDark};
+      background-color: ${({ theme }) => theme.colors.primary};
       width: 40px;
       position: absolute;
       display: block;

@@ -1,18 +1,14 @@
 import styled from 'styled-components';
 
 const StyledMenuLink = styled.li`
-  text-transform: uppercase;
-  font-weight: ${({ theme }) => theme.fonts.ExtraBold};
-  font-style: italic;
-  font-size: 1.4rem;
+  font-weight: 500;
+  font-size: 1.8rem;
   display: inline-block;
 
-  &:not(:first-child) {
-    margin-left: 20px;
-  }
+  color: ${({ theme }) => theme.colors.text};
 
-  @media ${({ theme }) => theme.media.tablet} {
-    font-size: 3rem;
+  &:not(:first-child) {
+    margin-left: 7.2rem;
   }
 `;
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledContactSection = styled.section`
-  background-color: ${({ theme }) => theme.colors.mainDark};
+  background-color: ${({ theme }) => theme.colors.primary};
   position: relative;
 `;
 

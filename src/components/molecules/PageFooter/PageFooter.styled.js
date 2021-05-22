@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledPageFooter = styled.footer`
-  background-color: ${({ theme }) => theme.colors.mainDark};
+  background-color: ${({ theme }) => theme.colors.primary};
   padding: 94px 0 52px 28px;
   width: 100%;
 

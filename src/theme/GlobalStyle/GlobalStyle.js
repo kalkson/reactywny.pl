@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+    @import "../_components.scss";
 
     *,
     *:before,
@@ -69,10 +70,6 @@ const GlobalStyle = createGlobalStyle`
         &__button {
             background-color: #61DAFB !important;
             padding: 10px 15px !important;
-        }
-
-        &__text {
-
         }
     }
 `;
