@@ -4,11 +4,13 @@ import propTypes from 'prop-types';
 
 const StyledBox = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
-  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.31));
-  padding: 2rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  padding: 4rem;
 `;
 
-const Box = ({ children }) => <StyledBox>{children}</StyledBox>;
+const Box = ({ children, ...props }) => (
+  <StyledBox {...props}>{children}</StyledBox>
+);
 
 Box.propTypes = {
   children: propTypes.oneOfType([

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.div`
   border: solid 1px ${({ theme }) => theme.colors.mainBlue};
-  width: 190px;
+  max-width: 190px;
   height: 40px;
   color: ${({ theme }) => theme.colors.text};
   display: flex;
@@ -35,10 +35,6 @@ const StyledButton = styled.div`
   &:after {
     content: url('/arrow.svg');
     z-index: 3;
-    /* background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
 
     position: absolute;
     left: 25%;
