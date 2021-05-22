@@ -33,11 +33,7 @@ const StyledSpan = styled.span`
 const TextGroup = ({ strings }) => {
   const span$ = useRef(null);
   const stripe$ = useRef(null);
-  //   const [activeNode, setActiveNode] = useState(strings[0]);
   const [activeNodeNumber, setActiveNodeNumber] = useState(0);
-  const [activeWidth, setActiveWidth] = useState(null);
-
-  console.log(activeWidth);
 
   const changeString = () => {
     if (activeNodeNumber === strings.length - 1) {
@@ -57,10 +53,8 @@ const TextGroup = ({ strings }) => {
 
   useEffect(() => {
     gsap.fromTo(span$.current, { y: '100%' }, { y: 0, delay: 0.2 });
-    // setInterval(triggerChangeString, 3000);
 
     const { width } = span$.current.getBoundingClientRect();
-    setActiveWidth(width);
 
     gsap.to(stripe$.current, { width, duration: 0.2 });
 
