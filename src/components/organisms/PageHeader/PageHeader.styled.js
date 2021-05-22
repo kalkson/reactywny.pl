@@ -49,6 +49,14 @@ const StyledPageHeader = styled.header`
         top: 20px;
         right: 15px;
       }
+
+      @media ${({ theme }) => theme.media.mobile} {
+        right: 40px;
+      }
+
+      @media ${({ theme }) => theme.media.tablet} {
+        right: 15px;
+      }
     }
 
     &__image {
@@ -82,7 +90,7 @@ const StyledPageHeader = styled.header`
         display: block;
         position: absolute;
         bottom: 15px;
-        left: 20px;
+        left: 40px;
       `};
 
       @media ${({ theme }) => theme.media.mobileXL} {
