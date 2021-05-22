@@ -1,12 +1,10 @@
 import React from 'react';
-import SocialLinks from '../SocialLinks/SocialLinks';
 import Logo from '../../../assets/svg/logo-1.svg';
 import StyledPageFooter from './PageFooter.styled';
 
 const PageFooter = () => {
   return (
-    <StyledPageFooter>
-      <SocialLinks />
+    <StyledPageFooter className="container">
       <Logo className="footer__logo" />
       <span className="footer__adnotation">
         &copy; Damian Kalka 2021

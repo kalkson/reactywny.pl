@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 const StyledPageFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.primary};
-  padding: 94px 0 52px 28px;
-  width: 100%;
-
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .footer__logo {
     width: 125px;
@@ -18,28 +17,15 @@ const StyledPageFooter = styled.footer`
     }
   }
 
-  .header__social {
-    & svg {
-      margin-left: 0;
-      margin-right: 10px;
-      width: 22px;
-      height: 22px;
-      margin-bottom: 5px;
-    }
-
-    & svg path {
-      fill: ${({ theme }) => theme.colors.mainFair};
-    }
-  }
-
   .footer__adnotation {
     color: ${({ theme }) => theme.colors.mainFair};
     font-weight: ${({ theme }) => theme.fonts.semiBold};
     font-size: 1rem;
+    text-align: center;
   }
 
-  @media ${({ theme }) => theme.media.tablet} {
-    padding: 74px ${({ theme }) => theme.paddings.tablet} 72px;
+  @media ${({ theme }) => theme.media.mobileXL} {
+    padding: 50px 0;
 
     .footer__logo {
       width: 225px;
