@@ -21,6 +21,7 @@ const HeroSection = () => (
           ]}
         />
       </Headline>
+      <HeroIllustration className="hero__illustration illu-1" />
       <span className="hero__secondary-text">
         Lubisz czytać o frontendzie? Reactywny (i nie tylko) blog o
         programowaniu
@@ -28,7 +29,7 @@ const HeroSection = () => (
       <Button className="hero__button">zobacz moje wpisy</Button>
     </div>
     {/* <div className="hero__illustration-container"> */}
-    <HeroIllustration className="hero__illustration" />
+    <HeroIllustration className="hero__illustration illu-2" />
     {/* </div> */}
   </StyledHeroSection>
 );

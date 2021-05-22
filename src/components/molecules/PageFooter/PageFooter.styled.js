@@ -24,6 +24,8 @@ const StyledPageFooter = styled.footer`
     text-align: center;
   }
 
+  padding: 20px 0;
+
   @media ${({ theme }) => theme.media.mobileXL} {
     padding: 50px 0;
 

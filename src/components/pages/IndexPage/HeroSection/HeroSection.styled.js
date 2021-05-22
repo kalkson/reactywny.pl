@@ -23,6 +23,22 @@ const StyledHeroSection = styled.section`
     display: none;
   }
 
+  .illu-1 {
+    display: block;
+    margin: 30px 0;
+
+    @media ${({ theme }) => theme.media.tablet} {
+      display: none;
+    }
+  }
+
+  .illu-2 {
+    display: none;
+    @media ${({ theme }) => theme.media.tablet} {
+      display: block;
+    }
+  }
+
   .hero {
     /* &__text-container {
       @media ${({ theme }) => theme.media.tablet} {

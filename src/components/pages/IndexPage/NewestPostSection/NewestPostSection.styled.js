@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 
 const StyledNewestPostSection = styled.section`
-  .newest-static-container {
-    display: none;
-  }
+  padding-bottom: 40px;
 
   @media ${({ theme }) => theme.media.tablet} {
+    padding-bottom: 100px;
+  }
+
+  .newest-static-container {
+    display: none;
+
+    @media ${({ theme }) => theme.media.tablet} {
+      display: block;
+    }
+  }
+
+  .newest-slider-container {
     display: block;
+
+    @media ${({ theme }) => theme.media.tablet} {
+      display: none;
+    }
   }
 
   .newest-post {

@@ -1,10 +1,12 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import Slider from 'react-slick';
 import PageLink from '../../../atoms/PageLink/PageLink';
 import StyledNewestPostSection from './NewestPostSection.styled';
 import Box from '../../../atoms/Box/Box';
 import Button from '../../../atoms/Button/Button';
+import Post from '../../../atoms/Post/Post';
 
 const query = graphql`
   {
@@ -29,9 +31,11 @@ const NewestPostSection = () => {
   const data = useStaticQuery(query);
   const nodes = data.allDatoCmsPost.edges;
 
+  console.log(nodes);
+
   return (
-    <div className="newest-static-container">
-      <StyledNewestPostSection className="container">
+    <StyledNewestPostSection className="container">
+      <div className="newest-static-container">
         <Box className="newest-post-0 newest-post">
           <div className="row">
             <div className="col-xs-7">
@@ -106,8 +110,29 @@ const NewestPostSection = () => {
             </Box>
           </div>
         </div>
-      </StyledNewestPostSection>
-    </div>
+      </div>
+
+      <div className="newest-slider-container">
+        <Slider
+          settings={{
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+          }}
+        >
+          {nodes.map(({ node: { title, featuredImage, description, id } }) => (
+            <Post
+              key={id}
+              title={title}
+              description={description}
+              featuredImage={featuredImage}
+            />
+          ))}
+        </Slider>
+      </div>
+    </StyledNewestPostSection>
   );
 };
 
