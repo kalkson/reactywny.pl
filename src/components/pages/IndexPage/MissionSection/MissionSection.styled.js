@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const StyledMissionSection = styled.section`
-  height: 600px;
+  min-height: 600px;
+  position: relative;
 
   .mission {
     &__illustration {
@@ -12,6 +13,14 @@ const StyledMissionSection = styled.section`
       @media ${({ theme }) => theme.media.tablet} {
         left: -100px;
       }
+    }
+
+    &__paragraph {
+      color: ${({ theme }) => theme.colors.text};
+      line-height: 4rem;
+      font-size: 2.4rem;
+      margin-top: 150px;
+      font-weight: 300;
     }
   }
 `;
