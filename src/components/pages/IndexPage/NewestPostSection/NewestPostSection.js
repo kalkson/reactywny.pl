@@ -17,7 +17,7 @@ const query = graphql`
           id
           category
           featuredImage {
-            gatsbyImageData(forceBlurhash: true)
+            gatsbyImageData(placeholder: TRACED_SVG)
           }
           description
           date

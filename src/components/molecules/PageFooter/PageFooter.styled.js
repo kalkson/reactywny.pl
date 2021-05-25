@@ -6,6 +6,7 @@ const StyledPageFooter = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 70px 0 50px;
 
   .footer__logo {
     width: 125px;
@@ -24,10 +25,8 @@ const StyledPageFooter = styled.footer`
     text-align: center;
   }
 
-  padding: 20px 0;
-
   @media ${({ theme }) => theme.media.mobileXL} {
-    padding: 50px 0;
+    padding: 120px 0 60px;
 
     .footer__logo {
       width: 225px;
