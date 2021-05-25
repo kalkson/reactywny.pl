@@ -16,8 +16,8 @@ const StyledContainer = styled.div`
 const MainLayout = ({ children }) => {
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <PageHeader />
         <CookieConsent
           location="bottom"

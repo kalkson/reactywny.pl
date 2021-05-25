@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
@@ -8,9 +8,13 @@ const StyledBox = styled.div`
   padding: 4rem;
 `;
 
-const Box = ({ children, ...props }) => (
-  <StyledBox {...props}>{children}</StyledBox>
-);
+const Box = forwardRef(({ children, ...props }, ref) => (
+  <StyledBox ref={ref} {...props}>
+    {children}
+  </StyledBox>
+));
+
+Box.displayName = 'Box';
 
 Box.propTypes = {
   children: propTypes.oneOfType([

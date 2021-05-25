@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import slugify from 'slugify';
 import Slider from 'react-slick';
 import PageLink from '../../../atoms/PageLink/PageLink';
 import StyledNewestPostSection from './NewestPostSection.styled';
@@ -31,10 +32,37 @@ const NewestPostSection = () => {
   const data = useStaticQuery(query);
   const nodes = data.allDatoCmsPost.edges;
 
-  console.log(nodes);
+  const [isTipVisible, setTipHidden] = useState(true);
+
+  const swiper$ = useRef(null);
+
+  let removeListeners;
+
+  const hideTip = () => {
+    setTipHidden(false);
+    removeListeners();
+  };
+
+  removeListeners = () => {
+    swiper$.current.removeEventListener('swiperight', hideTip);
+    swiper$.current.removeEventListener('swipeleft', hideTip);
+  };
+
+  useEffect(() => {
+    if (swiper$.current)
+      swiper$.current.addEventListener('swiperight', hideTip);
+    swiper$.current.addEventListener('swipeleft', hideTip);
+
+    console.log(swiper$.current);
+
+    return () => {
+      if (swiper$.current) removeListeners();
+    };
+  }, []);
 
   return (
     <StyledNewestPostSection className="container">
+      {isTipVisible && <div className="swipe-tip">Swipe</div>}
       <div className="newest-static-container">
         <Box className="newest-post-0 newest-post">
           <div className="row">
@@ -48,7 +76,12 @@ const NewestPostSection = () => {
               <p className="newest-post__description">
                 {nodes[0].node.description}
               </p>
-              <Button className="newest-post__button">czytaj więcej</Button>
+              <Button
+                to={`/posts/${slugify(nodes[0].node.title, { lower: true })}`}
+                className="newest-post__button"
+              >
+                czytaj więcej
+              </Button>
             </div>
           </div>
         </Box>
@@ -64,10 +97,19 @@ const NewestPostSection = () => {
                 <p className="newest-post__description">
                   {nodes[1].node.description}
                 </p>
-                <Button className="newest-post__button">czytaj więcej</Button>
+                <Button
+                  to={`/posts/${slugify(nodes[1].node.title, {
+                    lower: true,
+                  })}`}
+                  className="newest-post__button"
+                >
+                  czytaj więcej
+                </Button>
               </div>
             </Box>
-            <PageLink to="/posts">Zobacz wszystkie wpisy</PageLink>
+            <PageLink className="desktop-all-anchor" to="/posts">
+              Zobacz wszystkie wpisy
+            </PageLink>
           </div>
 
           <div className="col-xs-7">
@@ -77,7 +119,14 @@ const NewestPostSection = () => {
                   <GatsbyImage
                     image={nodes[2].node.featuredImage.gatsbyImageData}
                   />
-                  <Button className="newest-post__button">czytaj więcej</Button>
+                  <Button
+                    to={`/posts/${slugify(nodes[2].node.title, {
+                      lower: true,
+                    })}`}
+                    className="newest-post__button"
+                  >
+                    czytaj więcej
+                  </Button>
                 </div>
                 <div className="col-sm-6">
                   <h3 className="newest-post__headline">
@@ -96,7 +145,14 @@ const NewestPostSection = () => {
                   <GatsbyImage
                     image={nodes[3].node.featuredImage.gatsbyImageData}
                   />
-                  <Button className="newest-post__button">czytaj więcej</Button>
+                  <Button
+                    to={`/posts/${slugify(nodes[3].node.title, {
+                      lower: true,
+                    })}`}
+                    className="newest-post__button"
+                  >
+                    czytaj więcej
+                  </Button>
                 </div>
                 <div className="col-sm-6">
                   <h3 className="newest-post__headline">
@@ -112,7 +168,7 @@ const NewestPostSection = () => {
         </div>
       </div>
 
-      <div className="newest-slider-container">
+      <div className="newest-slider-container" ref={swiper$}>
         <Slider
           settings={{
             infinite: true,
@@ -131,6 +187,9 @@ const NewestPostSection = () => {
             />
           ))}
         </Slider>
+        <PageLink to="/posts" className="newest-slider-container__anchor">
+          Zobacz wszystkie wpisy
+        </PageLink>
       </div>
     </StyledNewestPostSection>
   );

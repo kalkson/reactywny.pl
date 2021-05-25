@@ -7,7 +7,7 @@ const MissionSection = () => {
     <StyledMissionSection className="container mission">
       <ReactIllustration className="mission__illustration" />
       <div className="row">
-        <div className="col-md-9 col-md-offset-3">
+        <div className="col-md-9 col-md-offset-3 col-sm-8 col-sm-offset-2">
           <p className="mission__paragraph">
             Jako dziecko patrzył z fascynacją w działanie Internetu, nie będąc
             świadomym, że za każdym razem ładując stronę dostaje kod 200

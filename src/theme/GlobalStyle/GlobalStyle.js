@@ -9,14 +9,14 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-family: 'Roboto', sans-serif;
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,Arial,sans-serif;
     }
 
     html,
     body {
         margin: 0;
         padding: 0;
-        background-color: #1f2937;
+        background-color: ${({ theme }) => theme.colors.primary};
         overflow-x: hidden;
     }
 

@@ -3,9 +3,9 @@ import propTypes from 'prop-types';
 import StyledPageLink from './PageLink.styled';
 import ForwardArrow from '../../../assets/svg/arrow-1.svg';
 
-const PageLink = ({ children, to }) => {
+const PageLink = ({ children, to, ...props }) => {
   return (
-    <StyledPageLink className="link" to={to}>
+    <StyledPageLink {...props} to={to}>
       {children}
       <ForwardArrow className="link__icon" />
     </StyledPageLink>

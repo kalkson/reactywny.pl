@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 const StyledMissionSection = styled.section`
-  min-height: 600px;
+  min-height: 500px;
   position: relative;
+
+  @media ${({ theme }) => theme.media.tablet} {
+    min-height: 600px;
+  }
 
   .mission {
     &__illustration {
@@ -17,10 +21,16 @@ const StyledMissionSection = styled.section`
 
     &__paragraph {
       color: ${({ theme }) => theme.colors.text};
-      line-height: 4rem;
-      font-size: 2.4rem;
+      line-height: 2.2rem;
+      font-size: 1.6rem;
       margin-top: 150px;
       font-weight: 300;
+      text-align: justify;
+
+      @media ${({ theme }) => theme.media.tablet} {
+        margin-top: 250px;
+        font-size: 2rem;
+      }
     }
   }
 `;

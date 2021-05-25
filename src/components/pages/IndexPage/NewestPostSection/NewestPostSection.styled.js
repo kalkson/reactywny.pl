@@ -1,10 +1,60 @@
 import styled from 'styled-components';
 
 const StyledNewestPostSection = styled.section`
-  padding-bottom: 40px;
+  position: relative;
+
+  & .desktop-all-anchor {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .swipe-tip {
+    z-index: 20;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    padding: 5px 10px;
+    text-align: left;
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.text};
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 3px 0 0 3px;
+    border-bottom: solid 2px ${({ theme }) => theme.colors.mainBlue};
+
+    @media ${({ theme }) => theme.media.tablet} {
+      display: none;
+    }
+
+    animation: shock 6s linear infinite;
+    transform-origin: center;
+
+    @keyframes shock {
+      0% {
+        transform: rotate(0);
+      }
+      1% {
+        transform: rotate(15deg);
+      }
+      3% {
+        transform: rotate(-15deg);
+      }
+      5% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  padding-left: 0;
+  padding-right: 0;
 
   @media ${({ theme }) => theme.media.tablet} {
     padding-bottom: 100px;
+    padding-bottom: 40px;
+    padding-left: initial;
+    padding-right: initial;
   }
 
   .newest-static-container {
@@ -20,6 +70,11 @@ const StyledNewestPostSection = styled.section`
 
     @media ${({ theme }) => theme.media.tablet} {
       display: none;
+    }
+
+    &__anchor {
+      display: block;
+      text-align: center;
     }
   }
 

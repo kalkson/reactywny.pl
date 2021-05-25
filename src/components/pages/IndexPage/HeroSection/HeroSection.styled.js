@@ -63,17 +63,23 @@ const StyledHeroSection = styled.section`
       right: 0;
       width: 100%;
       height: 250px;
-      align-self: center;
+      align-self: flex-end;
+
+      margin-left: auto;
+      margin-right: auto;
 
       @media ${({ theme }) => theme.media.mobileXL} {
-        align-self: center;
         width: 400px;
       }
 
       @media ${({ theme }) => theme.media.tablet} {
         /* margin-top: 100px; */
+        align-self: center;
         width: auto;
         height: auto;
+
+        margin-left: initial;
+        margin-right: initial;
       }
       /* top: 78px; */
 
