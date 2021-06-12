@@ -78,7 +78,7 @@ const StyledNewestPostSection = styled.section`
     }
   }
 
-  .newest-post {
+  .post-item {
     color: ${({ theme }) => theme.colors.text};
     margin-top: 28px;
 
@@ -99,15 +99,15 @@ const StyledNewestPostSection = styled.section`
 
     &-2,
     &-3 {
-      .newest-post__headline {
+      .post-item__headline {
         font-size: 2.4rem;
       }
 
-      .newest-post__button {
+      .post-item__button {
         margin-top: 15px;
       }
 
-      .newest-post__description {
+      .post-item__description {
         margin: 0;
       }
     }

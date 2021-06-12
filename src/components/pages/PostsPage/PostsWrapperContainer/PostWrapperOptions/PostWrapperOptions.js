@@ -1,51 +1,31 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import StyledPostWrapperOptions from './StyledPostWrapperOptions';
+import Input from '../../../../atoms/Input/Input';
+import Select from '../../../../atoms/Input/Select';
+import SearchIcon from '../../../../../assets/svg/search.svg';
 
-const PostWrapperOptions = ({
-  handleSwitch,
-  handleChange,
-  handleSelect,
-  categories,
-}) => {
+const PostWrapperOptions = ({ handleChange, handleSelect, categories }) => {
   return (
-    <StyledPostWrapperOptions>
-      <div className="inputsContainer">
-        <input
-          type="text"
-          placeholder="wyszukaj wpis"
-          className="searchInput"
-          onChange={e => handleChange(e)}
-        />
-        <label htmlFor="category" className="categoryLabel">
-          <select
-            className="category"
-            id="category"
-            placeholder="kategoria"
-            onChange={e => handleSelect(e)}
-          >
-            <option value="" aria-label="empty">
-              wszystkie
-            </option>
-            {categories.map(category => (
-              <option key={category} value={category} aria-label={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
-      <br />
-      <label className="switch" htmlFor="switch">
-        <input type="checkbox" id="switch" onClick={() => handleSwitch()} />
-        <span className="slider round" />
-      </label>
+    <StyledPostWrapperOptions className="options">
+      <Input
+        type="text"
+        placeholder="wyszukaj wpis"
+        onChange={e => handleChange(e)}
+        Icon={SearchIcon}
+        className="options__input"
+      />
+      <Select
+        options={categories}
+        handleSelect={handleSelect}
+        label="kategoria"
+        className="options__select"
+      />
     </StyledPostWrapperOptions>
   );
 };
 
 PostWrapperOptions.propTypes = {
-  handleSwitch: propTypes.func.isRequired,
   handleChange: propTypes.func.isRequired,
   handleSelect: propTypes.func.isRequired,
   categories: propTypes.arrayOf(propTypes.string).isRequired,

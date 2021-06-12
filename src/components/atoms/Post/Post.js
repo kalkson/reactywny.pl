@@ -9,7 +9,6 @@ import Button from '../Button/Button';
 const StyledPost = styled(Box)`
   width: 98%;
   padding: 20px;
-  height: 550px;
   display: flex;
   flex-flow: column;
   margin: 60px auto 5px !important;
@@ -25,9 +24,10 @@ const StyledPost = styled(Box)`
 
   color: ${({ theme }) => theme.colors.text};
 
-  .newest-post {
+  .post-item {
     &__description {
       overflow: hidden;
+      margin-bottom: 25px;
     }
 
     &__button {
@@ -37,19 +37,20 @@ const StyledPost = styled(Box)`
     &__headline {
       font-size: 2.4rem;
       margin-top: 15px;
+      margin-bottom: 15px;
     }
   }
 `;
 
-const Post = ({ title, description, featuredImage }) => {
+const Post = ({ title, description, featuredImage, ...props }) => {
   return (
-    <StyledPost className="newest-post">
+    <StyledPost className="post-item" {...props}>
       <GatsbyImage image={featuredImage.gatsbyImageData} />
-      <h3 className="newest-post__headline">{title}</h3>
-      <p className="newest-post__description">{description}</p>
+      <h3 className="post-item__headline">{title}</h3>
+      <p className="post-item__description">{description}</p>
       <Button
         to={`/posts/${slugify(title, { lower: true })}`}
-        className="newest-post__button"
+        className="post-item__button"
       >
         czytaj więcej
       </Button>

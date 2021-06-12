@@ -64,21 +64,21 @@ const NewestPostSection = () => {
     <StyledNewestPostSection className="container">
       {isTipVisible && <div className="swipe-tip">Swipe</div>}
       <div className="newest-static-container">
-        <Box className="newest-post-0 newest-post">
+        <Box className="post-item-0 post-item">
           <div className="row">
             <div className="col-xs-7">
               <GatsbyImage
                 image={nodes[0].node.featuredImage.gatsbyImageData}
               />
             </div>
-            <div className="col-xs-5 newest-post__content">
-              <h3 className="newest-post__headline">{nodes[0].node.title}</h3>
-              <p className="newest-post__description">
+            <div className="col-xs-5 post-item__content">
+              <h3 className="post-item__headline">{nodes[0].node.title}</h3>
+              <p className="post-item__description">
                 {nodes[0].node.description}
               </p>
               <Button
                 to={`/posts/${slugify(nodes[0].node.title, { lower: true })}`}
-                className="newest-post__button"
+                className="post-item__button"
               >
                 czytaj więcej
               </Button>
@@ -88,20 +88,20 @@ const NewestPostSection = () => {
 
         <div className="row">
           <div className="col-xs-5">
-            <Box className="newest-post-1 newest-post">
+            <Box className="post-item-1 post-item">
               <GatsbyImage
                 image={nodes[1].node.featuredImage.gatsbyImageData}
               />
-              <div className="newest-post__content">
-                <h3 className="newest-post__headline">{nodes[1].node.title}</h3>
-                <p className="newest-post__description">
+              <div className="post-item__content">
+                <h3 className="post-item__headline">{nodes[1].node.title}</h3>
+                <p className="post-item__description">
                   {nodes[1].node.description}
                 </p>
                 <Button
                   to={`/posts/${slugify(nodes[1].node.title, {
                     lower: true,
                   })}`}
-                  className="newest-post__button"
+                  className="post-item__button"
                 >
                   czytaj więcej
                 </Button>
@@ -113,7 +113,7 @@ const NewestPostSection = () => {
           </div>
 
           <div className="col-xs-7">
-            <Box className="asd newest-post-2 newest-post">
+            <Box className="asd post-item-2 post-item">
               <div className="row">
                 <div className="col-sm-6">
                   <GatsbyImage
@@ -123,23 +123,21 @@ const NewestPostSection = () => {
                     to={`/posts/${slugify(nodes[2].node.title, {
                       lower: true,
                     })}`}
-                    className="newest-post__button"
+                    className="post-item__button"
                   >
                     czytaj więcej
                   </Button>
                 </div>
                 <div className="col-sm-6">
-                  <h3 className="newest-post__headline">
-                    {nodes[2].node.title}
-                  </h3>
-                  <p className="newest-post__description">
+                  <h3 className="post-item__headline">{nodes[2].node.title}</h3>
+                  <p className="post-item__description">
                     {nodes[2].node.description}
                   </p>
                 </div>
               </div>
             </Box>
 
-            <Box className="asd newest-post-3 newest-post">
+            <Box className="asd post-item-3 post-item">
               <div className="row">
                 <div className="col-sm-6">
                   <GatsbyImage
@@ -149,16 +147,14 @@ const NewestPostSection = () => {
                     to={`/posts/${slugify(nodes[3].node.title, {
                       lower: true,
                     })}`}
-                    className="newest-post__button"
+                    className="post-item__button"
                   >
                     czytaj więcej
                   </Button>
                 </div>
                 <div className="col-sm-6">
-                  <h3 className="newest-post__headline">
-                    {nodes[3].node.title}
-                  </h3>
-                  <p className="newest-post__description">
+                  <h3 className="post-item__headline">{nodes[3].node.title}</h3>
+                  <p className="post-item__description">
                     {nodes[3].node.description}
                   </p>
                 </div>

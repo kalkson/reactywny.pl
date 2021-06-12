@@ -12,9 +12,10 @@ const PostElement = ({
   shortDescription,
   featuredImage: { gatsbyImageData },
   isPicturesDisplayed,
+  ...props
 }) => {
   return (
-    <StyledPostElement>
+    <StyledPostElement {...props}>
       <div className="post__top">
         <time className="post__top__date">{date}</time>
         <span className="post__top__category">{category}</span>
