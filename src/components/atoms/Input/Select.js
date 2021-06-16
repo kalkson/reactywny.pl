@@ -8,13 +8,25 @@ const Select = ({ options, handleSelect, label, className }) => {
   const [isCollapsed, setCollapsed] = useState(false);
   const dropdown$ = useRef(null);
 
-  useEffect(() => {
-    setCollapsed(false);
-  }, [value]);
-
   const clickListener = e => {
     if (!dropdown$.current || !dropdown$.current.contains(e.target))
       setCollapsed(false);
+  };
+
+  const handleClick = (option = 'wszystko') => {
+    setValue(option);
+    console.log(option);
+    if (option === 'wszystko') handleSelect('');
+    else handleSelect(option);
+    setCollapsed(false);
+  };
+
+  const handleKeyPress = ({ key }, option = 'wszystko') => {
+    if (key === 13) {
+      setCollapsed(false);
+      setValue(option);
+    }
+    handleSelect('');
   };
 
   useEffect(() => {
@@ -32,8 +44,11 @@ const Select = ({ options, handleSelect, label, className }) => {
       ref={dropdown$}
       label={label}
     >
-      <div
-        role="button"
+      <div className="dropdown__label" id={`${label}-label`}>
+        {label}
+      </div>
+      <button
+        type="button"
         tabIndex="0"
         className="dropdown__current"
         onClick={() => setCollapsed(!isCollapsed)}
@@ -43,46 +58,35 @@ const Select = ({ options, handleSelect, label, className }) => {
       >
         {value}
         <ArrowIcon className="dropdown__icon" role="presentation" />
-      </div>
-      <div className="dropdown__list" isCollapsed={isCollapsed}>
-        <button
-          type="button"
-          className="dropdown__option"
-          onKeyDown={({ key }) => {
-            if (key === 13) {
-              setCollapsed(false);
-              setValue('wszystko');
-            }
-            handleSelect('');
-          }}
-          onClick={() => {
-            setValue('wszystko');
-            handleSelect('');
-          }}
-        >
-          wszystko
-        </button>
-        {options.map(option => (
+      </button>
+      <ul className="dropdown__list" isCollapsed={isCollapsed} role="listbox">
+        <li className="dropdown__option" aria-labelledby={`${label}-dropdown`}>
           <button
             type="button"
+            onKeyDown={e => handleKeyPress(e)}
+            onClick={() => handleClick()}
+            className="dropdown__option-button"
+          >
+            wszystko
+          </button>
+        </li>
+        {options.map(option => (
+          <li
             className="dropdown__option"
             key={option}
-            onKeyDown={({ key }) => {
-              if (key === 13) {
-                setCollapsed(false);
-                setValue(option);
-              }
-              handleSelect(option);
-            }}
-            onClick={() => {
-              setValue(option);
-              handleSelect(option);
-            }}
+            aria-labelledby={`${label}-dropdown`}
           >
-            {option}
-          </button>
+            <button
+              type="button"
+              onKeyDown={e => handleKeyPress(e, option)}
+              onClick={() => handleClick(option)}
+              className="dropdown__option-button"
+            >
+              {option}
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
     </StyledSelect>
   );
 };

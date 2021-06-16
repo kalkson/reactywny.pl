@@ -19,27 +19,26 @@ const StyledSelect = styled.div`
       border-radius: 0 0 5px 5px;
       left: 0;
       top: 100%;
-
-      border: ${({ isCollapsed, theme }) =>
-        isCollapsed ? `solid 1px ${theme.colors.text}` : 'none'};
-
+      padding: 0;
+      list-style-type: none;
       display: flex;
       flex-direction: column;
       color: black;
       max-height: 220px;
       overflow: auto;
-
       transform-origin: top;
+      z-index: 10;
 
       opacity: ${({ isCollapsed }) => (isCollapsed ? 1 : 0)};
       visibility: ${({ isCollapsed }) => (isCollapsed ? 'visible' : 'hidden')};
       transform: ${({ isCollapsed }) =>
         isCollapsed ? 'scaleY(1)' : 'scaleY(0.8)'};
+      border: ${({ isCollapsed, theme }) =>
+        isCollapsed ? `solid 1px ${theme.colors.text}` : 'none'};
 
       &::-webkit-scrollbar {
         display: none;
       }
-      z-index: 10;
     }
 
     &__current {
@@ -78,7 +77,7 @@ const StyledSelect = styled.div`
           : 'translateY(-40%) rotate(0)'};
     }
 
-    &__option {
+    &__option-button {
       width: 200px;
       padding: 4px 0 4px 10px;
       background: ${({ theme }) => theme.colors.primary};
@@ -97,15 +96,14 @@ const StyledSelect = styled.div`
     border: none;
   }
 
-  &:before {
+  ${({ label, theme }) => `& #${label}-label {
     position: absolute;
-    content: '${({ label }) => label}';
+    content: '${label}';
     margin-bottom: 10px;
     font-size: 1.6rem;
     font-weight: 400;
     top: -70%;
-    color: ${({ theme }) => theme.colors.text};
-  }
+    color: ${theme.colors.text}; }`}
 `;
 
 export default StyledSelect;
