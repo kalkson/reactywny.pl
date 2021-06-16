@@ -13,8 +13,12 @@ const StyledHeadline = styled.h1`
   }
 `;
 
-const Headline = ({ children, size }) => {
-  return <StyledHeadline size={size}>{children}</StyledHeadline>;
+const Headline = ({ children, size, ...props }) => {
+  return (
+    <StyledHeadline {...props} size={size}>
+      {children}
+    </StyledHeadline>
+  );
 };
 
 Headline.propTypes = {

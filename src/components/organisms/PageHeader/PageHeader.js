@@ -51,12 +51,12 @@ const PageHeader = () => {
               </li>
               <li>
                 <Link className="header-elements__link" to="/faq">
-                  faq
+                  o mnie
                 </Link>
               </li>
               <li>
-                <Link className="header-elements__link" to="/faq/#contact">
-                  kontakt
+                <Link className="header-elements__link" to="/newsletter">
+                  newsletter
                 </Link>
               </li>
             </ul>

@@ -28,37 +28,6 @@ const StyledPostWrapperOptions = styled.div`
     background-color: #ccc;
     transition: 0.4s;
   }
-
-  .slider:before {
-    position: absolute;
-    content: '';
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-  }
-
-  input:checked + .slider {
-    background-color: ${({ theme }) => theme.colors.mainBlue};
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px ${({ theme }) => theme.colors.mainBlue};
-  }
-
-  input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-  }
 `;
 
 export default StyledPostWrapperOptions;

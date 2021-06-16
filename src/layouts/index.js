@@ -31,7 +31,7 @@ const MainLayout = ({ children }) => {
         >
           Korzystając ze strony zgadzasz się na używanie plików cookies, które
           są instalowane na Twoim urządzeniu. Więcej o plikach cookies oraz o
-          możliwościach zmiany ich ustawień dowiesz się w{' '}
+          możliwościach zmiany ich ustawień dowiesz się w
           <Link to="/privacy">Polityce Prywatności.</Link>
         </CookieConsent>
         <StyledContainer>{children}</StyledContainer>

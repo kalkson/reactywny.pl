@@ -55,6 +55,10 @@ const Select = ({ options, handleSelect, label, className }) => {
         onKeyDown={({ key }) => {
           if (key === 13) setCollapsed(!isCollapsed);
         }}
+        onFocus={() => {
+          if (!isCollapsed) setTimeout(() => setCollapsed(true), 100);
+        }}
+        aria-label="wybierz kategorię"
       >
         {value}
         <ArrowIcon className="dropdown__icon" role="presentation" />
@@ -66,6 +70,7 @@ const Select = ({ options, handleSelect, label, className }) => {
             onKeyDown={e => handleKeyPress(e)}
             onClick={() => handleClick()}
             className="dropdown__option-button"
+            aria-label="wyświelt wszystkie wpisy"
           >
             wszystko
           </button>
@@ -81,6 +86,7 @@ const Select = ({ options, handleSelect, label, className }) => {
               onKeyDown={e => handleKeyPress(e, option)}
               onClick={() => handleClick(option)}
               className="dropdown__option-button"
+              aria-label={`wyświetl kategorię: ${option}`}
             >
               {option}
             </button>

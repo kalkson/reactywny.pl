@@ -1,9 +1,9 @@
 import React from 'react';
-import Headline from '../../../atoms/Headline/Headline';
+import HeroIllustration from 'assets/svg/hero.svg';
+import Button from 'components/atoms/Button/Button';
+import TextGroup from 'components/molecules/TextGroup/TextGroup';
+import Headline from 'components/atoms/Headline/Headline';
 import StyledHeroSection from './HeroSection.styled';
-import HeroIllustration from '../../../../assets/svg/hero.svg';
-import Button from '../../../atoms/Button/Button';
-import TextGroup from '../../../molecules/TextGroup/TextGroup';
 
 const HeroSection = () => (
   <StyledHeroSection className="container hero">
