@@ -111,6 +111,16 @@ const StyledNewestPostSection = styled.section`
         margin: 0;
       }
     }
+
+    &-0,
+    &-1,
+    &-2,
+    &-3 {
+      .post-item__button {
+        margin-top: 15px;
+        max-width: 190px;
+      }
+    }
   }
 `;
 

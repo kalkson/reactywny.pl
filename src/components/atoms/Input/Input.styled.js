@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 const StyledInput = styled.div`
   position: relative;
+  max-width: 300px;
 
   .input {
     &__element {
       height: 40px;
-      width: 300px;
+      width: 100%;
       color: ${({ theme }) => theme.colors.text};
 
       padding-left: 50px;

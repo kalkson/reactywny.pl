@@ -1,8 +1,8 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import Headline from 'components/atoms/Headline/Headline';
+import TextGroup from 'components/molecules/TextGroup/TextGroup';
 import StyledAboutSection from './AboutSection.styled';
-import Headline from '../../../atoms/Headline/Headline';
-import TextGroup from '../../../molecules/TextGroup/TextGroup';
 
 const FaqSection = () => (
   <StyledAboutSection className="container about-section">

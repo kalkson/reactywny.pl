@@ -5,7 +5,11 @@ import propTypes from 'prop-types';
 const StyledBox = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-  padding: 4rem;
+  padding: 2rem;
+
+  @media ${({ theme }) => theme.media.tablet} {
+    padding: 4rem;
+  }
 `;
 
 const Box = forwardRef(({ children, ...props }, ref) => (

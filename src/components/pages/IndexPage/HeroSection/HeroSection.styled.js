@@ -40,13 +40,9 @@ const StyledHeroSection = styled.section`
   }
 
   .hero {
-    /* &__text-container {
-      @media ${({ theme }) => theme.media.tablet} {
-      }
-    } */
-
     &__button {
       margin-top: 30px;
+      max-width: 190px;
     }
 
     &__secondary-text {

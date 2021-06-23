@@ -7,9 +7,12 @@ const StyledHeadline = styled.h1`
   font-weight: 500;
   position: relative;
   color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 20px;
+  margin-top: 20px;
 
   @media ${({ theme }) => theme.media.laptop} {
     font-size: ${({ size }) => size}px;
+    margin-top: unset;
   }
 `;
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.div`
-  border: solid 1px ${({ theme }) => theme.colors.mainBlue};
-  max-width: 190px;
+const StyledButton = styled.button`
+  outline: solid 1px ${({ theme }) => theme.colors.mainBlue};
+  width: 100%;
   height: 40px;
   color: ${({ theme }) => theme.colors.text};
   display: flex;
