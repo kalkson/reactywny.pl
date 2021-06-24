@@ -49,10 +49,13 @@ const NewsletterBar = () => {
     <StyledNewsletterBar className="newsletter">
       <Box className="newsletter__box">
         <form className="newsletter__form" onSubmit={handleSubmit}>
-          <p className="newsletter__paragraph">
-            Dołącz do odbiorców mojego newslettera, gdzie w przyszłości będę się
-            dzielił cenną wiedzą o webdevelopmencie i frontendzie.
-          </p>
+          <div className="newsletter__text-group">
+            <h2 className="newsletter__headline">Dołącz do mailingu</h2>
+            <p className="newsletter__paragraph">
+              Dołącz do odbiorców mojego newslettera, gdzie w przyszłości będę
+              się dzielił cenną wiedzą o webdevelopmencie i frontendzie.
+            </p>
+          </div>
           {!error || error?.result === 'error' ? (
             <>
               <Input

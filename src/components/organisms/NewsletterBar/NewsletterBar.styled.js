@@ -24,7 +24,7 @@ const StyledNewsletterBar = styled.div`
 
       @media ${({ theme }) => theme.media.tablet} {
         max-width: 300px;
-        height: 250px;
+        height: 300px;
       }
     }
 
@@ -43,9 +43,12 @@ const StyledNewsletterBar = styled.div`
       }
     }
 
-    &__paragraph {
-      margin-bottom: 15px;
+    &__headline {
+      margin-bottom: 20px;
+    }
 
+    &__text-group {
+      margin-bottom: 25px;
       @media ${({ theme }) => theme.media.tablet} {
         margin-bottom: auto;
       }
