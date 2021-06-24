@@ -13,6 +13,7 @@ const StyledPostWrapperOptions = styled.div`
     &__input {
       margin-bottom: 50px;
       @media ${({ theme }) => theme.media.tablet} {
+        margin-right: 40px;
         margin-bottom: unset;
       }
     }

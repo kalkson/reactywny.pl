@@ -10,14 +10,12 @@ const Button = ({ children, to, href, ...props }) => {
         <StyledButton {...props}>{children}</StyledButton>
       </Link>
     );
-
   if (href)
     return (
       <a href={href}>
         <StyledButton {...props}>{children}</StyledButton>
       </a>
     );
-
   return <StyledButton {...props}>{children}</StyledButton>;
 };
 
