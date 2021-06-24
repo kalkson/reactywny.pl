@@ -82,6 +82,19 @@ const StyledNewestPostSection = styled.section`
     color: ${({ theme }) => theme.colors.text};
     margin-top: 28px;
 
+    &__meta-group {
+      margin-top: 10px;
+      display: flex;
+    }
+
+    &__date {
+      margin-right: 12px;
+    }
+
+    &__category {
+      color: ${({ theme }) => theme.colors.mainBlue};
+    }
+
     &__headline {
       font-size: 3.2rem;
       margin-bottom: 12px;
@@ -89,7 +102,7 @@ const StyledNewestPostSection = styled.section`
 
     &__description {
       line-height: 2.1rem;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
       font-size: 1.6rem;
     }
 

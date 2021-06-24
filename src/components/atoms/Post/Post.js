@@ -18,13 +18,26 @@ const StyledPost = styled(Box)`
   @media ${({ theme }) => theme.media.tablet} {
     margin: 0 auto 20px;
     box-shadow: initial;
-    height: 450px;
+    height: 500px;
     cursor: initial;
   }
 
   color: ${({ theme }) => theme.colors.text};
 
   .post-item {
+    &__meta-group {
+      margin-top: 10px;
+      display: flex;
+    }
+
+    &__date {
+      margin-right: 12px;
+    }
+
+    &__category {
+      color: ${({ theme }) => theme.colors.mainBlue};
+    }
+
     &__description {
       overflow: hidden;
       margin-bottom: 25px;
@@ -42,10 +55,23 @@ const StyledPost = styled(Box)`
   }
 `;
 
-const Post = ({ title, description, featuredImage, ...props }) => {
+const Post = ({
+  title,
+  description,
+  featuredImage,
+  date,
+  category,
+  ...props
+}) => {
   return (
     <StyledPost className="post-item" {...props}>
       <GatsbyImage image={featuredImage.gatsbyImageData} />
+      <div className="post-item__meta-group">
+        <date className="post-item__date">{date}</date>
+        <span className="post-item__category" aria-label="kategoria wpisu">
+          {category}
+        </span>
+      </div>
       <h3 className="post-item__headline">{title}</h3>
       <p className="post-item__description">{description}</p>
       <Button
@@ -62,6 +88,8 @@ Post.propTypes = {
   title: propTypes.string.isRequired,
   description: propTypes.string.isRequired,
   featuredImage: propTypes.shape.isRequired,
+  date: propTypes.string.isRequired,
+  category: propTypes.string.isRequired,
 };
 
 export default Post;

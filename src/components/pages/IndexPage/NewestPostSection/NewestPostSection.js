@@ -3,11 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import slugify from 'slugify';
 import Slider from 'react-slick';
-import PageLink from '../../../atoms/PageLink/PageLink';
+
+import PageLink from 'components/atoms/PageLink/PageLink';
+import Box from 'components/atoms/Box/Box';
+import Button from 'components/atoms/Button/Button';
+import Post from 'components/atoms/Post/Post';
+
 import StyledNewestPostSection from './NewestPostSection.styled';
-import Box from '../../../atoms/Box/Box';
-import Button from '../../../atoms/Button/Button';
-import Post from '../../../atoms/Post/Post';
 
 const query = graphql`
   {
@@ -53,8 +55,6 @@ const NewestPostSection = () => {
       swiper$.current.addEventListener('swiperight', hideTip);
     swiper$.current.addEventListener('swipeleft', hideTip);
 
-    console.log(swiper$.current);
-
     return () => {
       if (swiper$.current) removeListeners();
     };
@@ -62,7 +62,11 @@ const NewestPostSection = () => {
 
   return (
     <StyledNewestPostSection className="container">
-      {isTipVisible && <div className="swipe-tip">Swipe</div>}
+      {isTipVisible && (
+        <div className="swipe-tip" role="dialog">
+          Swipe
+        </div>
+      )}
       <div className="newest-static-container">
         <Box className="post-item-0 post-item">
           <div className="row">
@@ -72,6 +76,15 @@ const NewestPostSection = () => {
               />
             </div>
             <div className="col-xs-5 post-item__content">
+              <div className="post-item__meta-group">
+                <date className="post-item__date">{nodes[0].node.date}</date>
+                <span
+                  className="post-item__category"
+                  aria-label="kategoria wpisu"
+                >
+                  {nodes[0].node.category}
+                </span>
+              </div>
               <h3 className="post-item__headline">{nodes[0].node.title}</h3>
               <p className="post-item__description">
                 {nodes[0].node.description}
@@ -93,6 +106,15 @@ const NewestPostSection = () => {
                 image={nodes[1].node.featuredImage.gatsbyImageData}
               />
               <div className="post-item__content">
+                <div className="post-item__meta-group">
+                  <date className="post-item__date">{nodes[1].node.date}</date>
+                  <span
+                    className="post-item__category"
+                    aria-label="kategoria wpisu"
+                  >
+                    {nodes[1].node.category}
+                  </span>
+                </div>
                 <h3 className="post-item__headline">{nodes[1].node.title}</h3>
                 <p className="post-item__description">
                   {nodes[1].node.description}
@@ -129,6 +151,17 @@ const NewestPostSection = () => {
                   </Button>
                 </div>
                 <div className="col-sm-6">
+                  <div className="post-item__meta-group">
+                    <date className="post-item__date">
+                      {nodes[2].node.date}
+                    </date>
+                    <span
+                      className="post-item__category"
+                      aria-label="kategoria wpisu"
+                    >
+                      {nodes[2].node.category}
+                    </span>
+                  </div>
                   <h3 className="post-item__headline">{nodes[2].node.title}</h3>
                   <p className="post-item__description">
                     {nodes[2].node.description}
@@ -153,6 +186,17 @@ const NewestPostSection = () => {
                   </Button>
                 </div>
                 <div className="col-sm-6">
+                  <div className="post-item__meta-group">
+                    <date className="post-item__date">
+                      {nodes[3].node.date}
+                    </date>
+                    <span
+                      className="post-item__category"
+                      aria-label="kategoria wpisu"
+                    >
+                      {nodes[3].node.category}
+                    </span>
+                  </div>
                   <h3 className="post-item__headline">{nodes[3].node.title}</h3>
                   <p className="post-item__description">
                     {nodes[3].node.description}
@@ -174,14 +218,20 @@ const NewestPostSection = () => {
             arrows: false,
           }}
         >
-          {nodes.map(({ node: { title, featuredImage, description, id } }) => (
-            <Post
-              key={id}
-              title={title}
-              description={description}
-              featuredImage={featuredImage}
-            />
-          ))}
+          {nodes.map(
+            ({
+              node: { title, featuredImage, description, id, date, category },
+            }) => (
+              <Post
+                key={id}
+                title={title}
+                description={description}
+                featuredImage={featuredImage}
+                date={date}
+                category={category}
+              />
+            )
+          )}
         </Slider>
         <PageLink to="/posts" className="newest-slider-container__anchor">
           Zobacz wszystkie wpisy
