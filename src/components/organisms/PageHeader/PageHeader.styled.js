@@ -33,7 +33,7 @@ const StyledPageHeader = styled.header`
       display: block;
       margin-top: 20px;
 
-      @media ${({ theme }) => theme.media.mobileXL} {
+      @media ${({ theme }) => theme.media.tablet} {
         display: none;
       }
     }
@@ -64,7 +64,7 @@ const StyledPageHeader = styled.header`
 
       height: ${({ isMenuVisible }) => (isMenuVisible ? '83px' : null)};
 
-      @media ${({ theme }) => theme.media.mobileXL} {
+      @media ${({ theme }) => theme.media.tablet} {
         width: 300px;
       }
 
@@ -93,7 +93,7 @@ const StyledPageHeader = styled.header`
         left: 40px;
       `};
 
-      @media ${({ theme }) => theme.media.mobileXL} {
+      @media ${({ theme }) => theme.media.tablet} {
         display: block;
       }
 

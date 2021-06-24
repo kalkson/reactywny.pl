@@ -14,7 +14,6 @@ const StyledHeroSection = styled.section`
     flex-direction: row;
     align-items: center;
     height: 600px;
-    padding: 0;
     justify-content: space-between;
   }
 

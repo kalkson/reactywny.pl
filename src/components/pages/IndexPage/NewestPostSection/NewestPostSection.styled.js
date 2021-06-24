@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
 const StyledNewestPostSection = styled.section`
-  position: relative;
+  position: relative !important;
+
+  padding: 0 5px;
+
+  @media ${({ theme }) => theme.media.mobile} {
+    padding: 0 30px;
+  }
+
+  @media ${({ theme }) => theme.media.mobileXL} {
+    padding: 0 10px;
+  }
 
   & .desktop-all-anchor {
     display: block;
@@ -47,14 +57,9 @@ const StyledNewestPostSection = styled.section`
     }
   }
 
-  padding-left: 0;
-  padding-right: 0;
-
   @media ${({ theme }) => theme.media.tablet} {
     padding-bottom: 100px;
     padding-bottom: 40px;
-    padding-left: initial;
-    padding-right: initial;
   }
 
   .newest-static-container {
@@ -75,10 +80,17 @@ const StyledNewestPostSection = styled.section`
     &__anchor {
       display: block;
       text-align: center;
+      margin-top: 20px;
     }
   }
 
   .post-item {
+    padding: 0 10px;
+
+    @media ${({ theme }) => theme.media.mobileXL} {
+      padding: 40px;
+    }
+
     color: ${({ theme }) => theme.colors.text};
     margin-top: 28px;
 

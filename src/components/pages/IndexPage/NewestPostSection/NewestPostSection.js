@@ -30,6 +30,14 @@ const query = graphql`
   }
 `;
 
+const slickSettings = {
+  arrows: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
 const NewestPostSection = () => {
   const data = useStaticQuery(query);
   const nodes = data.allDatoCmsPost.edges;
@@ -209,15 +217,7 @@ const NewestPostSection = () => {
       </div>
 
       <div className="newest-slider-container" ref={swiper$}>
-        <Slider
-          settings={{
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-          }}
-        >
+        <Slider {...slickSettings}>
           {nodes.map(
             ({
               node: { title, featuredImage, description, id, date, category },
