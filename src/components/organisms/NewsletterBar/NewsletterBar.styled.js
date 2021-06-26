@@ -47,6 +47,16 @@ const StyledNewsletterBar = styled.div`
       margin-bottom: 20px;
     }
 
+    &__paragraph {
+      & > a {
+        color: ${({ theme }) => theme.colors.mainBlue};
+
+        &:hover {
+          color: ${({ theme }) => theme.colors.text};
+        }
+      }
+    }
+
     &__text-group {
       margin-bottom: 25px;
       @media ${({ theme }) => theme.media.tablet} {

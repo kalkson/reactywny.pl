@@ -40,22 +40,38 @@ const PageHeader = () => {
           <nav className="header-elements__nav">
             <ul className="header-elements__list">
               <li>
-                <Link className="header-elements__link" to="/">
+                <Link
+                  className="header-elements__link"
+                  to="/"
+                  onClick={() => setMenuVisible(false)}
+                >
                   home
                 </Link>
               </li>
               <li>
-                <Link className="header-elements__link" to="/posts">
+                <Link
+                  className="header-elements__link"
+                  to="/posts"
+                  onClick={() => setMenuVisible(false)}
+                >
                   wpisy
                 </Link>
               </li>
               <li>
-                <Link className="header-elements__link" to="/faq">
+                <Link
+                  className="header-elements__link"
+                  to="/faq"
+                  onClick={() => setMenuVisible(false)}
+                >
                   o mnie
                 </Link>
               </li>
               <li>
-                <Link className="header-elements__link" to="/newsletter">
+                <Link
+                  className="header-elements__link"
+                  to="/newsletter"
+                  onClick={() => setMenuVisible(false)}
+                >
                   newsletter
                 </Link>
               </li>

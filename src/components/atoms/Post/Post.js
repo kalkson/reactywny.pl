@@ -61,10 +61,11 @@ const Post = ({
   featuredImage,
   date,
   category,
+  className,
   ...props
 }) => {
   return (
-    <StyledPost className="post-item" {...props}>
+    <StyledPost className={`post-item ${className}`} {...props}>
       <GatsbyImage image={featuredImage.gatsbyImageData} />
       <div className="post-item__meta-group">
         <date className="post-item__date">{date}</date>
@@ -90,6 +91,11 @@ Post.propTypes = {
   featuredImage: propTypes.shape.isRequired,
   date: propTypes.string.isRequired,
   category: propTypes.string.isRequired,
+  className: propTypes.string,
+};
+
+Post.defaultProps = {
+  className: '',
 };
 
 export default Post;

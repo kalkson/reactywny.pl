@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import propTypes from 'prop-types';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import gsap from 'gsap';
 
@@ -12,7 +13,7 @@ import CheckIllustration from 'assets/svg/newsletter/check.svg';
 
 import StyledNewsletterBar from './NewsletterBar.styled';
 
-const NewsletterBar = () => {
+const NewsletterBar = ({ children, ...props }) => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(null);
 
@@ -46,15 +47,12 @@ const NewsletterBar = () => {
   };
 
   return (
-    <StyledNewsletterBar className="newsletter">
+    <StyledNewsletterBar className="newsletter" {...props}>
       <Box className="newsletter__box">
         <form className="newsletter__form" onSubmit={handleSubmit}>
           <div className="newsletter__text-group">
             <h2 className="newsletter__headline">Dołącz do mailingu</h2>
-            <p className="newsletter__paragraph">
-              Dołącz do odbiorców mojego newslettera, gdzie w przyszłości będę
-              się dzielił cenną wiedzą o webdevelopmencie i frontendzie.
-            </p>
+            <p className="newsletter__paragraph">{children}</p>
           </div>
           {!error || error?.result === 'error' ? (
             <>
@@ -105,6 +103,19 @@ const NewsletterBar = () => {
       </Box>
     </StyledNewsletterBar>
   );
+};
+
+NewsletterBar.propTypes = {
+  children: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.node,
+    propTypes.arrayOf(propTypes.node),
+  ]),
+};
+
+NewsletterBar.defaultProps = {
+  children: `Dołącz do odbiorców mojego newslettera, gdzie w przyszłości będę
+  się dzielił cenną wiedzą o webdevelopmencie i frontendzie.`,
 };
 
 export default NewsletterBar;

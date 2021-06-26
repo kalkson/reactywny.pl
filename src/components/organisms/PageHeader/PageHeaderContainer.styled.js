@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const StyledPageHeaderContainer = styled.div`
   filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.31));
+  position: relative;
+  z-index: 10;
 
   .header {
     &__wrapper {
