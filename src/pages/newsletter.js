@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsletterSection from 'components/pages/NewsletterPage/NewsletterSection/NewsletterSection';
+import NewsletterSection from 'components/pages/NewsletterPage/NewsletterSection';
 import SEO from '../seo/SEO';
 
 const FaqPage = () => (

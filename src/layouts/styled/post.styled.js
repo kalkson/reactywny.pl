@@ -166,11 +166,12 @@ const StyledPostLayout = styled.article`
 
     &__headings-navigation {
       position: relative;
-      margin: 25px 0 0;
-      padding: 15px 0;
+      padding-left: 30px;
+      border-left: solid 3px ${({ theme }) => theme.colors.text};
+      margin: 50px 0;
 
-      & h2 {
-        margin-top: 30px;
+      & > h2 {
+        /* margin-top: 30px; */
         margin-bottom: 30px;
       }
     }

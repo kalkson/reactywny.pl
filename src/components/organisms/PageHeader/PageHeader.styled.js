@@ -78,7 +78,7 @@ const StyledPageHeader = styled.header`
     }
 
     &__nav {
-      margin-top: 30px;
+      margin-top: 25px;
       position: relative;
       width: fit-content;
       display: none;

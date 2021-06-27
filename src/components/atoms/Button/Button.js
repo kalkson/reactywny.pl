@@ -21,7 +21,8 @@ const Button = ({ children, to, href, ...props }) => {
 
 Button.propTypes = {
   children: propTypes.oneOfType([
-    [propTypes.node, propTypes.arrayOf(propTypes.node)],
+    propTypes.node,
+    propTypes.arrayOf(propTypes.node),
   ]).isRequired,
   to: propTypes.string,
   href: propTypes.string,
