@@ -70,6 +70,7 @@ const NewestPostSection = () => {
 
   return (
     <StyledNewestPostSection className="container">
+      <h2>Najnowsze wpisy</h2>
       {isTipVisible && (
         <div className="swipe-tip" role="dialog">
           Swipe

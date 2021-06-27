@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Styled404Layout = styled.div`
+const Styled404Layout = styled.main`
   width: 100%;
   height: 100vh;
   background: ${({ theme }) => theme.colors.primary}
@@ -9,8 +9,11 @@ const Styled404Layout = styled.div`
   background-size: cover;
   display: flex;
   flex-direction: column;
-  padding: 100px 40px;
   align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 100000;
 
   .logo {
     width: 300px;
@@ -25,9 +28,11 @@ const Styled404Layout = styled.div`
     }
   }
 
+  .link {
+    font-weight: 700;
+  }
+
   .heading {
-    align-self: flex-start;
-    margin-top: 10vh;
     font-size: 10rem;
     color: ${({ theme }) => theme.colors.mainFair};
   }
@@ -42,7 +47,6 @@ const Styled404Layout = styled.div`
 
     .heading {
       align-self: center;
-      margin-top: 10vh;
       font-size: 18rem;
     }
   }

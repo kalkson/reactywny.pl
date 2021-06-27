@@ -5,13 +5,13 @@ const StyledPostLayout = styled.article`
 
   position: relative;
 
-  & aside {
+  /* & aside {
     display: none;
 
     @media ${({ theme }) => theme.media.laptop} {
       display: block;
     }
-  }
+  } */
 
   .post {
     &__grid {
@@ -168,7 +168,6 @@ const StyledPostLayout = styled.article`
       position: relative;
       margin: 25px 0 0;
       padding: 15px 0;
-      border-top: solid 1px ${({ theme }) => theme.colors.text};
 
       & h2 {
         margin-top: 30px;
