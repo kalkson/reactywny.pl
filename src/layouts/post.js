@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import propTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
@@ -16,7 +17,6 @@ import HomeIcon from 'assets/svg/home.svg';
 import PostPhoto from 'components/molecules/PostPhoto/PostPhoto';
 import NewsletterBar from 'components/organisms/NewsletterBar/NewsletterBar';
 import Post from 'components/atoms/Post/Post';
-import InstagramEmbed from 'react-instagram-embed';
 
 import StyledPostLayout from './styled/post.styled';
 
@@ -364,7 +364,6 @@ const PostLayout = ({ data }) => {
                   featuredImage={previousPost.featuredImage}
                   className="post__random-post"
                 />
-                <InstagramEmbed />
               </aside>
             )}
           </div>

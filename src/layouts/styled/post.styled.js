@@ -328,7 +328,6 @@ const StyledPostLayout = styled.article`
       & span {
         font-family: Fira Code, monospace;
         color: black !important;
-        font-weight: 500;
 
         font-size: 1.6rem !important;
       }

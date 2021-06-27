@@ -22,13 +22,8 @@ const SEO = ({ title, description, post, image }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
 
-  const {
-    defaultTitle,
-    defaultDescription,
-    defaultImage,
-    siteUrl,
-    author,
-  } = site.siteMetadata;
+  const { defaultTitle, defaultDescription, defaultImage, siteUrl, author } =
+    site.siteMetadata;
 
   const seo = {
     title: title || defaultTitle,
@@ -72,7 +67,6 @@ const SEO = ({ title, description, post, image }) => {
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
-      {post ? <style>{`html { scroll-behavior: smooth;}`}</style> : null}
     </Helmet>
   );
 };

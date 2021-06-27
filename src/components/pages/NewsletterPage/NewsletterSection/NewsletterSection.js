@@ -7,6 +7,7 @@ import NewsletterBar from 'components/organisms/NewsletterBar/NewsletterBar';
 import MegaphoneIllustration from 'assets/svg/newsletter/megaphone.svg';
 import EmailIllustration from 'assets/svg/newsletter/email.svg';
 import BloggingIllustration from 'assets/svg/newsletter/blogging.svg';
+import InstagramEmbed from 'react-instagram-embed';
 
 import StyledNewsletterSection from './NewsletterSection.styled';
 
@@ -42,6 +43,14 @@ const NewsletterSection = () => {
             name="Inne aktywności i nowości"
             description="Czyli wszystko to, co nie wpisuje się w pozostałe mailingi. Dowiesz się o ważnych wydarzeniach w mojej karierze frontendowca, którę mogą ci się przydać do własnego rozwoju - przykładowo kiedy biorę udział w jakimś meetupie."
             Image={MegaphoneIllustration}
+          />
+          <InstagramEmbed
+            url="https://instagr.am/p/CJn0KhGL5MQ/"
+            clientAccessToken="3002860546665569|4dfe8cd2deeb93305d17159e2c73ee85"
+            maxWidth={320}
+            hideCaption={false}
+            containerTagName="div"
+            injectScript
           />
         </div>
       </div>

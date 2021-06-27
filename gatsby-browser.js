@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import './src/theme/bootstrap-theme.css';
 import './src/theme/bootstrap.min.css';
 import 'slick-carousel/slick/slick.css';
