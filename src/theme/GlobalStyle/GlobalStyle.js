@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-size: 1.6rem;
+        overflow-x: hidden;
     }
 
     a {
@@ -48,6 +49,15 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
+    p a {
+        color: ${({ theme }) => theme.colors.mainBlue};
+
+        &:hover {
+            text-decoration: underline;
+        color: ${({ theme }) => theme.colors.mainBlue};
+        }
+    }
+
     .consent {
         width: 400px !important;
 
@@ -61,10 +71,6 @@ const GlobalStyle = createGlobalStyle`
         left: 20px !important;
         display: flex !important;
 
-        a {
-            text-decoration: underline;
-        }
-
         &__buttons {
             margin-left: auto;
         }
@@ -74,6 +80,8 @@ const GlobalStyle = createGlobalStyle`
             padding: 10px 15px !important;
         }
     }
+
+    
 
     .absolute-photo {
         position: relative;

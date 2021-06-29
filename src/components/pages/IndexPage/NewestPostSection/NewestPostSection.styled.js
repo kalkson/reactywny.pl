@@ -3,15 +3,19 @@ import styled from 'styled-components';
 const StyledNewestPostSection = styled.section`
   position: relative !important;
 
-  padding: 0 5px;
+  .newest-posts-headline {
+    margin-top: 60px;
+  }
 
-  @media ${({ theme }) => theme.media.mobile} {
+  /* padding: 0 5px; */
+
+  /* @media ${({ theme }) => theme.media.mobile} {
     padding: 0 30px;
   }
 
   @media ${({ theme }) => theme.media.mobileXL} {
     padding: 0 10px;
-  }
+  } */
 
   & .desktop-all-anchor {
     display: block;

@@ -19,6 +19,10 @@ const StyledAboutSection = styled.section`
     &__content {
       margin-bottom: 80px;
     }
+
+    &__paragraph {
+      line-height: 1.6;
+    }
   }
 `;
 

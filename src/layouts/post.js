@@ -367,6 +367,7 @@ const PostLayout = ({ data }) => {
               </aside>
             )}
           </div>
+
           <footer>
             <div className="container">
               <NewsletterBar>

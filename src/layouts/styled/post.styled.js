@@ -195,7 +195,7 @@ const StyledPostLayout = styled.article`
       font-size: 1.6rem;
 
       & > a {
-        line-break: strict;
+        word-break: break-all;
       }
     }
 
