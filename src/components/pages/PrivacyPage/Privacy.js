@@ -1,11 +1,10 @@
+import Headline from 'components/atoms/Headline/Headline';
 import React from 'react';
-import Logo from '../../../assets/svg/logo-1.svg';
 
 const Privacy = () => {
   return (
     <>
-      <Logo />
-      <h1>Polityka Prywatności</h1>
+      <Headline className="headline">Polityka prywatności</Headline>
       <h2>
         Polityka prywatności opisuje zasady przetwarzania przez nas informacji
         na Twój temat, w tym danych osobowych oraz ciasteczek, czyli tzw.
@@ -165,9 +164,9 @@ const Privacy = () => {
             <li>
               Dane podane w formularzu są przetwarzane w celu wynikającym z
               funkcji konkretnego formularza, np. w celu dokonania procesu
-              obsługi zgłoszenia serwisowego lub kontaktu handlowego,
-              rejestracji usług itp. Każdorazowo kontekst i opis formularza w
-              czytelny sposób informuje, do czego on służy.
+              obsługi zgłoszenia serwisowego lub kontaktu handlowego itp.
+              Każdorazowo kontekst i opis formularza w czytelny sposób
+              informuje, do czego on służy.
             </li>
           </ol>
         </li>
@@ -177,7 +176,7 @@ const Privacy = () => {
             <li>
               Informacje zachowaniu użytkowników w serwisie mogą podlegać
               logowaniu. Dane te są wykorzystywane w celu administrowania
-              serwisem.
+              serwisem i badaniu ruchu na stronie.
             </li>
           </ol>
         </li>
@@ -193,7 +192,9 @@ const Privacy = () => {
               informacji o preferencjach użytkownika gromadzonych przez sieć
               reklamową Google użytkownik może przeglądać i edytować informacje
               wynikające z plików cookies przy pomocy narzędzia:
-              https://www.google.com/ads/preferences/
+              <a href="https://www.google.com/ads/preferences/">
+                https://www.google.com/ads/preferences/
+              </a>
             </li>
             <li>
               Operator stosuje techniki remarketingowe, pozwalające na
@@ -203,14 +204,6 @@ const Privacy = () => {
               do przekazania żadnych danych osobowych od Operatora do operatorom
               reklam. Technologicznym warunkiem takich działań jest włączona
               obsługa plików cookie.
-            </li>
-            <li>
-              Operator stosuje rozwiązanie badające zachowanie użytkowników
-              poprzez tworzenie map ciepła oraz nagrywanie zachowania na
-              stronie. Te informacje są anonimizowane zanim zostaną przesłane do
-              operatora usługi tak, że nie wie on jakiej osoby fizycznej one
-              dotyczą. W szczególności nagrywaniu nie podlegają wpisywane hasła
-              oraz inne dane osobowe.
             </li>
           </ol>
         </li>

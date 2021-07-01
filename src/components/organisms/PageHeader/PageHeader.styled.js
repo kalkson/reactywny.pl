@@ -1,325 +1,142 @@
 import styled from 'styled-components';
 
 const StyledPageHeader = styled.header`
-  position: fixed;
-  height: 130px;
-  width: 100%;
-  padding: ${({ theme }) => theme.paddings.mobile};
-  background-color: ${({ theme }) => theme.colors.mainFair};
-  /* justify-content: space-between; */
-  transition: height 300ms ease-in-out 200ms;
+  position: relative;
   display: flex;
-  justify-content: center;
-  z-index: 10;
-  box-shadow: 0px 30px 75px 0px rgba(0, 0, 0, 0.5);
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 100%;
 
-  transform: translate3d(0, 0, 0);
-
-  height: ${({ isMenuVisible, isScrolledDown }) =>
-    isScrolledDown && isMenuVisible ? '130px' : null};
-
-  height: ${({ isMenuVisible, isScrolledDown }) =>
-    !isScrolledDown && isMenuVisible ? '170px' : null};
-
-  height: ${({ isMenuVisible, isScrolledDown }) =>
-    isScrolledDown && !isMenuVisible ? '50px' : null};
-
-  & .menu-button {
-    position: absolute;
-    left: ${({ theme }) => theme.paddings.mobile};
-    top: ${({ theme }) => theme.paddings.mobile};
-    transform-origin: center;
-    transition: transform 300ms ease-in-out;
-    background: none;
+  &::before,
+  &::after {
+    display: none;
   }
 
-  & .header__logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-self: center;
-    width: fit-content;
-    margin: 0 auto;
+  .header-elements {
+    &__mobile-menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      background-color: ${({ theme }) => theme.colors.primary};
+      width: 100%;
+      height: 500px;
 
-    transition: transform 300ms ease-in;
+      &.active {
+        display: block;
+      }
+    }
+
+    &__button {
+      position: absolute;
+      z-index: 6;
+      display: block;
+      margin-top: 20px;
+
+      @media ${({ theme }) => theme.media.tablet} {
+        display: none;
+      }
+    }
+
+    &__logo {
+      position: absolute;
+      z-index: 6;
+      top: 0;
+      right: 15px;
+      height: 82px;
+
+      @media ${({ theme }) => theme.media.mobileXL} {
+        top: 20px;
+        right: 15px;
+      }
+
+      @media ${({ theme }) => theme.media.mobile} {
+        right: 40px;
+      }
+
+      @media ${({ theme }) => theme.media.tablet} {
+        right: 15px;
+      }
+    }
 
     &__image {
-      transition: width 300ms linear 200ms, height 300ms linear 200ms;
+      width: 182px;
 
-      width: 200px;
-      height: 38px;
-      min-height: 25px;
+      height: ${({ isMenuVisible }) => (isMenuVisible ? '83px' : null)};
 
-      width: ${({ isScrolledDown }) => (isScrolledDown ? '130px' : null)};
-      height: ${({ isScrolledDown }) => (isScrolledDown ? '25px' : null)};
+      @media ${({ theme }) => theme.media.tablet} {
+        width: 300px;
+      }
+
+      & #Path_2,
+      & #Icon_awesome-react {
+        fill: ${({ theme }) => theme.colors.text};
+      }
+      #Rectangle_32 {
+        fill: ${({ theme }) => theme.colors.primary};
+      }
     }
 
-    &__underline {
-      font-size: 1.5rem;
+    &__nav {
+      margin-top: 25px;
+      position: relative;
+      width: fit-content;
       display: none;
-      animation: underline-appear 300ms ease-in forwards 1s;
       opacity: 0;
 
-      display: ${({ isScrolledDown }) => (!isScrolledDown ? 'block' : null)};
-      display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : null)};
+      ${({ isMenuVisible }) =>
+        isMenuVisible &&
+        `
+        display: block;
+        position: absolute;
+        bottom: 15px;
+        left: 40px;
+      `};
 
-      @keyframes underline-appear {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      @media ${({ theme }) => theme.media.tablet} {
+        display: block;
       }
+
+      animation: nav-appear 0.2s forwards 0.1s ease-in-out;
     }
-  }
-
-  & .header__social {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    transition: transform 300ms ease-in;
-  }
-
-  & .header__image {
-    position: absolute;
-    height: 30px;
-    width: 50px;
-    bottom: -15px;
-    z-index: 5;
-    left: calc(50% - 25px);
-    display: none;
-    animation: image-appear 200ms linear;
-
-    display: ${({ isScrolledDown }) => (!isScrolledDown ? 'block' : null)};
-
-    display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : null)};
-
-    @keyframes image-appear {
-      0% {
-        opacity: 0;
-        transform: translate(100px, 200px);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(0);
-      }
-    }
-  }
-
-  & .header__nav {
-    position: absolute;
-    bottom: 20px;
-    width: fit-content;
-
-    display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : 'none')};
-    animation: nav-appear 300ms ease-in forwards 620ms;
-    opacity: 0;
 
     @keyframes nav-appear {
       0% {
         opacity: 0;
-        transform: translateY(-20px);
       }
       100% {
         opacity: 1;
-        transform: translateY(0);
       }
     }
 
-    & > ul {
-      padding: 0;
+    &__link {
+      color: inherit;
+    }
+
+    &__list {
       margin: 0;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      padding: 0;
 
       & > li {
-        position: relative;
-        transition: transform 200ms ease-in-out;
-        font-weight: ${({ theme }) => theme.fonts.Black};
+        font-weight: 500;
+        font-size: 1.8rem;
+        display: inline-block;
 
-        &:before {
-          content: '';
-          position: absolute;
-          top: -8px;
-          left: calc(50%);
-          width: 6px;
-          height: 6px;
+        color: ${({ theme }) => theme.colors.text};
 
-          display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : 'none')};
+        &:not(:first-child) {
+          margin-left: 2.2rem;
 
-          border-radius: 5px;
-          background-color: ${({ theme }) => theme.colors.mainDark};
-          border: solid 2px ${({ theme }) => theme.colors.mainDark};
-
-          transition: transform 200ms ease-in-out,
-            background-color 200ms ease-in-out;
-
-          @media ${({ theme }) => theme.media.tablet} {
-            height: 8px;
-            width: 8px;
-            border: solid 3px ${({ theme }) => theme.colors.mainDark};
+          @media ${({ theme }) => theme.media.laptop} {
+            margin-left: 3.2rem;
           }
 
-          opacity: 0;
-          animation-name: menu-link-appear;
-          animation-duration: 500ms;
-          animation-fill-mode: forwards;
-          animation-timing-function: ease-in-out;
-          animation-iteration-count: 1;
-        }
-
-        &:hover {
-          transform: translateY(-10px);
-          /* background-color: ${({ theme }) => theme.colors.mainDark}; */
-        }
-      }
-
-      .header__nav__link-1:before {
-        animation-delay: 500ms;
-      }
-      .header__nav__link-2:before {
-        animation-delay: 600ms;
-      }
-      .header__nav__link-3:before {
-        animation-delay: 700ms;
-      }
-      .header__nav__link-4:before {
-        animation-delay: 800ms;
-      }
-
-      @keyframes menu-link-appear {
-        0% {
-          transform: translateY(-30px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      @media ${({ theme }) => theme.media.tablet} {
-        @keyframes menu-link-appear {
-          0% {
-            transform: translateY(-80px);
-            opacity: 0;
-          }
-          100% {
-            transform: translateY(0);
-            opacity: 1;
+          @media ${({ theme }) => theme.media.desktop} {
+            margin-left: 5.2rem;
           }
         }
-      }
-    }
-  }
-
-  /* Tablet */
-  /* _____________________________________________________________________ */
-
-  @media ${({ theme }) => theme.media.tablet} {
-    height: 310px;
-
-    padding: 0;
-
-    /* height: ${({ isMenuVisible }) => (isMenuVisible ? '450px' : '310px')}; */
-
-    height: ${({ isMenuVisible, isScrolledDown }) =>
-      isScrolledDown && isMenuVisible ? '350px' : null};
-
-    height: ${({ isMenuVisible, isScrolledDown }) =>
-      !isScrolledDown && isMenuVisible ? '450px' : null};
-
-    height: ${({ isMenuVisible, isScrolledDown }) =>
-      isScrolledDown && !isMenuVisible ? '75px' : null};
-
-    & .header__logo {
-      transition: top 300ms linear, transform 300ms linear;
-      top: ${({ isScrolledDown }) => (isScrolledDown ? '0' : null)};
-      position: relative;
-
-      transform: translateY(10px);
-
-      /* transform: ${({ isScrolledDown }) =>
-        isScrolledDown ? 'translateY(10px)' : null}; */
-
-      &__image {
-        min-height: 60px;
-        width: 580px;
-        height: 160px;
-        position: relative;
-
-        width: ${({ isScrolledDown }) => (isScrolledDown ? '300px' : null)};
-        height: ${({ isScrolledDown }) => (isScrolledDown ? '60px' : null)};
-      }
-
-      &__underline {
-        font-size: 3rem;
-      }
-    }
-
-    & .menu-button {
-      left: 30px;
-      top: 30px;
-
-      transform: scale(1.2)
-        ${({ isScrolledDown }) => (isScrolledDown ? 'translateY(-5px)' : null)};
-
-      &:after {
-        content: 'close';
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        font-style: italic;
-        font-weight: ${({ theme }) => theme.fonts.ExtraBold};
-        transform-origin: left;
-        opacity: 0;
-        position: absolute;
-        left: -5px;
-
-        animation: close-appear 300ms ease-in-out 150ms forwards;
-
-        @keyframes close-appear {
-          0% {
-            transform: translateX(50px);
-            opacity: 0;
-          }
-          100% {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-
-        display: ${({ isMenuVisible }) => (isMenuVisible ? 'block' : 'none')};
-      }
-    }
-
-    & .header__social {
-      top: 30px;
-      right: 30px;
-
-      transform: ${({ isScrolledDown }) =>
-        isScrolledDown ? 'translateY(-15px)' : null};
-
-      & svg {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
-    & .header__image {
-      width: 100px;
-      height: 60px;
-      bottom: -30px;
-      left: calc(50% - 50px);
-    }
-
-    & .header__nav {
-      bottom: 40px;
-
-      & > ul {
-        padding: 0;
-        margin: 0;
       }
     }
   }

@@ -1,117 +1,91 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import Logo from 'assets/svg/meta/logo-2.svg';
+import MenuButton from 'components/atoms/MenuButton/MenuButton';
+import PageHeaderContainer from './PageHeaderContainer.styled';
 import StyledPageHeader from './PageHeader.styled';
-import Logo from '../../../assets/svg/logo-2.svg';
-import HeaderSVG from '../../../assets/svg/header-image.svg';
-import MenuButton from '../../atoms/MenuButton/MenuButton';
-import MenuLink from '../../atoms/MenuLink/MenuLink';
 
 const PageHeader = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
-  const [isScrolledDown, setScrolledDown] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(null);
-
-  const header = useRef(null);
-
-  const listener = () => {
-    const scrollDirection =
-      document.body.getBoundingClientRect().top > scrollPosition
-        ? 'up'
-        : 'down';
-    const newScrollPosition = document.body.getBoundingClientRect().top;
-
-    setScrollPosition(newScrollPosition);
-
-    if (scrollDirection === 'down' && window.scrollY >= 15) {
-      setScrolledDown(true);
-    } else if (scrollDirection === 'up' && window.scrollY <= 50) {
-      setScrolledDown(false);
-    }
-  };
-
-  const mouseDownHandler = e => {
-    if (!header.current || !header.current.contains(e.target)) {
-      setMenuVisible(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('scroll', listener);
-    document.addEventListener('mousedown', mouseDownHandler);
-
-    return () => {
-      document.removeEventListener('scroll', listener);
-      document.removeEventListener('mousedown', mouseDownHandler);
-    };
-  });
 
   return (
-    <StyledPageHeader
-      isMenuVisible={isMenuVisible}
-      isScrolledDown={isScrolledDown}
-      ref={header}
-    >
-      <MenuButton
-        setMenuVisible={setMenuVisible}
-        isMenuVisible={isMenuVisible}
-      />
-      <div className="header__logo">
-        <Link to="/">
-          <Logo className="header__logo__image" />
-        </Link>
-        <span className="header__logo__underline">learn with me</span>
+    <PageHeaderContainer className="header">
+      {/* svg */}
+      <svg className="clip-image">
+        <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 H1 V0.997 s-0.332,0.019,-0.402,-0.037 c-0.006,-0.004,-0.064,-0.161,-0.119,-0.275 S0,0.636,0,0.636" />
+        </clipPath>
+      </svg>
+
+      <svg className="clip-image">
+        <clipPath id="my-clip-path-mobile" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 H1 V0.976 s-0.46,0.055,-0.529,0 a0.416,2,0,0,1,-0.109,-0.125 C0.307,0.739,0.265,0.687,0.252,0.676 C0.149,0.59,0,0.623,0,0.623" />
+        </clipPath>
+      </svg>
+      {/* svg end */}
+
+      <div className={`header__wrapper${isMenuVisible ? ' active' : ''}`}>
+        <StyledPageHeader
+          className="container header-elements"
+          isMenuVisible={isMenuVisible}
+        >
+          <MenuButton
+            className="header-elements__button"
+            aria-label="rozwiń menu"
+            role="button"
+            isMenuVisible={isMenuVisible}
+            setMenuVisible={setMenuVisible}
+          />
+
+          <nav className="header-elements__nav">
+            <ul className="header-elements__list">
+              <li>
+                <Link
+                  className="header-elements__link"
+                  to="/"
+                  onClick={() => setMenuVisible(false)}
+                >
+                  home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="header-elements__link"
+                  to="/posts"
+                  onClick={() => setMenuVisible(false)}
+                >
+                  wpisy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="header-elements__link"
+                  to="/faq"
+                  onClick={() => setMenuVisible(false)}
+                >
+                  o mnie
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="header-elements__link"
+                  to="/newsletter"
+                  onClick={() => setMenuVisible(false)}
+                >
+                  newsletter
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <Link to="/">
+            <div className="header-elements__logo">
+              <Logo className="header-elements__image" />
+            </div>
+          </Link>
+        </StyledPageHeader>
       </div>
-      <HeaderSVG className="header__image" />
-      <nav className="header__nav">
-        <ul>
-          <MenuLink classes="header__nav__link-1">
-            <Link to="/" onClick={() => setMenuVisible(false)}>
-              HOME
-            </Link>
-          </MenuLink>
-          <MenuLink classes="header__nav__link-2">
-            <Link to="/posts" onClick={() => setMenuVisible(false)}>
-              WPISY
-            </Link>
-          </MenuLink>
-          <MenuLink classes="header__nav__link-3">
-            <Link to="/faq" onClick={() => setMenuVisible(false)}>
-              FAQ
-            </Link>
-          </MenuLink>
-          <MenuLink classes="header__nav__link-4">
-            <Link to="/faq/#contact" onClick={() => setMenuVisible(false)}>
-              KONTAKT
-            </Link>
-          </MenuLink>
-        </ul>
-      </nav>
-    </StyledPageHeader>
+    </PageHeaderContainer>
   );
 };
-
-// export const query = graphql`
-//   query {
-//     file(relativePath: { eq: "/src/assets/svg/logo-2.svg" }) {
-//       childImageSharp {
-//         # Specify the image processing specifications right in the query.
-//         # Makes it trivial to update as your page's design changes.
-//         fixed(width: 125, height: 125) {
-//           ...GatsbyImageSharpFixed
-//         }
-//       }
-//     }
-//   }
-// `;
-
-// PageHeader.propTypes = {
-//   data: propTypes.shape({
-//     file: propTypes.shape({
-//       childImageSharp: propTypes.shape({
-//         fixed: propTypes.string,
-//       }).isRequired,
-//     }).isRequired,
-//   }).isRequired,
-// };
 
 export default PageHeader;

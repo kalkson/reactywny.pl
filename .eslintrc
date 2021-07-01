@@ -7,10 +7,14 @@
     // "prettier/react",
     "prettier"
   ],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "env": {
     "browser": true,
     "node": true,
-    "jasmine": true
+    "jasmine": true,
+    "es2020": true
   },
   "plugins": ["react", "jsx-a11y", "import"],
   "globals": {
@@ -21,7 +25,7 @@
     "import/resolver": {
       "node": {
         "paths": ["./src"],
-        "extensions": [".js"]
+        "extensions": [".js", ".svg"]
       }
     }
   },

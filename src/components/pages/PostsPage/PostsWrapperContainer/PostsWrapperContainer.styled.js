@@ -1,75 +1,28 @@
 import styled from 'styled-components';
 
-const StyledPostsWrapperContainer = styled.article`
-  padding-top: 130px;
-  display: flex;
-  flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.mainDark};
+const StyledPostsWrapperContainer = styled.section`
+  .posts {
+    &__item {
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 
-  .posts__left-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    & h1 {
-      text-align: center;
-      color: ${({ theme }) => theme.colors.mainFair};
-      width: fit-content;
-      z-index: 0;
-      margin: 42px 0 70px;
-      font-size: 5.4rem;
-      position: relative;
-
-      &:after {
-        content: '';
-        display: block;
-        width: 75px;
-        height: 45px;
-        background-color: ${({ theme }) => theme.colors.mainBlue};
-        position: absolute;
-        right: 0;
-        bottom: -15px;
-        z-index: -1;
+      & a,
+      & a > div {
+        width: 100% !important;
+        max-width: unset !important;
       }
     }
 
-    &__paragraph {
-      display: none;
-    }
-  }
+    &__options {
+      margin: 0;
 
-  @media ${({ theme }) => theme.media.tablet} {
-    padding-top: 380px;
-    flex-direction: row;
-    justify-content: space-around;
-
-    .posts__left-section {
-      flex-direction: column;
-      width: 400px;
-
-      &__paragraph {
-        width: 100%;
-        display: block;
-        font-size: 2rem;
-        color: ${({ theme }) => theme.colors.mainFair};
+      & input {
+        margin-right: 20px;
       }
-    }
 
-    .posts__wrapper {
-      margin-right: 50px;
-    }
-  }
-
-  @media ${({ theme }) => theme.media.desktop} {
-    .posts__wrapper {
-      margin-right: 250px;
-    }
-
-    .posts__left-section {
-      width: 600px;
-
-      &__paragraph {
-        font-size: 2.8rem;
+      & .icon-input {
+        &:before {
+          content: '';
+        }
       }
     }
   }
