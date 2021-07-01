@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Styled404Layout from './styled/404.styled';
-import Logo from '../assets/svg/logo-1.svg';
 
 const NotFoundLayout = () => {
   return (
-    <Styled404Layout>
-      <Link to="/">
-        <Logo className="logo" />
+    <Styled404Layout className="container">
+      <h1 className="heading" aria-label="ta strona nie istnieje">
+        404
+      </h1>
+      <p role="alert">Taka strona nie istnieje</p>
+      <Link to="/" className="link">
+        Przejdź do strony głównej
       </Link>
-      <h1 className="heading">404</h1>
     </Styled404Layout>
   );
 };

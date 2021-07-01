@@ -1,9 +1,10 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import PostElement from '../../../molecules/PostElement/PostElement';
+import Post from '../../../atoms/Post/Post';
 import StyledPostsWrapperContainer from './PostsWrapperContainer.styled';
 import StyledPostsWrapper from './PostsWrapper.styled';
 import PostWrapperOptions from './PostWrapperOptions/PostWrapperOptions';
+import Headline from '../../../atoms/Headline/Headline';
 
 const query = graphql`
   {
@@ -11,7 +12,7 @@ const query = graphql`
       nodes {
         category
         date
-        shortDescription
+        description
         title
         id
         featuredImage {
@@ -56,37 +57,22 @@ const PostWrapperContainer = () => {
     changeSearchInputContent(e.target.value);
   };
 
-  const handleSelect = e => {
-    setActiveCategory(e.target.value);
+  const handleSelect = value => {
+    setActiveCategory(value);
   };
 
   return (
-    <StyledPostsWrapperContainer className="posts">
-      <div className="posts__left-section">
-        <h1>Wpisy</h1>
-
-        <p className="posts__left-section__paragraph">
-          Nowe wpisy pojawiają się przynajmniej raz w tygodniu - a przynajmniej
-          taki jest zamiar. W treści artykułów staram się serwować jak
-          najrzetelniejszą wiedzę, tak aby odbiorcy, czyli Wy, mogli mieć
-          zaufanie do tego co im prezentuje.
-          <br />
-          <br />
-          Kwestie, które poruszam w mojej twórczości dotyczą twardej jak skała
-          strony technicznej, jak również tej miękkiej, o której nie wolno
-          zapominać, a która w branży jest nie mniej ważna.
-          <br />
-          <br />
-          Zapraszam do czytania, jak i komentowania.
-        </p>
-      </div>
-      <StyledPostsWrapper className="posts__wrapper">
+    <StyledPostsWrapperContainer className="posts container">
+      <Headline>Wpisy</Headline>
+      <nav role="navigation" className="posts__options">
         <PostWrapperOptions
           handleSwitch={handleSwitch}
           handleChange={handleChange}
           handleSelect={handleSelect}
           categories={categories}
         />
+      </nav>
+      <StyledPostsWrapper className="posts__wrapper" role="list">
         {nodes
           .filter(post => {
             const tmp = `${post.title} ${post.shortDescription} ${post.category}`;
@@ -97,10 +83,12 @@ const PostWrapperContainer = () => {
           })
           .map(post => {
             return (
-              <PostElement
+              <Post
                 key={post.id}
                 {...post}
                 isPicturesDisplayed={isPicturesDisplayed}
+                role="listitem"
+                className="posts__item"
               />
             );
           })}

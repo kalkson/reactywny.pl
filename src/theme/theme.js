@@ -1,9 +1,12 @@
 const theme = {
   breakpoints: {
-    desktop: '1920px',
-    laptop: '1366px',
-    tablet: '1024px',
+    desktop: '1366px',
+    laptop: '1024px',
+    tablet: '768px',
+    mobileXL: '576px',
+    mobileL: '420px',
     mobile: '375px',
+    mobileS: '315px',
   },
 
   paddings: {
@@ -22,16 +25,21 @@ const theme = {
   },
 
   colors: {
+    primary: '#1f2937',
+    text: '#EEE',
     mainBlue: '#61DAFB',
     mainFair: '#F1EAEA',
     mainDark: '#23272A',
   },
 
   media: {
-    desktop: `(min-width: 1860px)`,
-    laptop: `(min-width: 1300px)`,
-    tablet: `(min-width: 1024px)`,
-    phone: `(min-width: 375px)`,
+    desktop: `(min-width: 1366px)`,
+    laptop: `(min-width: 1024px)`,
+    tablet: `(min-width: 768px)`,
+    mobileXL: `(min-width: 576px)`,
+    mobileL: `(min-width: 420px)`,
+    mobile: `(min-width: 375px)`,
+    mobileS: `(min-width: 315px)`,
   },
 };
 

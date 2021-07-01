@@ -1,21 +1,22 @@
 import styled from 'styled-components';
 
 const StyledMenuButton = styled.button`
-  width: 34px;
-  height: 24px;
+  width: fit-content;
+  height: fit-content;
   position: relative;
   cursor: pointer;
+  background-color: transparent;
 
-  & .menu-button__element {
-    background-color: ${({ theme }) => theme.colors.mainDark};
+  & .element {
+    background-color: ${({ theme }) => theme.colors.text};
     width: 30px;
     position: relative;
     transition: transform 300ms ease-in-out, left 300ms ease-in-out,
       width 300ms ease-in-out;
+    height: 2.5px;
+    margin-bottom: 3px;
 
     &:nth-of-type(1) {
-      height: 3px;
-      top: 0;
       left: 0;
       transform-origin: left;
 
@@ -23,16 +24,12 @@ const StyledMenuButton = styled.button`
     }
 
     &:nth-of-type(2) {
-      height: 3px;
-      top: 3px;
+      height: 2px !important;
       left: 4px;
-
       width: ${({ isMenuVisible }) => (isMenuVisible ? '40px' : '30px')};
     }
 
     &:nth-of-type(3) {
-      height: 3px;
-      top: 6px;
       left: 0;
       transform-origin: left;
 
@@ -40,8 +37,6 @@ const StyledMenuButton = styled.button`
     }
 
     &:nth-of-type(4) {
-      height: 3px;
-      top: 9px;
       left: 4px;
       transform-origin: right;
 
