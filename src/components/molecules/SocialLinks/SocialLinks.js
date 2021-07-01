@@ -1,7 +1,7 @@
 import React from 'react';
-import Instagram from 'assets/svg/instagram.svg';
-import Facebook from 'assets/svg/facebook.svg';
-import Linkedin from 'assets/svg/linkedin.svg';
+import Instagram from 'assets/svg/social/instagram.svg';
+import Facebook from 'assets/svg/social/facebook.svg';
+import Linkedin from 'assets/svg/social/linkedin.svg';
 import StyledSocialLinks from './SocialLinks.styled';
 
 const SocialLinks = ({ ...props }) => (

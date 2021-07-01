@@ -13,7 +13,7 @@ import {
 
 import Headline from 'components/atoms/Headline/Headline';
 import SEO from 'seo/SEO';
-import HomeIcon from 'assets/svg/home.svg';
+import HomeIcon from 'assets/svg/meta/home.svg';
 import PostPhoto from 'components/molecules/PostPhoto/PostPhoto';
 import NewsletterBar from 'components/organisms/NewsletterBar/NewsletterBar';
 import Post from 'components/atoms/Post/Post';

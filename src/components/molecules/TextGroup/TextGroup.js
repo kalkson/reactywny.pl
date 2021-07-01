@@ -21,11 +21,11 @@ const StyledSpan = styled.span`
     z-index: 0;
     background-color: ${({ theme }) => theme.colors.mainBlue};
     height: 6px;
-    transform: translateY(-14px);
+    transform: translateY(-12px);
 
     @media ${({ theme }) => theme.media.laptop} {
       height: 9px;
-      transform: translateY(-20px);
+      transform: translateY(-18px);
     }
   }
 `;
@@ -53,11 +53,8 @@ const TextGroup = ({ strings }) => {
 
   useEffect(() => {
     gsap.fromTo(span$.current, { y: '100%' }, { y: 0, delay: 0.2 });
-
     const { width } = span$.current.getBoundingClientRect();
-
     gsap.to(stripe$.current, { width, duration: 0.2 });
-
     setTimeout(triggerChangeString, 2600);
   }, [activeNodeNumber]);
 

@@ -7,16 +7,6 @@ const StyledNewestPostSection = styled.section`
     margin-top: 60px;
   }
 
-  /* padding: 0 5px; */
-
-  /* @media ${({ theme }) => theme.media.mobile} {
-    padding: 0 30px;
-  }
-
-  @media ${({ theme }) => theme.media.mobileXL} {
-    padding: 0 10px;
-  } */
-
   & .desktop-all-anchor {
     display: block;
     margin-top: 20px;

@@ -5,10 +5,10 @@ import gsap from 'gsap';
 
 import Box from 'components/atoms/Box/Box';
 import Input from 'components/atoms/Input/Input';
-import MailIcon from 'assets/svg/mail.svg';
 import Button from 'components/atoms/Button/Button';
 
-import MailingIllustration from 'assets/svg/mailing.svg';
+import MailIcon from 'assets/svg/other/mail.svg';
+import MailingIllustration from 'assets/svg/meta/mailing.svg';
 import CheckIllustration from 'assets/svg/newsletter/check.svg';
 
 import StyledNewsletterBar from './NewsletterBar.styled';

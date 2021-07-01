@@ -1,9 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
+
+import Input from 'components/atoms/Input/Input';
+import Select from 'components/atoms/Input/Select';
+import SearchIcon from 'assets/svg/other/search.svg';
+
 import StyledPostWrapperOptions from './StyledPostWrapperOptions';
-import Input from '../../../../atoms/Input/Input';
-import Select from '../../../../atoms/Input/Select';
-import SearchIcon from '../../../../../assets/svg/search.svg';
 
 const PostWrapperOptions = ({ handleChange, handleSelect, categories }) => {
   return (

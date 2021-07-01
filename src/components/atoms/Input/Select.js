@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import propTypes from 'prop-types';
+import ArrowIcon from 'assets/svg/other/arrow-2.svg';
 import StyledSelect from './Select.styled';
-import ArrowIcon from '../../../assets/svg/arrow-2.svg';
 
 const Select = ({ options, handleSelect, label, className }) => {
   const [value, setValue] = useState('wszystko');

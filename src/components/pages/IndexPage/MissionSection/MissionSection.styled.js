@@ -21,7 +21,7 @@ const StyledMissionSection = styled.section`
 
     &__paragraph {
       color: ${({ theme }) => theme.colors.text};
-      line-height: 2.2rem;
+      line-height: 2;
       font-size: 1.6rem;
       margin-top: 150px;
       font-weight: 300;
@@ -29,7 +29,7 @@ const StyledMissionSection = styled.section`
 
       @media ${({ theme }) => theme.media.tablet} {
         margin-top: 250px;
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
     }
   }

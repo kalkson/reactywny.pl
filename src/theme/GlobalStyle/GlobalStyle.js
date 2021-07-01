@@ -32,6 +32,10 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
     }
 
+    #___gatsby {
+        overflow-x: hidden;
+    }
+
     a {
         text-decoration: none;
         color: inherit;
@@ -60,11 +64,22 @@ const GlobalStyle = createGlobalStyle`
 
     .consent {
         width: 400px !important;
+        background-color: ${({ theme }) => theme.colors.primary} !important;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+
+        & a {
+            color: ${({ theme }) => theme.colors.mainBlue};
+
+            &:hover {
+                color: ${({ theme }) => theme.colors.mainBlue};
+                text-decoration: underline;
+            }
+        }
 
         @media (max-width: 425px) {
             width: 100% !important;
-        bottom: 0 !important;
-        left: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
         }
 
         bottom: 20px !important;

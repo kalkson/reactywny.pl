@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroIllustration from 'assets/svg/hero.svg';
+import HeroIllustration from 'assets/svg/meta/hero.svg';
 import Button from 'components/atoms/Button/Button';
 import TextGroup from 'components/molecules/TextGroup/TextGroup';
 import Headline from 'components/atoms/Headline/Headline';
@@ -14,6 +14,7 @@ const HeroSection = () => (
         porozmawiajmy o<br />
         <TextGroup
           strings={[
+            'React.js',
             'kodzie',
             'programowaniu',
             'frontendzie',

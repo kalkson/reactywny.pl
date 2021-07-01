@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../../assets/svg/logo-1.svg';
+import Logo from 'assets/svg/meta/logo-1.svg';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import StyledPageFooter from './PageFooter.styled';
 
