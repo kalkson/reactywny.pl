@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: PostTemplate,
       context: {
         id: post.id,
-        nextId: result.data.allDatoCmsPost.edges[index].next.id
+        nextId: result.data.allDatoCmsPost.edges[index].next
           ? result.data.allDatoCmsPost.edges[index].next.id
           : '',
       },
