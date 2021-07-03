@@ -156,12 +156,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-adsense`,
-      options: {
-        publisherId: `pub-9835108854416789`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `reactywny.pl`,
