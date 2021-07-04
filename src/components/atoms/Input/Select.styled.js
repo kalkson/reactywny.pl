@@ -29,12 +29,12 @@ const StyledSelect = styled.div`
       transform-origin: top;
       z-index: 10;
 
-      opacity: ${({ isCollapsed }) => (isCollapsed ? 1 : 0)};
-      visibility: ${({ isCollapsed }) => (isCollapsed ? 'visible' : 'hidden')};
-      transform: ${({ isCollapsed }) =>
-        isCollapsed ? 'scaleY(1)' : 'scaleY(0.8)'};
-      border: ${({ isCollapsed, theme }) =>
-        isCollapsed ? `solid 1px ${theme.colors.text}` : 'none'};
+      opacity: ${({ collapsed }) => (collapsed ? 1 : 0)};
+      visibility: ${({ collapsed }) => (collapsed ? 'visible' : 'hidden')};
+      transform: ${({ collapsed }) =>
+        collapsed ? 'scaleY(1)' : 'scaleY(0.8)'};
+      border: ${({ collapsed, theme }) =>
+        collapsed ? `solid 1px ${theme.colors.text}` : 'none'};
 
       &::-webkit-scrollbar {
         display: none;
@@ -71,8 +71,8 @@ const StyledSelect = styled.div`
 
       transition: transform 150ms linear;
 
-      transform: ${({ isCollapsed }) =>
-        isCollapsed
+      transform: ${({ collapsed }) =>
+        collapsed
           ? 'translateY(-40%) rotate(180deg)'
           : 'translateY(-40%) rotate(0)'};
     }

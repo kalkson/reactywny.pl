@@ -15,8 +15,8 @@ const FaqSection = () => (
         o coś zapytać, zapraszam do kontaktu na jednym z social mediów, gdzie
         postaram się jak najszybciej odpowiedzieć. Ewentualnie napisz do mnie na
         e-mail: <a href="mailto:kalka762@gmail.com">kalka762@gmail.com</a>.
-        <SocialLinks />
       </p>
+      <SocialLinks />
     </div>
     <StaticImage
       src="../../../../assets/images/me.png"

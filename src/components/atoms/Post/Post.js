@@ -66,9 +66,9 @@ const Post = ({
 }) => {
   return (
     <StyledPost className={`post-item ${className}`} {...props}>
-      <GatsbyImage image={featuredImage.gatsbyImageData} />
+      <GatsbyImage image={featuredImage.gatsbyImageData} alt="" />
       <div className="post-item__meta-group">
-        <date className="post-item__date">{date}</date>
+        <time className="post-item__date">{date}</time>
         <span className="post-item__category" aria-label="kategoria wpisu">
           {category}
         </span>
@@ -88,7 +88,10 @@ const Post = ({
 Post.propTypes = {
   title: propTypes.string.isRequired,
   description: propTypes.string.isRequired,
-  featuredImage: propTypes.shape.isRequired,
+  featuredImage: propTypes.shape({
+    // eslint-disable-next-line react/forbid-prop-types
+    gatsbyImageData: propTypes.object,
+  }).isRequired,
   date: propTypes.string.isRequired,
   category: propTypes.string.isRequired,
   className: propTypes.string,

@@ -22,7 +22,8 @@ Box.displayName = 'Box';
 
 Box.propTypes = {
   children: propTypes.oneOfType([
-    [propTypes.node, propTypes.arrayOf(propTypes.node)],
+    propTypes.node,
+    propTypes.arrayOf(propTypes.node),
   ]).isRequired,
 };
 

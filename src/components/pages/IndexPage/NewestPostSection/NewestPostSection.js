@@ -82,11 +82,12 @@ const NewestPostSection = () => {
             <div className="col-xs-7">
               <GatsbyImage
                 image={nodes[0].node.featuredImage.gatsbyImageData}
+                alt=""
               />
             </div>
             <div className="col-xs-5 post-item__content">
               <div className="post-item__meta-group">
-                <date className="post-item__date">{nodes[0].node.date}</date>
+                <time className="post-item__date">{nodes[0].node.date}</time>
                 <span
                   className="post-item__category"
                   aria-label="kategoria wpisu"
@@ -113,10 +114,11 @@ const NewestPostSection = () => {
             <Box className="post-item-1 post-item">
               <GatsbyImage
                 image={nodes[1].node.featuredImage.gatsbyImageData}
+                alt=""
               />
               <div className="post-item__content">
                 <div className="post-item__meta-group">
-                  <date className="post-item__date">{nodes[1].node.date}</date>
+                  <time className="post-item__date">{nodes[1].node.date}</time>
                   <span
                     className="post-item__category"
                     aria-label="kategoria wpisu"
@@ -149,6 +151,7 @@ const NewestPostSection = () => {
                 <div className="col-sm-6">
                   <GatsbyImage
                     image={nodes[2].node.featuredImage.gatsbyImageData}
+                    alt=""
                   />
                   <Button
                     to={`/posts/${slugify(nodes[2].node.title, {
@@ -161,9 +164,9 @@ const NewestPostSection = () => {
                 </div>
                 <div className="col-sm-6">
                   <div className="post-item__meta-group">
-                    <date className="post-item__date">
+                    <time className="post-item__date">
                       {nodes[2].node.date}
-                    </date>
+                    </time>
                     <span
                       className="post-item__category"
                       aria-label="kategoria wpisu"
@@ -184,6 +187,7 @@ const NewestPostSection = () => {
                 <div className="col-sm-6">
                   <GatsbyImage
                     image={nodes[3].node.featuredImage.gatsbyImageData}
+                    alt=""
                   />
                   <Button
                     to={`/posts/${slugify(nodes[3].node.title, {
@@ -196,9 +200,9 @@ const NewestPostSection = () => {
                 </div>
                 <div className="col-sm-6">
                   <div className="post-item__meta-group">
-                    <date className="post-item__date">
+                    <time className="post-item__date">
                       {nodes[3].node.date}
-                    </date>
+                    </time>
                     <span
                       className="post-item__category"
                       aria-label="kategoria wpisu"

@@ -18,20 +18,20 @@ const HeroSection = () => (
             'kodzie',
             'programowaniu',
             'frontendzie',
-            'webdevelpomencie',
+            'webdevelopmencie',
           ]}
         />
       </Headline>
       <HeroIllustration className="hero__illustration illu-1" />
       <span className="hero__secondary-text">
-        Lubisz czytać o frontendzie? Reactywny (i nie tylko) blog o
-        programowaniu
+        Lubisz czytać o frontendzie lub uczysz się webdevu? <br /> To miejsce
+        idealne dla ciebie.
       </span>
-      <Button className="hero__button">zobacz moje wpisy</Button>
+      <Button to="/posts" className="hero__button">
+        zobacz moje wpisy
+      </Button>
     </div>
-    {/* <div className="hero__illustration-container"> */}
     <HeroIllustration className="hero__illustration illu-2" />
-    {/* </div> */}
   </StyledHeroSection>
 );
 

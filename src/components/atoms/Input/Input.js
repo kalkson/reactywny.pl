@@ -19,14 +19,17 @@ const Input = ({ Icon, className, label, type, ...props }) => (
 );
 
 Input.propTypes = {
-  Icon: propTypes.node,
+  Icon: propTypes.oneOfType([
+    propTypes.node,
+    propTypes.arrayOf(propTypes.node),
+    propTypes.func,
+  ]).isRequired,
   className: propTypes.string,
   label: propTypes.string,
   type: propTypes.string,
 };
 
 Input.defaultProps = {
-  Icon: null,
   className: '',
   label: null,
   type: 'text',

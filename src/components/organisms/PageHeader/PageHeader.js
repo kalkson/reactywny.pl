@@ -35,6 +35,7 @@ const PageHeader = () => {
             role="button"
             isMenuVisible={isMenuVisible}
             setMenuVisible={setMenuVisible}
+            aria-expanded={isMenuVisible}
           />
 
           <nav className="header-elements__nav">

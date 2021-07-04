@@ -17,7 +17,11 @@ const NewsletterBenefit = ({
 );
 
 NewsletterBenefit.propTypes = {
-  Image: propTypes.node.isRequired,
+  Image: propTypes.oneOfType([
+    propTypes.node,
+    propTypes.arrayOf(propTypes.node),
+    propTypes.func,
+  ]).isRequired,
   name: propTypes.string.isRequired,
   description: propTypes.string.isRequired,
   className: propTypes.string,

@@ -16,7 +16,6 @@ const FaqSection = () => {
   const data = useStaticQuery(query);
 
   const items = JSON.parse(data.datoCmsFaq.faqData).data;
-  console.log(items);
   return (
     <StyledFaqSection className="container faq-section">
       <Box className="faq-section__wrapper">

@@ -36,9 +36,8 @@ export const query = graphql`
       featuredImage {
         gatsbyImageData(
           layout: FULL_WIDTH
-          placeholder: BLURRED
+          placeholder: TRACED_SVG
           width: 1920
-          forceBlurhash: true
         )
       }
       category
@@ -97,9 +96,8 @@ export const query = graphql`
         featuredImage {
           gatsbyImageData(
             layout: FULL_WIDTH
-            placeholder: BLURRED
+            placeholder: TRACED_SVG
             width: 300
-            forceBlurhash: true
           )
         }
       }
@@ -225,7 +223,8 @@ const PostLayout = ({ data }) => {
                           // eslint-disable-next-line react/no-danger
                           dangerouslySetInnerHTML={{
                             __html: trimStringFromParentTag(
-                              item.paragraphContent
+                              item.paragraphContent,
+                              'p'
                             ),
                           }}
                         />
@@ -253,7 +252,7 @@ const PostLayout = ({ data }) => {
 
                     case 'syntaxContent':
                       return (
-                        <div className="post__code-container">
+                        <div className="post__code-container" key={item.id}>
                           <div
                             className="post__language-note"
                             role="presentation"
@@ -265,7 +264,6 @@ const PostLayout = ({ data }) => {
                             style={darkTheme}
                             showLineNumbers={false}
                             className="post__code"
-                            key={item.id}
                             translate="no"
                           >
                             {item.syntaxContent}
@@ -277,7 +275,7 @@ const PostLayout = ({ data }) => {
 
                     case 'cliContent':
                       return (
-                        <div className="post__cli-container">
+                        <div className="post__cli-container" key={item.id}>
                           <div role="presentation" className="post__cli-note">
                             cli
                           </div>
@@ -285,7 +283,6 @@ const PostLayout = ({ data }) => {
                             style={lightTheme}
                             className="post__cli"
                             showLineNumbers={false}
-                            key={item.id}
                           >
                             {item.cliContent}
                           </SyntaxHighlighter>
@@ -413,7 +410,7 @@ PostLayout.propTypes = {
       ]),
       featuredImage: propTypes.shape({
         fluid: propTypes.shape(),
-        url: propTypes.string.isRequired,
+        url: propTypes.string,
         gatsbyImageData: propTypes.shape(),
       }).isRequired,
     }).isRequired,

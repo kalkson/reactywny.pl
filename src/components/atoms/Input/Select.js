@@ -15,7 +15,6 @@ const Select = ({ options, handleSelect, label, className }) => {
 
   const handleClick = (option = 'wszystko') => {
     setValue(option);
-    console.log(option);
     if (option === 'wszystko') handleSelect('');
     else handleSelect(option);
     setCollapsed(false);
@@ -40,7 +39,7 @@ const Select = ({ options, handleSelect, label, className }) => {
   return (
     <StyledSelect
       className={`dropdown ${className}`}
-      isCollapsed={isCollapsed}
+      collapsed={isCollapsed}
       ref={dropdown$}
       label={label}
     >
@@ -59,11 +58,12 @@ const Select = ({ options, handleSelect, label, className }) => {
           if (!isCollapsed) setTimeout(() => setCollapsed(true), 100);
         }}
         aria-label="wybierz kategorię"
+        aria-expanded={isCollapsed}
       >
         {value}
         <ArrowIcon className="dropdown__icon" role="presentation" />
       </button>
-      <ul className="dropdown__list" isCollapsed={isCollapsed} role="listbox">
+      <ul className="dropdown__list" role="listbox">
         <li className="dropdown__option" aria-labelledby={`${label}-dropdown`}>
           <button
             type="button"

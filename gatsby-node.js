@@ -21,7 +21,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   result.data.allDatoCmsPost.nodes.forEach((post, index) => {
-    console.log(post.id);
     createPage({
       path: `posts/${slugify(post.title, { lower: true })}`,
       component: PostTemplate,

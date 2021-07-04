@@ -19,7 +19,7 @@ const PostPhoto = ({ imageData, postImageSign }) => {
         <GatsbyImage
           className="post__photo"
           image={imageData.gatsbyImageData}
-          alt=""
+          alt="zdjęcie tematyczne"
           onClick={() => {
             setPhotoScaled(true);
           }}
@@ -31,6 +31,7 @@ const PostPhoto = ({ imageData, postImageSign }) => {
           <div className="absolute-photo-background">
             <GatsbyImage
               className="absolute-photo"
+              alt=""
               image={imageData.gatsbyImageData}
               objectFit="contain"
               onClick={() => {
@@ -45,9 +46,10 @@ const PostPhoto = ({ imageData, postImageSign }) => {
 };
 
 PostPhoto.propTypes = {
-  imageData: propTypes.objectOf(
-    propTypes.oneOfType([propTypes.string, propTypes.shape, propTypes.number])
-  ).isRequired,
+  imageData: propTypes.shape({
+    // eslint-disable-next-line react/forbid-prop-types
+    gatsbyImageData: propTypes.object,
+  }).isRequired,
   postImageSign: propTypes.string.isRequired,
 };
 

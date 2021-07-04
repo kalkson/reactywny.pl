@@ -59,7 +59,7 @@ const StyledHeroSection = styled.section`
       width: 100%;
       height: 250px;
       align-self: flex-end;
-
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
 

@@ -5,9 +5,9 @@ require('dotenv').config();
 module.exports = {
   flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
-    title: `reactywny.pl - mały frontendowy świat`,
+    title: `reactywny.pl - blog o webdevelopmencie`,
     titleTemplate: `%s · reactywny.pl`,
-    description: `Reactywny blog o (głównie) programowaniu, ale nie tylko. Nie brakuje tutaj także tematyki rozwoju osobistego związanej z branżą IT.`,
+    description: `Reactywny.pl to blog o programowaniu aplikacji webowych, ale nie tylko. Nie brakuje tutaj także tematyki rozwoju osobistego związanej z branżą IT oraz komunikacji międzyludzkiej.`,
     author: `Damian Kalka`,
     url: `https://reactywny.pl`,
     siteUrl: `https://reactywny.pl`,
