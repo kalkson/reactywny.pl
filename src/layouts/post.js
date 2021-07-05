@@ -39,6 +39,7 @@ export const query = graphql`
           placeholder: TRACED_SVG
           width: 1920
         )
+        url
       }
       category
       postContent {
@@ -48,7 +49,6 @@ export const query = graphql`
         }
         ... on DatoCmsPostImage {
           id
-
           imageData {
             gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
           }
