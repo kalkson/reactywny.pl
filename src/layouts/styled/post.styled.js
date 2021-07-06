@@ -148,6 +148,8 @@ const StyledPostLayout = styled.article`
     }
 
     &__content {
+      display: flex;
+      flex-direction: column;
       max-width: 700px;
 
       @media ${({ theme }) => theme.media.laptop} {
@@ -168,7 +170,7 @@ const StyledPostLayout = styled.article`
       position: relative;
       padding-left: 30px;
       border-left: solid 3px ${({ theme }) => theme.colors.text};
-      margin: 50px 0;
+      margin: 50px 0 0;
 
       & > h2 {
         /* margin-top: 30px; */
@@ -200,7 +202,7 @@ const StyledPostLayout = styled.article`
     }
 
     &__paragraph {
-      margin: 40px 0 20px;
+      margin: 25px 0 20px;
       font-size: 1.6rem;
       line-height: 1.5;
       letter-spacing: 0.3px;
@@ -217,7 +219,7 @@ const StyledPostLayout = styled.article`
     }
 
     &__heading {
-      margin: 80px 0 -15px;
+      margin: 60px 0 0;
     }
 
     &__photo {
@@ -227,7 +229,7 @@ const StyledPostLayout = styled.article`
     }
 
     &__photo-wrapper {
-      margin: 80px 0;
+      margin: 20px 0;
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
@@ -244,6 +246,7 @@ const StyledPostLayout = styled.article`
     &__code-container,
     &__cli-container {
       position: relative;
+      margin: 10px 0 20px;
     }
 
     &__language-note,

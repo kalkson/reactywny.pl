@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    @import "../_components.scss";
-
     * {
         color: ${({ theme }) => theme.colors.text};
     }

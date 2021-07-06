@@ -20,10 +20,6 @@ import Post from 'components/atoms/Post/Post';
 
 import StyledPostLayout from './styled/post.styled';
 
-const trimStringFromParentTag = (stringToReplace, tag = '') => {
-  return stringToReplace.replace(new RegExp(`^<${tag}>|</${tag}>$`, 'g'), '');
-};
-
 export const query = graphql`
   query querySingleDatoCMSPost($id: String!, $nextId: String!) {
     datoCmsPost(id: { eq: $id }) {
@@ -217,15 +213,11 @@ const PostLayout = ({ data }) => {
                   switch (itemKey) {
                     case 'paragraphContent':
                       return (
-                        <p
+                        <div
                           className="post__paragraph"
-                          key={item.id}
                           // eslint-disable-next-line react/no-danger
                           dangerouslySetInnerHTML={{
-                            __html: trimStringFromParentTag(
-                              item.paragraphContent,
-                              'p'
-                            ),
+                            __html: item.paragraphContent,
                           }}
                         />
                       );
@@ -308,16 +300,13 @@ const PostLayout = ({ data }) => {
 
                     case 'quoteContent':
                       return (
-                        <q
+                        <div
                           className="post__quote"
                           key={item.id}
                           content={item.quoteContent}
                           // eslint-disable-next-line react/no-danger
                           dangerouslySetInnerHTML={{
-                            __html: trimStringFromParentTag(
-                              item.quoteContent,
-                              'p'
-                            ),
+                            __html: item.quoteContent,
                           }}
                         />
                       );
