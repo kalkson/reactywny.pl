@@ -360,6 +360,27 @@ const StyledPostLayout = styled.article`
   .newsletter {
     margin: 40px 0 80px;
   }
+
+  & table {
+    font-size: 1.4rem;
+    max-width: 95%;
+    width: 100%;
+    margin-top: 25px;
+
+    &,
+    & td,
+    & th {
+      border: solid 1px ${({ theme }) => theme.colors.text};
+    }
+
+    @media ${({ theme }) => theme.media.tablet} {
+      width: unset;
+    }
+
+    & td {
+      padding: 8px 15px;
+    }
+  }
 `;
 
 export default StyledPostLayout;
