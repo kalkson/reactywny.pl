@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PrivacyWrapper from '../components/pages/PrivacyPage/PrivacyWrapper';
 import SEO from '../seo/SEO';
 

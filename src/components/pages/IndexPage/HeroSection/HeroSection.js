@@ -1,8 +1,9 @@
-import React from 'react';
 import HeroIllustration from 'assets/svg/meta/hero.svg';
 import Button from 'components/atoms/Button/Button';
-import TextGroup from 'components/molecules/TextGroup/TextGroup';
 import Headline from 'components/atoms/Headline/Headline';
+import TextGroup from 'components/molecules/TextGroup/TextGroup';
+import React from 'react';
+
 import StyledHeroSection from './HeroSection.styled';
 
 const HeroSection = () => (

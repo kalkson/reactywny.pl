@@ -20,12 +20,11 @@ module.exports = {
     'gatsby-plugin-resolve-src',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    'gatsby-plugin-eslint',
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/privacy`],
+        excludes: [`/privacy`],
       },
     },
     {

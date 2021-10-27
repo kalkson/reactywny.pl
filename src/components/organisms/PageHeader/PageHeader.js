@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'gatsby';
 import Logo from 'assets/svg/meta/logo-2.svg';
 import MenuButton from 'components/atoms/MenuButton/MenuButton';
-import PageHeaderContainer from './PageHeaderContainer.styled';
+import { Link } from 'gatsby';
+import React, { useState } from 'react';
+
 import StyledPageHeader from './PageHeader.styled';
+import PageHeaderContainer from './PageHeaderContainer.styled';
 
 const PageHeader = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);

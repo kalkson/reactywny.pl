@@ -1,5 +1,6 @@
-import React from 'react';
 import ReactIllustration from 'assets/svg/meta/react-big.svg';
+import React from 'react';
+
 import StyledMissionSection from './MissionSection.styled';
 
 const MissionSection = () => {

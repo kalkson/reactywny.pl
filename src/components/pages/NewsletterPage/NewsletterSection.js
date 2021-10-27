@@ -1,12 +1,10 @@
-import React from 'react';
-
+import BloggingIllustration from 'assets/svg/newsletter/blogging.svg';
+import EmailIllustration from 'assets/svg/newsletter/email.svg';
+import MegaphoneIllustration from 'assets/svg/newsletter/megaphone.svg';
 import Headline from 'components/atoms/Headline/Headline';
 import NewsletterBenefit from 'components/molecules/NewsletterBenefit/NewsletterBenefit';
 import NewsletterBar from 'components/organisms/NewsletterBar/NewsletterBar';
-
-import MegaphoneIllustration from 'assets/svg/newsletter/megaphone.svg';
-import EmailIllustration from 'assets/svg/newsletter/email.svg';
-import BloggingIllustration from 'assets/svg/newsletter/blogging.svg';
+import React from 'react';
 
 import StyledNewsletterSection from './NewsletterSection.styled';
 

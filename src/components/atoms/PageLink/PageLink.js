@@ -1,6 +1,7 @@
-import React from 'react';
-import propTypes from 'prop-types';
 import ForwardArrow from 'assets/svg/other/arrow-1.svg';
+import propTypes from 'prop-types';
+import React from 'react';
+
 import StyledPageLink from './PageLink.styled';
 
 const PageLink = ({ children, to, ...props }) => {

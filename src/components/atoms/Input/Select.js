@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
-import propTypes from 'prop-types';
 import ArrowIcon from 'assets/svg/other/arrow-2.svg';
+import propTypes from 'prop-types';
+import React, { useEffect, useRef,useState } from 'react';
+
 import StyledSelect from './Select.styled';
 
 const Select = ({ options, handleSelect, label, className }) => {

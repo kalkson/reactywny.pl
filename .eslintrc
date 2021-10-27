@@ -16,7 +16,7 @@
     "jasmine": true,
     "es2020": true
   },
-  "plugins": ["react", "jsx-a11y", "import"],
+  "plugins": ["react", "jsx-a11y", "import", "simple-import-sort"],
   "globals": {
     "window": true,
     "document": true
@@ -33,6 +33,10 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-props-no-spreading": 0,
     "react/jsx-one-expression-per-line": "off",
-    "no-console": 0
+    "import/prefer-default-export": 0,
+    "no-shadow": 0,
+    "no-console": 0,
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

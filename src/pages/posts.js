@@ -1,5 +1,6 @@
-import React from 'react';
 import PostWrapperContainer from 'components/pages/PostsPage/PostsWrapperContainer/PostsWrapperContainer';
+import React from 'react';
+
 import SEO from '../seo/SEO';
 
 const PostsPage = () => (

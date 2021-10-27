@@ -1,6 +1,7 @@
-import React from 'react';
 import { Link } from 'gatsby';
 import propTypes from 'prop-types';
+import React from 'react';
+
 import StyledButton from './Button.styled';
 
 const Button = ({ children, to, href, ...props }) => {

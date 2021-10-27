@@ -1,8 +1,8 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql,useStaticQuery } from 'gatsby';
+import propTypes from 'prop-types';
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const query = graphql`
   query SEO {

@@ -1,6 +1,6 @@
+import propTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import propTypes from 'prop-types';
 
 const StyledBox = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};

@@ -1,10 +1,11 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql,useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import Post from '../../../atoms/Post/Post';
-import StyledPostsWrapperContainer from './PostsWrapperContainer.styled';
-import StyledPostsWrapper from './PostsWrapper.styled';
-import PostWrapperOptions from './PostWrapperOptions/PostWrapperOptions';
+
 import Headline from '../../../atoms/Headline/Headline';
+import Post from '../../../atoms/Post/Post';
+import StyledPostsWrapper from './PostsWrapper.styled';
+import StyledPostsWrapperContainer from './PostsWrapperContainer.styled';
+import PostWrapperOptions from './PostWrapperOptions/PostWrapperOptions';
 
 const query = graphql`
   {

@@ -1,13 +1,13 @@
-import React from 'react';
 import { Link } from 'gatsby';
-import { ThemeProvider } from 'styled-components';
 import propTypes from 'prop-types';
-
+import React from 'react';
 import CookieConsent from 'react-cookie-consent';
+import { ThemeProvider } from 'styled-components';
+
+import PageFooter from '../components/molecules/PageFooter/PageFooter';
+import PageHeader from '../components/organisms/PageHeader/PageHeader';
 import GlobalStyle from '../theme/GlobalStyle/GlobalStyle';
 import theme from '../theme/theme';
-import PageHeader from '../components/organisms/PageHeader/PageHeader';
-import PageFooter from '../components/molecules/PageFooter/PageFooter';
 
 const MainLayout = ({ children }) => {
   return (

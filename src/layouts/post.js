@@ -1,22 +1,21 @@
 /* eslint-disable no-undef */
-import React from 'react';
-import propTypes from 'prop-types';
+import HomeIcon from 'assets/svg/meta/home.svg';
+import Headline from 'components/atoms/Headline/Headline';
+import Post from 'components/atoms/Post/Post';
+import PostPhoto from 'components/molecules/PostPhoto/PostPhoto';
+import NewsletterBar from 'components/organisms/NewsletterBar/NewsletterBar';
 import { graphql, Link } from 'gatsby';
-
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { Disqus } from 'gatsby-plugin-disqus';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import propTypes from 'prop-types';
+import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
   darcula as darkTheme,
   solarizedlight as lightTheme,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
-import Headline from 'components/atoms/Headline/Headline';
 import SEO from 'seo/SEO';
-import HomeIcon from 'assets/svg/meta/home.svg';
-import PostPhoto from 'components/molecules/PostPhoto/PostPhoto';
-import NewsletterBar from 'components/organisms/NewsletterBar/NewsletterBar';
-import Post from 'components/atoms/Post/Post';
+import { formatDate } from 'utils';
 
 import StyledPostLayout from './styled/post.styled';
 
@@ -109,26 +108,8 @@ const PostLayout = ({ data }) => {
       }
     : null;
 
-  const months = [
-    'stycznia',
-    'lutego',
-    'marca',
-    'kwietnia',
-    'maja',
-    'czerwca',
-    'lipca',
-    'sierpnia',
-    'września',
-    'października',
-    'listopada',
-    'grudnia',
-  ];
-
-  const parsedDate = new Date(data.datoCmsPost.date);
-  const postDate = `${parsedDate.getDate()} ${
-    months[parsedDate.getMonth()]
-  } ${parsedDate.getFullYear()}`;
-
+  const postDate = formatDate(data.datoCmsPost.date);
+  // const postDate = data.datoCmsPost.date;
   const previousPost = data.allDatoCmsPost.nodes[0]
     ? data.allDatoCmsPost.nodes[0]
     : null;

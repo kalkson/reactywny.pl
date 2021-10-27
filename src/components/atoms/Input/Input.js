@@ -1,5 +1,6 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
+
 import StyledInput from './Input.styled';
 
 const Input = ({ Icon, className, label, type, ...props }) => (

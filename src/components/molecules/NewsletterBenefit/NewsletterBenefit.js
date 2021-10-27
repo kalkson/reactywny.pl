@@ -1,5 +1,6 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
+
 import StyledNewsletterBenefit from './NewsletterBenefit.styled';
 
 const NewsletterBenefit = ({

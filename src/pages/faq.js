@@ -1,5 +1,6 @@
-import React from 'react';
 import AboutSection from 'components/pages/AboutPage/AboutSection/AboutSection';
+import React from 'react';
+
 import FaqSection from '../components/pages/AboutPage/FaqSection/FaqSection';
 import SEO from '../seo/SEO';
 

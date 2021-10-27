@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 const StyledPageLink = styled(Link)`
   font-weight: ${({ theme }) => theme.fonts.ExtraBold};

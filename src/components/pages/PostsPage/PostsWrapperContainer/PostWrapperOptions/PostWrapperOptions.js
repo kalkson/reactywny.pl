@@ -1,9 +1,8 @@
-import React from 'react';
-import propTypes from 'prop-types';
-
+import SearchIcon from 'assets/svg/other/search.svg';
 import Input from 'components/atoms/Input/Input';
 import Select from 'components/atoms/Input/Select';
-import SearchIcon from 'assets/svg/other/search.svg';
+import propTypes from 'prop-types';
+import React from 'react';
 
 import StyledPostWrapperOptions from './StyledPostWrapperOptions';
 

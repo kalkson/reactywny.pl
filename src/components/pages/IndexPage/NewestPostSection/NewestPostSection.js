@@ -1,19 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import slugify from 'slugify';
-import Slider from 'react-slick';
-
-import PageLink from 'components/atoms/PageLink/PageLink';
 import Box from 'components/atoms/Box/Box';
 import Button from 'components/atoms/Button/Button';
+import PageLink from 'components/atoms/PageLink/PageLink';
 import Post from 'components/atoms/Post/Post';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import React, { useEffect, useRef, useState } from 'react';
+import Slider from 'react-slick';
+import slugify from 'slugify';
+import { formatDate } from 'utils';
 
 import StyledNewestPostSection from './NewestPostSection.styled';
 
 const query = graphql`
   {
-    allDatoCmsPost(limit: 4) {
+    allDatoCmsPost(limit: 4, sort: { fields: date, order: DESC }) {
       edges {
         node {
           id
@@ -87,7 +87,9 @@ const NewestPostSection = () => {
             </div>
             <div className="col-xs-5 post-item__content">
               <div className="post-item__meta-group">
-                <time className="post-item__date">{nodes[0].node.date}</time>
+                <time className="post-item__date">
+                  {formatDate(nodes[0].node.date)}
+                </time>
                 <span
                   className="post-item__category"
                   aria-label="kategoria wpisu"
@@ -118,7 +120,9 @@ const NewestPostSection = () => {
               />
               <div className="post-item__content">
                 <div className="post-item__meta-group">
-                  <time className="post-item__date">{nodes[1].node.date}</time>
+                  <time className="post-item__date">
+                    {formatDate(nodes[1].node.date)}
+                  </time>
                   <span
                     className="post-item__category"
                     aria-label="kategoria wpisu"
@@ -165,7 +169,7 @@ const NewestPostSection = () => {
                 <div className="col-sm-6">
                   <div className="post-item__meta-group">
                     <time className="post-item__date">
-                      {nodes[2].node.date}
+                      {formatDate(nodes[2].node.date)}
                     </time>
                     <span
                       className="post-item__category"
@@ -201,7 +205,7 @@ const NewestPostSection = () => {
                 <div className="col-sm-6">
                   <div className="post-item__meta-group">
                     <time className="post-item__date">
-                      {nodes[3].node.date}
+                      {formatDate(nodes[3].node.date)}
                     </time>
                     <span
                       className="post-item__category"

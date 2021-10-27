@@ -1,8 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import propTypes from 'prop-types';
+import React from 'react';
 import slugify from 'slugify';
+import styled from 'styled-components';
+import { formatDate } from 'utils';
+
 import Box from '../Box/Box';
 import Button from '../Button/Button';
 
@@ -18,7 +20,7 @@ const StyledPost = styled(Box)`
   @media ${({ theme }) => theme.media.tablet} {
     margin: 0 auto 20px;
     box-shadow: initial;
-    height: 500px;
+    height: fit-content;
     cursor: initial;
   }
 
@@ -68,7 +70,7 @@ const Post = ({
     <StyledPost className={`post-item ${className}`} {...props}>
       <GatsbyImage image={featuredImage.gatsbyImageData} alt="" />
       <div className="post-item__meta-group">
-        <time className="post-item__date">{date}</time>
+        <time className="post-item__date">{formatDate(date)}</time>
         <span className="post-item__category" aria-label="kategoria wpisu">
           {category}
         </span>

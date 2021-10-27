@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
-import propTypes from 'prop-types';
-import addToMailchimp from 'gatsby-plugin-mailchimp';
-import gsap from 'gsap';
-
-import Box from 'components/atoms/Box/Box';
-import Input from 'components/atoms/Input/Input';
-import Button from 'components/atoms/Button/Button';
-
-import MailIcon from 'assets/svg/other/mail.svg';
 import MailingIllustration from 'assets/svg/meta/mailing.svg';
 import CheckIllustration from 'assets/svg/newsletter/check.svg';
+import MailIcon from 'assets/svg/other/mail.svg';
+import Box from 'components/atoms/Box/Box';
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
+import gsap from 'gsap';
+import propTypes from 'prop-types';
+import React, { useState } from 'react';
 
 import StyledNewsletterBar from './NewsletterBar.styled';
 

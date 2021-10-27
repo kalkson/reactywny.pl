@@ -1,7 +1,8 @@
-import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
 import Headline from 'components/atoms/Headline/Headline';
 import SocialLinks from 'components/molecules/SocialLinks/SocialLinks';
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
+
 import StyledAboutSection from './AboutSection.styled';
 
 const FaqSection = () => (

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { GatsbyImage } from 'gatsby-plugin-image';
-
 import propTypes from 'prop-types';
+import React, { useEffect,useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const PostPhoto = ({ imageData, postImageSign }) => {
   const [isPhotoScaled, setPhotoScaled] = useState(false);

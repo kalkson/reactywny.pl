@@ -1,6 +1,6 @@
+import propTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import propTypes from 'prop-types';
 
 const StyledHeadline = styled.h1`
   font-size: ${({ size }) => size * 0.666}px;

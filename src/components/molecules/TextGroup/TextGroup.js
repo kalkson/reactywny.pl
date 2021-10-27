@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
-import propTypes from 'prop-types';
 import gsap from 'gsap';
+import propTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 
 const StyledSpan = styled.span`
   display: inline-block;
@@ -39,7 +39,7 @@ const TextGroup = ({ strings }) => {
     if (activeNodeNumber === strings.length - 1) {
       setActiveNodeNumber(0);
     } else {
-      setActiveNodeNumber(activeNodeNumber + 1);
+      setActiveNodeNumber(activeNodeNumber => activeNodeNumber + 1);
     }
   };
 
