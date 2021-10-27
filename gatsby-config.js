@@ -3,7 +3,7 @@ const { default: slugify } = require('slugify');
 require('dotenv').config();
 
 module.exports = {
-  flags: { PRESERVE_WEBPACK_CACHE: true },
+  flags: { PRESERVE_WEBPACK_CACHE: false },
   siteMetadata: {
     title: `reactywny.pl - blog o webdevelopmencie`,
     titleTemplate: `%s · reactywny.pl`,
