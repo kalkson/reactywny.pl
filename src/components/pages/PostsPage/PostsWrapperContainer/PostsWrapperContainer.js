@@ -1,4 +1,4 @@
-import { graphql,useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
 import Headline from '../../../atoms/Headline/Headline';

@@ -2,13 +2,15 @@
 import HomeIcon from 'assets/svg/meta/home.svg';
 import Headline from 'components/atoms/Headline/Headline';
 import Post from 'components/atoms/Post/Post';
+import ProgressBar from 'components/atoms/ProgressBar/ProgressBar.styled';
 import PostPhoto from 'components/molecules/PostPhoto/PostPhoto';
 import NewsletterBar from 'components/organisms/NewsletterBar/NewsletterBar';
 import { graphql, Link } from 'gatsby';
 import { Disqus } from 'gatsby-plugin-disqus';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import useProgressBar from 'hooks/useProgressBar/useProgressBar';
 import propTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
   darcula as darkTheme,
@@ -101,6 +103,13 @@ export const query = graphql`
 `;
 
 const PostLayout = ({ data }) => {
+  const header$ = useRef(null);
+  const headerHeight = header$.current?.clientHeight;
+
+  const progress = useProgressBar(headerHeight);
+
+  console.log(progress);
+
   const disqusConfig = data
     ? {
         identifier: data.datoCmsPost.id,
@@ -124,8 +133,10 @@ const PostLayout = ({ data }) => {
           image={data.datoCmsPost.featuredImage.url}
         />
 
+        <ProgressBar value={progress} />
+
         <StyledPostLayout>
-          <header className="post__main-info-group">
+          <header className="post__main-info-group" ref={header$}>
             <GatsbyImage
               image={data.datoCmsPost.featuredImage.gatsbyImageData}
               className="post__featuredImage"
