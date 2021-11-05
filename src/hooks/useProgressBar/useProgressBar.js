@@ -26,7 +26,7 @@ const useProgressBar = () => {
     };
   });
 
-  return (progress * 100).toFixed(4);
+  return progress.toFixed(4);
 };
 
 export default useProgressBar;

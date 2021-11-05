@@ -207,6 +207,10 @@ const StyledPostLayout = styled.article`
       line-height: 1.5;
       letter-spacing: 0.3px;
 
+      & a {
+        color: ${({ theme }) => theme.colors.mainBlue};
+      }
+
       @media ${({ theme }) => theme.media.tablet} {
         font-size: 1.8rem;
       }

@@ -8,11 +8,15 @@ const ProgressBar = styled.div`
   z-index: 1000;
   outline: none;
   border: none;
-  transform-origin: left;
+  width: 100%;
 
-  /* transform: ${({ value }) => `scaleX(${value})`};
-   */
-  width: ${({ value }) => `${value}%`};
+  /* transition: width 2s; */
+  /* width: ${({ value }) => `${value}%`}; */
+
+  transform-origin: left;
+  will-change: transform;
+  transform: scale3d(${({ value }) => value}, 1, 1);
+  transform-style: preserve-3d;
 `;
 
 export default ProgressBar;
