@@ -64,6 +64,12 @@ export const query = graphql`
           id
           cliContent
         }
+        ... on DatoCmsPostGif {
+          id
+          gif {
+            url
+          }
+        }
         ... on DatoCmsPostVideo {
           id
           videoLink {
@@ -108,8 +114,6 @@ const PostLayout = ({ data }) => {
 
   const progress = useProgressBar(headerHeight);
 
-  console.log(progress);
-
   const disqusConfig = data
     ? {
         identifier: data.datoCmsPost.id,
@@ -118,7 +122,6 @@ const PostLayout = ({ data }) => {
     : null;
 
   const postDate = formatDate(data.datoCmsPost.date);
-  // const postDate = data.datoCmsPost.date;
   const previousPost = data.allDatoCmsPost.nodes[0]
     ? data.allDatoCmsPost.nodes[0]
     : null;
@@ -202,6 +205,8 @@ const PostLayout = ({ data }) => {
                 data.datoCmsPost.postContent.map(item => {
                   const itemKey = Object.keys(item)[1];
 
+                  console.log(itemKey);
+
                   switch (itemKey) {
                     case 'paragraphContent':
                       return (
@@ -218,6 +223,11 @@ const PostLayout = ({ data }) => {
 
                     case 'imageData':
                       return <PostPhoto key={item.id} {...item} />;
+
+                    // -----------------------------
+
+                    case 'gif':
+                      return <img key={item.id} alt="" src={item.gif.url} />;
 
                     // -----------------------------
 
