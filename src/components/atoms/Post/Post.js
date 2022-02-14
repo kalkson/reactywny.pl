@@ -78,7 +78,7 @@ const Post = ({
       <h3 className="post-item__headline">{title}</h3>
       <p className="post-item__description">{description}</p>
       <Button
-        to={`/posts/${slugify(title, { lower: true })}`}
+        to={`/posts/${slugify(title, { lower: true, strict: true })}`}
         className="post-item__button"
       >
         czytaj więcej

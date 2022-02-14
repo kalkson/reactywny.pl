@@ -94,9 +94,11 @@ module.exports = {
                   date: new Date(node.date).toUTCString(),
                   url: `${site.siteMetadata.url}/posts/${slugify(node.title, {
                     lower: true,
+                    strict: true,
                   })}`,
                   guid: `${site.siteMetadata.url}/${slugify(node.title, {
                     lower: true,
+                    strict: true,
                   })}`,
                   title: node.title,
                   enclosure: node.featuredImage && {

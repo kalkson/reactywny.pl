@@ -102,7 +102,10 @@ const NewestPostSection = () => {
                 {nodes[0].node.description}
               </p>
               <Button
-                to={`/posts/${slugify(nodes[0].node.title, { lower: true })}`}
+                to={`/posts/${slugify(nodes[0].node.title, {
+                  lower: true,
+                  strict: true,
+                })}`}
                 className="post-item__button"
               >
                 czytaj więcej
@@ -137,6 +140,7 @@ const NewestPostSection = () => {
                 <Button
                   to={`/posts/${slugify(nodes[1].node.title, {
                     lower: true,
+                    strict: true,
                   })}`}
                   className="post-item__button"
                 >
@@ -160,6 +164,7 @@ const NewestPostSection = () => {
                   <Button
                     to={`/posts/${slugify(nodes[2].node.title, {
                       lower: true,
+                      strict: true,
                     })}`}
                     className="post-item__button"
                   >
@@ -196,6 +201,7 @@ const NewestPostSection = () => {
                   <Button
                     to={`/posts/${slugify(nodes[3].node.title, {
                       lower: true,
+                      strict: true,
                     })}`}
                     className="post-item__button"
                   >
